@@ -11,6 +11,7 @@ install:
   - (cd website && npm install)
 
 script:
+  - (cd website && npm run format:test)
   - (cd website && npm run build)
 
 deploy:
