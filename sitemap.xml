@@ -5,6 +5,7 @@
 <url> <loc>https://gotify.net/docs/dev-environment</loc> <changefreq>hourly</changefreq> <priority>1.0</priority> <xhtml:link rel="alternate" hreflang="en" href="https://gotify.net/docs/dev-environment" /> </url>
 <url> <loc>https://gotify.net/docs/</loc> <changefreq>hourly</changefreq> <priority>1.0</priority> <xhtml:link rel="alternate" hreflang="en" href="https://gotify.net/docs/" /> </url>
 <url> <loc>https://gotify.net/docs/install</loc> <changefreq>hourly</changefreq> <priority>1.0</priority> <xhtml:link rel="alternate" hreflang="en" href="https://gotify.net/docs/install" /> </url>
+<url> <loc>https://gotify.net/docs/more-pushmsg</loc> <changefreq>hourly</changefreq> <priority>1.0</priority> <xhtml:link rel="alternate" hreflang="en" href="https://gotify.net/docs/more-pushmsg" /> </url>
 <url> <loc>https://gotify.net/docs/nginx</loc> <changefreq>hourly</changefreq> <priority>1.0</priority> <xhtml:link rel="alternate" hreflang="en" href="https://gotify.net/docs/nginx" /> </url>
 <url> <loc>https://gotify.net/docs/pushmsg</loc> <changefreq>hourly</changefreq> <priority>1.0</priority> <xhtml:link rel="alternate" hreflang="en" href="https://gotify.net/docs/pushmsg" /> </url>
 <url> <loc>https://gotify.net/docs/swagger-docs</loc> <changefreq>hourly</changefreq> <priority>1.0</priority> <xhtml:link rel="alternate" hreflang="en" href="https://gotify.net/docs/swagger-docs" /> </url>
