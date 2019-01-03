@@ -1,6 +1,7 @@
 {
   "docs": {
     "Getting Started": ["index", "install", "pushmsg", "config"],
+    "REST-API": ["swagger-docs"],
     "Miscellaneous": ["nginx", "dev-environment"]
   }
 }
