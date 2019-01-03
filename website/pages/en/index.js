@@ -11,9 +11,9 @@ class HomeSplash extends React.Component {
         const {baseUrl, docsUrl} = siteConfig;
         const docsPart = `${docsUrl ? `${docsUrl}/` : ''}`;
         const langPart = `${language ? `${language}/` : ''}`;
-        const docUrl = doc => `${baseUrl}${docsPart}${langPart}${doc}`;
+        const docUrl = (doc) => `${baseUrl}${docsPart}${langPart}${doc}`;
 
-        const SplashContainer = props => (
+        const SplashContainer = (props) => (
             <div className="homeContainer">
                 <div className="homeSplashFade">
                     <div className="wrapper homeWrapper">{props.children}</div>
@@ -23,7 +23,7 @@ class HomeSplash extends React.Component {
 
         const Logo = () => (
             <div className="projectLogo">
-                <img src={baseUrl + 'img/logo.png'} alt="Project Logo"/>
+                <img src={baseUrl + 'img/logo.png'} alt="Project Logo" />
             </div>
         );
 
@@ -34,7 +34,7 @@ class HomeSplash extends React.Component {
             </h2>
         );
 
-        const PromoSection = props => (
+        const PromoSection = (props) => (
             <div className="section promoSection">
                 <div className="promoRow">
                     <div className="pluginRowBlock">{props.children}</div>
@@ -42,7 +42,7 @@ class HomeSplash extends React.Component {
             </div>
         );
 
-        const Button = props => (
+        const Button = (props) => (
             <div className="pluginWrapper buttonWrapper">
                 <a className="button" href={props.href} target={props.target}>
                     {props.children}
@@ -52,11 +52,13 @@ class HomeSplash extends React.Component {
 
         return (
             <SplashContainer>
-                <Logo/>
+                <Logo />
                 <div className="inner">
-                    <ProjectTitle siteConfig={siteConfig}/>
+                    <ProjectTitle siteConfig={siteConfig} />
                     <PromoSection>
-                        <Button href="https://github.com/gotify/server/releases/latest">Download</Button>
+                        <Button href="https://github.com/gotify/server/releases/latest">
+                            Download
+                        </Button>
                         <Button href={docUrl('index')}>Documentation</Button>
                         <Button href="https://github.com/gotify">SourceCode</Button>
                     </PromoSection>
@@ -71,28 +73,15 @@ class Index extends React.Component {
         const {config: siteConfig, language = ''} = this.props;
         const {baseUrl} = siteConfig;
 
-        const Block = props => (
-            <Container
-                padding={['bottom', 'top']}
-                id={props.id}
-                background={props.background}>
-                <GridBlock
-                    align="center"
-                    contents={props.children}
-                    layout={props.layout}
-                />
+        const Block = (props) => (
+            <Container padding={['bottom', 'top']} id={props.id} background={props.background}>
+                <GridBlock align="center" contents={props.children} layout={props.layout} />
             </Container>
         );
 
-        const TextBlock = props => (
-            <Container
-                padding={['bottom', 'top']}
-                id={props.id}
-                background={props.background}>
-                <GridBlock
-                    contents={props.children}
-                    layout={props.layout}
-                />
+        const TextBlock = (props) => (
+            <Container padding={['bottom', 'top']} id={props.id} background={props.background}>
+                <GridBlock contents={props.children} layout={props.layout} />
             </Container>
         );
 
@@ -152,15 +141,18 @@ The app creates push notification on newly received messages.
                     },
                     {
                         title: 'Free and open source',
-                        content: 'Gotify is licensed under the [MIT license](https://github.com/gotify/server/blob/master/LICENSE).',
+                        content:
+                            'Gotify is licensed under the [MIT license](https://github.com/gotify/server/blob/master/LICENSE).',
                     },
                     {
                         title: 'Simple',
-                        content: 'Both Gotify\'s API and user interface is designed to be as simple as possible.',
+                        content:
+                            "Both Gotify's API and user interface is designed to be as simple as possible.",
                     },
                     {
                         title: 'Cross Platform',
-                        content: 'Gotify is written in Go and can be easily compiled for different platforms.',
+                        content:
+                            'Gotify is written in Go and can be easily compiled for different platforms.',
                     },
                     {
                         title: 'Docker',
@@ -168,7 +160,8 @@ The app creates push notification on newly received messages.
                     },
                     {
                         title: 'Code Quality / Tests',
-                        content: 'Several static code analyzers and many unit/end2end tests are run on every travis-ci build.',
+                        content:
+                            'Several static code analyzers and many unit/end2end tests are run on every travis-ci build.',
                     },
                 ]}
             </Block>
@@ -176,12 +169,12 @@ The app creates push notification on newly received messages.
 
         return (
             <div>
-                <HomeSplash siteConfig={siteConfig} language={language}/>
+                <HomeSplash siteConfig={siteConfig} language={language} />
                 <div className="mainContainer">
-                    <Features/>
-                    <SlashServer/>
-                    <SlashAndroid/>
-                    <SlashCLI/>
+                    <Features />
+                    <SlashServer />
+                    <SlashAndroid />
+                    <SlashCLI />
                 </div>
             </div>
         );

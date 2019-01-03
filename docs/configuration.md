@@ -3,16 +3,17 @@ id: config
 title: Configuration
 ---
 
-gotify/server can be configured per config file and environment variables. 
+gotify/server can be configured per config file and environment variables.
 When using docker it is recommended to use environment variables.
 
 ## Config File
 
 gotify/server looks in the following paths for config files
-* ./config.yml
-* /etc/gotify/config.yml
 
-**Note**: When strings contain reserved yml characters then they need to be escaped. 
+- ./config.yml
+- /etc/gotify/config.yml
+
+**Note**: When strings contain reserved yml characters then they need to be escaped.
 [A list of reserved characters and how to escape them.](https://stackoverflow.com/a/22235064/4244993)
 
 ```yml
@@ -29,15 +30,15 @@ server:
       accepttos: false # if you accept the tos from letsencrypt
       cache: data/certs # the directory of the cache from letsencrypt
       hosts: # the hosts for which letsencrypt should request certificates
-      - mydomain.tld
-      - myotherdomain.tld
+        - mydomain.tld
+        - myotherdomain.tld
   responseheaders: # response headers are added to every response (default: none)
     Access-Control-Allow-Origin: "*"
     Access-Control-Allow-Methods: "GET,POST"
   stream:
     allowedorigins: # allowed origins for websocket connections (same origin is always allowed, default only same origin)
-    - ".+.example.com"
-    - "otherdomain.com"
+      - ".+.example.com"
+      - "otherdomain.com"
 database: # see below
   dialect: sqlite3
   connection: data/gotify.db
@@ -50,21 +51,22 @@ uploadedimagesdir: data/images # the directory for storing uploaded images
 
 ## Database
 
-| Dialect   | Connection                                                           |
-| :-------: | :------------------------------------------------------------------: |
-| sqlite3   | `path/to/database.db`                                                |
-| mysql     | `gotify:secret@/gotifydb?charset=utf8&parseTime=True&loc=Local `     |
-| postgres  | `host=localhost port=3306 user=gotify dbname=gotify password=secret` |
+| Dialect  |                              Connection                              |
+| :------: | :------------------------------------------------------------------: |
+| sqlite3  |                        `path/to/database.db`                         |
+|  mysql   |   `gotify:secret@/gotifydb?charset=utf8&parseTime=True&loc=Local`    |
+| postgres | `host=localhost port=3306 user=gotify dbname=gotify password=secret` |
 
 When using postgres without SSL then `sslmode=disable` must be added to the connection string.
 See [#90](https://github.com/gotify/server/issues/90).
 
 ## Environment Variables
 
-Strings in list or map environment settings (f.ex. `GOTIFY_SERVER_RESPONSEHEADERS` and `GOTIFY_SERVER_SSL_LETSENCRYPT_HOSTS`) need to be escaped. 
+Strings in list or map environment settings (f.ex. `GOTIFY_SERVER_RESPONSEHEADERS` and `GOTIFY_SERVER_SSL_LETSENCRYPT_HOSTS`) need to be escaped.
 [A list of reserved characters and how to escape them.](https://stackoverflow.com/a/22235064/4244993)
 
 See yml config documentation.
+
 ```bash
 GOTIFY_SERVER_PORT=80
 GOTIFY_SERVER_SSL_ENABLED=false
@@ -86,4 +88,3 @@ GOTIFY_DEFAULTUSER_PASS=admin
 GOTIFY_PASSSTRENGTH=10
 GOTIFY_UPLOADEDIMAGESDIR=images
 ```
-
