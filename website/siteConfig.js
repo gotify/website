@@ -27,6 +27,7 @@ const siteConfig = {
 
     onPageNav: 'separate',
     cleanUrl: true,
+    editUrl: 'https://github.com/gotify/website/edit/master/docs/',
 };
 
 module.exports = siteConfig;
