@@ -19,5 +19,6 @@ deploy:
   github-token: $GITHUB_TOKEN
   keep-history: true
   local-dir: website/build/website
+  fqdn: gotify.net
   on:
     branch: master
