@@ -9,7 +9,7 @@ const siteConfig = {
 
     headerLinks: [
         {doc: 'index', label: 'Docs'},
-        {href: 'https://gotify.github.io/api-docs', label: 'API'},
+        {page: 'api-docs', label: 'API-Docs'},
         {href: 'https://github.com/gotify', label: 'SourceCode'},
     ],
 
