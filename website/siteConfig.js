@@ -8,7 +8,7 @@ const siteConfig = {
     organizationName: 'gotify',
 
     headerLinks: [
-        {doc: 'intro', label: 'Docs'},
+        {doc: 'index', label: 'Docs'},
         {href: "https://gotify.github.io/api-docs", label: 'API'},
         {href: "https://github.com/gotify", label: 'SourceCode'}
     ],
