@@ -22,6 +22,8 @@ $ http -f POST "https://push.example.de/message?token=<apptoken>" title="my titl
 
 As of gotify/server v1.2.0 only the `message` parameter is required.
 
+[Here are more examples for pushing messages in different languages.](more-pushmsg.md)
+
 Also you can use [gotify/cli](https://github.com/gotify/cli) to push messages.
 The CLI stores url and token in a config file.
 
