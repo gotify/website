@@ -49,6 +49,14 @@ passstrength: 10 # the bcrypt password strength (higher = better but also slower
 uploadedimagesdir: data/images # the directory for storing uploaded images
 ```
 
+You can download an example config like this:
+
+```bash
+$ wget -O config.yml https://raw.githubusercontent.com/gotify/server/master/config.example.yml
+```
+
+**Note: the example config doesn't only contain default values.**
+
 ## Database
 
 | Dialect  |                              Connection                              |
