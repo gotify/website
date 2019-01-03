@@ -1,6 +1,6 @@
 {
   "docs": {
     "Getting Started": ["index", "install", "pushmsg", "config"],
-    "Miscellaneous": ["nginx"]
+    "Miscellaneous": ["nginx", "dev-environment"]
   }
 }
