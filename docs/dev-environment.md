@@ -5,16 +5,17 @@ title: Setup Dev Environment
 
 ## Setup Backend
 
-Download go dependencies with [golang/dep](https://github.com/golang/dep).
+Download go dependencies with [go modules](https://github.com/golang/go/wiki/Modules).
 
 ```
-$ dep ensure
+$ export GO111MODULE=on # only needed if the project is inside $GOPATH/src
+$ go get
 ```
 
-Run golang server.
+Run gotify server.
 
 ```
-$ go run app.go
+$ go run .
 ```
 
 ## Setup UI
