@@ -31,4 +31,3 @@ You can use apache to make a reverse proxy if you have many container.
         SSLCertificateKeyFile /etc/letsencrypt/live/domain.tld/privkey.pem 
 </VirtualHost>      
 ```
-
