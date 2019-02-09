@@ -1,9 +1,11 @@
 ---
 id: apache
-title: apache config
+title: Apache reverse proxy
 ---
 
-You can use apache to make a reverse proxy if you have many container.
+You can use apache as a reverse proxy.
+
+Example configuration: (note the two `ProxyPass` properties)
 
 ```apache
 <VirtualHost *:80>
