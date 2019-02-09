@@ -52,6 +52,7 @@ Before starting gotify/server you may read the [Configuration](configuration.md)
 $ sudo ./gotify-linux-amd
 ```
 
-## First Login
+## Source
 
-After setting up gotify/server via binary or docker you can login to the WebUI. Username: `admin` Password: `admin`.
+1. [Setup](dev-environment.md#setup) the dev environment.
+2. [Build](dev-environment.md#building-releases) a production release.
