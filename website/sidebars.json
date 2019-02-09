@@ -2,7 +2,7 @@
   "docs": {
     "Getting Started": ["index", "install", "config", "first-login", "pushmsg"],
     "REST-API": ["swagger-docs"],
-    "Miscellaneous": ["nginx", "dev-environment", "more-pushmsg", "apache"],
-    "Plugins": ["plugin","plugin-write", "plugin-deploy"]
-  }
+    "Plugins": ["plugin","plugin-write", "plugin-deploy"],
+    "Development": ["dev-setup", "dev-server-and-tests", "build"],
+    "Miscellaneous": ["nginx", "apache", "more-pushmsg"]}
 }
