@@ -54,5 +54,4 @@ $ sudo ./gotify-linux-amd
 
 ## Source
 
-1. [Setup](dev-environment.md#setup) the dev environment.
-2. [Build](dev-environment.md#building-releases) a production release.
+See [build](build.md).
