@@ -32,7 +32,7 @@ To give it more functionalities, more interfaces can be implemented.
 
 ### Intro
 
-The APIs are provided as interfaces will be called during plugin initialization and/or remote API invokation to obtain information or provide callbacks.
+The APIs are provided as interfaces will be called during plugin initialization and/or remote API invocation to obtain information or provide callbacks.
 
 ### API Interfaces
 
