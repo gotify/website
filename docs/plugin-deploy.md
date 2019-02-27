@@ -5,8 +5,8 @@ title: Building and Deploying Plugins
 
 ## Building
 
-> This tutorial assumes that you want to build your plugin for gotify/server `v1.3.0`. If you want to build for a different
-> version then replace v1.3.0 with your desired version.
+> This tutorial assumes that you want to build your plugin for gotify/server `v2.0.0`. If you want to build for a different
+> version then replace v2.0.0 with your desired version.
 
 **The [gotify/plugin-template Makefile](https://github.com/gotify/plugin-template/blob/master/Makefile) already contains
 tasks for most of the things that should be done for building a plugin, feel free to copy the Makefile to your own plugin project.**
@@ -22,7 +22,7 @@ main.go go.mod go.sum
 (Optional) Make sure there are no conflicting dependencies:
 
 Get the go.mod file from gotify/server.
-[github.com/gotify/server/blob/v1.3.0/go.mod](https://github.com/gotify/server/blob/v1.3.0/go.mod) and run the following command:
+[github.com/gotify/server/blob/v2.0.0/go.mod](https://github.com/gotify/server/blob/v2.0.0/go.mod) and run the following command:
 
 ```bash
 $ go get -u github.com/gotify/plugin-api/cmd/gomod-cap
@@ -40,8 +40,8 @@ If you do not want to use the [gotify/plugin-template Makefile](https://github.c
 then you can build your plugin like this:
 
 Get the Go version that was used for building gotify/server. The version can be found in the gotify/server repository
-in a file called `GO_VERSION`. [github.com/gotify/server/blob/v1.3.0/GO_VERSION](https://github.com/gotify/server/blob/v1.3.0/GO_VERSION).
-In this case it is `1.11.5`.
+in a file called `GO_VERSION`. [github.com/gotify/server/blob/v2.0.0/GO_VERSION](https://github.com/gotify/server/blob/v2.0.0/GO_VERSION).
+In this case it is `1.12.0`.
 
 Run the docker images. The gotify/build docker image tags have the following format:
 `gotify/build:{GO_VERSION}-{GOOS}-{GOARCH}[-{GOARM}]`. (`[]` means optional)
@@ -49,21 +49,21 @@ Run the docker images. The gotify/build docker image tags have the following for
 #### linux amd64
 
 ```bash
-$ docker run --rm -v "$PWD/.:/proj" -w /proj gotify/build:1.11.5-linux-amd64 \
+$ docker run --rm -v "$PWD/.:/proj" -w /proj gotify/build:1.12.0-linux-amd64 \
    go build -a -installsuffix cgo -ldflags "-w -s" -buildmode=plugin -o yourplugin-amd64.so /proj
 ```
 
 #### linux arm-7
 
 ```bash
-$ docker run --rm -v "$PWD/.:/proj" -w /proj gotify/build:1.11.5-linux-arm-7 \
+$ docker run --rm -v "$PWD/.:/proj" -w /proj gotify/build:1.12.0-linux-arm-7 \
    go build -a -installsuffix cgo -ldflags "-w -s" -buildmode=plugin -o yourplugin-arm-7.so /proj
 ```
 
 #### linux arm64
 
 ```bash
-$ docker run --rm -v "$PWD/.:/proj" -w /proj gotify/build:1.11.5-linux-arm64 \
+$ docker run --rm -v "$PWD/.:/proj" -w /proj gotify/build:1.12.0-linux-arm64 \
    go build -a -installsuffix cgo -ldflags "-w -s" -buildmode=plugin -o yourplugin-arm64.so /proj
 ```
 
@@ -73,7 +73,7 @@ $ docker run --rm -v "$PWD/.:/proj" -w /proj gotify/build:1.11.5-linux-arm64 \
 > [gotify/server Releases](https://github.com/gotify/server/releases).
 
 Install the Go version that was used for building gotify/server. The version can be found in the gotify/server repository
-in a file called `GO_VERSION`. [github.com/gotify/server/blob/v1.3.0/GO_VERSION](https://github.com/gotify/server/blob/v1.3.0/GO_VERSION).
+in a file called `GO_VERSION`. [github.com/gotify/server/blob/v2.0.0/GO_VERSION](https://github.com/gotify/server/blob/v2.0.0/GO_VERSION).
 
 If you are in GOPATH, enable go modules explicitly:
 
