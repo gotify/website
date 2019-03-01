@@ -231,4 +231,4 @@ Although we have covered how to implement plugin functionalities in the last cha
 - Handle all errors. A panic in a goroutine spawned in the plugin can crash the whole gotify program.
 - Provide detailed plugin info and utilize [`Displayer`](/docs/plugin-api#displayer) to show instructions to users. A detailed plugin info would be shown in the WebUI which makes it easier to be identified and used.
 
-You can clone the official plugin [template](https://github.com/gotify/plugin-template) and [showcase](https://github.com/gotify/plugins) to see plugins in action and/or to bootstrap your project.
+You can clone the official plugin [template](https://github.com/gotify/plugin-template) and [have a look at community contributions](https://github.com/gotify/contrib) to see plugins in action and/or to bootstrap your project.
