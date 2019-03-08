@@ -3,33 +3,44 @@ id: apache
 title: Apache reverse proxy
 ---
 
-You can use apache as a reverse proxy.
+Here are configuration examples for setting up apache as reverse proxy for gotify/server.
 
-Example configuration: (note the two `ProxyPass` properties)
+The following modules are required:
+
+- mod_proxy
+- mod_proxy_wstunnel
+- mod_proxy_http
+
+## Proxy requests
 
 ```apache
 <VirtualHost *:80>
-        ServerName domain.tld
-        Redirect / https://domain.tld /
-        ServerSignature Off
+    ServerName domain.tld
+
+    Keepalive On
+
+    # Proxy web socket requests to /stream
+    ProxyPass "/stream" ws://127.0.0.1:GOTIFY_PORT/ retry=0 timeout=5
+    # Proxy all other requests to /
+    ProxyPass "/" http://127.0.0.1:GOTIFY_PORT/ retry=0 timeout=5
+    ProxyPassReverse / http://127.0.0.1:GOTIFY_PORT/
 </VirtualHost>
+```
 
-<VirtualHost *:443>
-        ServerName domain.tld
+## Proxy requests with sub path
 
-        SSLEngine On
+```apache
+<VirtualHost *:80>
+    ServerName domain.tld
+    Keepalive On
 
-        ProxyPass "/stream" ws://127.0.0.1:GOTIFY_SERVER_PORT/ retry=0 timeout=5
-        ProxyPass "/" http://127.0.0.1:GOTIFY_SERVER_PORT/ retry=0 timeout=5
-        ProxyPassReverse / http://127.0.0.1:GOTIFY_SERVER_PORT/
-        ServerSignature Off
-        Keepalive On
-        CustomLog /var/log/apache2/push_access.log combined
-        ErrorLog /var/log/apache2/push_error.log
+    Redirect 301 "/gotify" "/gotify/"
 
-        Include /etc/letsencrypt/options-ssl-apache.conf
-        Include /etc/letsencrypt/options-ssl-apache.conf
-        SSLCertificateFile /etc/letsencrypt/live/domain.tld/fullchain.pem
-        SSLCertificateKeyFile /etc/letsencrypt/live/domain.tld/privkey.pem
+    # Proxy web socket requests to /stream
+    ProxyPass "/gotify/stream" ws://127.0.0.1:GOTIFY_PORT/stream retry=0 timeout=5
+    # Proxy all other requests to /
+    ProxyPass "/gotify/" http://127.0.0.1:GOTIFY_PORT/ retry=0 timeout=5
+    #                 ^- !!trailing slash is required!!
+    ProxyPassReverse /gotify/ http://127.0.0.1:GOTIFY_PORT/
 </VirtualHost>
 ```
