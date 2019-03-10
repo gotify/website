@@ -39,7 +39,9 @@ title: Build Gotify
    $ make build-linux-amd64
    $ make build-linux-arm-7
    $ make build-linux-arm64
+   $ make build-linux-386
    $ make build-windows-amd64
+   $ make build-windows-386
    ```
 
    If you do not want to use the docker images you can build gotify/server like this:

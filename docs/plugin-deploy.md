@@ -67,6 +67,13 @@ $ docker run --rm -v "$PWD/.:/proj" -w /proj gotify/build:1.12.0-linux-arm64 \
    go build -a -installsuffix cgo -ldflags "-w -s" -buildmode=plugin -o yourplugin-arm64.so /proj
 ```
 
+#### linux 386
+
+```bash
+$ docker run --rm -v "$PWD/.:/proj" -w /proj gotify/build:1.12.0-linux-386 \
+   go build -a -installsuffix cgo -ldflags "-w -s" -buildmode=plugin -o yourplugin-386.so /proj
+```
+
 ### Without Docker (not recommended)
 
 > Plugins built without the gotify/server build environment, will probably not work with the built binaries from
