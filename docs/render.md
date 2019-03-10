@@ -13,9 +13,9 @@ Use invite code `gotify` to sign up for a Render account.
 
 3. On the service creation page, add the following environment variable under **Advanced**. Use the internal database hostname and password from the database you created earlier.
 
-   | Key                | Value           |
-   | ------------------ | --------------- |
-   | `GOTIFY_DATABASE_CONNECTION`  | `host=your-db-hostname port=5432 user=gotify dbname=gotify password=your-db-password` |
+   | Key                          | Value                                                                                 |
+   | ---------------------------- | ------------------------------------------------------------------------------------- |
+   | `GOTIFY_DATABASE_CONNECTION` | `host=your-db-hostname port=5432 user=gotify dbname=gotify password=your-db-password` |
 
 That's it! Your Gotify server will be available on your `onrender.com` URL in less than a minute. Don't forget to log in and change the admin password.
 
