@@ -18,10 +18,12 @@ gotify/server looks in the following paths for config files
 
 ```yml
 server:
+  listenaddr: "" # the address to bind on, leave empty to bind on all addresses
   port: 80 # the port for the http server
   ssl:
     enabled: false # if https should be enabled
     redirecttohttps: true # redirect to https if site is accessed by http
+    listenaddr: "" # the address to bind on, leave empty to bind on all addresses
     port: 443 # the https port
     certfile: # the cert file (leave empty when using letsencrypt)
     certkey: # the cert key (leave empty when using letsencrypt)
@@ -78,8 +80,10 @@ See yml config documentation.
 
 ```bash
 GOTIFY_SERVER_PORT=80
+GOTIFY_SERVER_LISTENADDR=
 GOTIFY_SERVER_SSL_ENABLED=false
 GOTIFY_SERVER_SSL_REDIRECTTOHTTPS=true
+GOTIFY_SERVER_SSL_LISTENADDR=
 GOTIFY_SERVER_SSL_PORT=443
 GOTIFY_SERVER_SSL_CERTFILE=
 GOTIFY_SERVER_SSL_CERTKEY=
