@@ -53,7 +53,9 @@ $ make build
 $ make build-linux-amd64
 $ make build-linux-arm-7
 $ make build-linux-arm64
+$ make build-linux-386
 $ make build-windows-amd64
+$ make build-windows-386
 </code></pre>
 <p>If you do not want to use the docker images you can build gotify/server like this:</p>
 <pre><code class="hljs css language-bash">$ go build -ldflags=<span class="hljs-string">"<span class="hljs-variable">$LD_FLAGS</span>"</span> -o gotify-server

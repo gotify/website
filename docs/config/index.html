@@ -38,10 +38,12 @@ When using docker it is recommended to use environment variables.</p>
 <p><strong>Note</strong>: When strings contain reserved yml characters then they need to be escaped.
 <a href="https://stackoverflow.com/a/22235064/4244993">A list of reserved characters and how to escape them.</a></p>
 <pre><code class="hljs css language-yml"><span class="hljs-attr">server:</span>
+<span class="hljs-attr">  listenaddr:</span> <span class="hljs-string">""</span> <span class="hljs-comment"># the address to bind on, leave empty to bind on all addresses</span>
 <span class="hljs-attr">  port:</span> <span class="hljs-number">80</span> <span class="hljs-comment"># the port for the http server</span>
 <span class="hljs-attr">  ssl:</span>
 <span class="hljs-attr">    enabled:</span> <span class="hljs-literal">false</span> <span class="hljs-comment"># if https should be enabled</span>
 <span class="hljs-attr">    redirecttohttps:</span> <span class="hljs-literal">true</span> <span class="hljs-comment"># redirect to https if site is accessed by http</span>
+<span class="hljs-attr">    listenaddr:</span> <span class="hljs-string">""</span> <span class="hljs-comment"># the address to bind on, leave empty to bind on all addresses</span>
 <span class="hljs-attr">    port:</span> <span class="hljs-number">443</span> <span class="hljs-comment"># the https port</span>
 <span class="hljs-attr">    certfile:</span> <span class="hljs-comment"># the cert file (leave empty when using letsencrypt)</span>
 <span class="hljs-attr">    certkey:</span> <span class="hljs-comment"># the cert key (leave empty when using letsencrypt)</span>
@@ -91,8 +93,10 @@ See <a href="https://github.com/gotify/server/issues/90">#90</a>.</p>
 <a href="https://stackoverflow.com/a/22235064/4244993">A list of reserved characters and how to escape them.</a></p>
 <p>See yml config documentation.</p>
 <pre><code class="hljs css language-bash">GOTIFY_SERVER_PORT=80
+GOTIFY_SERVER_LISTENADDR=
 GOTIFY_SERVER_SSL_ENABLED=<span class="hljs-literal">false</span>
 GOTIFY_SERVER_SSL_REDIRECTTOHTTPS=<span class="hljs-literal">true</span>
+GOTIFY_SERVER_SSL_LISTENADDR=
 GOTIFY_SERVER_SSL_PORT=443
 GOTIFY_SERVER_SSL_CERTFILE=
 GOTIFY_SERVER_SSL_CERTKEY=
