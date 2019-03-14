@@ -49,7 +49,7 @@ Execute gotify/server. (By default gotify/server is started on port 80 so it req
 Before starting gotify/server you may read the [Configuration](configuration.md) if you f.ex. want to change the port or use a different database.
 
 ```bash
-$ sudo ./gotify-linux-amd
+$ sudo ./gotify-linux-amd64
 ```
 
 ## Source
