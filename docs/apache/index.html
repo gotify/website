@@ -41,7 +41,7 @@
     <span class="hljs-attribute">Keepalive</span> <span class="hljs-literal">On</span>
 
     <span class="hljs-comment"># Proxy web socket requests to /stream</span>
-    <span class="hljs-attribute">ProxyPass</span> <span class="hljs-string">"/stream"</span> ws://127.0.0.1:GOTIFY_PORT/ retry=0 timeout=5
+    <span class="hljs-attribute">ProxyPass</span> <span class="hljs-string">"/stream"</span> ws://127.0.0.1:GOTIFY_PORT/stream retry=0 timeout=5
     <span class="hljs-comment"># Proxy all other requests to /</span>
     <span class="hljs-attribute">ProxyPass</span> <span class="hljs-string">"/"</span> http://127.0.0.1:GOTIFY_PORT/ retry=0 timeout=5
     <span class="hljs-attribute">ProxyPassReverse</span> / http://127.0.0.1:GOTIFY_PORT/
