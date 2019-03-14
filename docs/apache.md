@@ -20,7 +20,7 @@ The following modules are required:
     Keepalive On
 
     # Proxy web socket requests to /stream
-    ProxyPass "/stream" ws://127.0.0.1:GOTIFY_PORT/ retry=0 timeout=5
+    ProxyPass "/stream" ws://127.0.0.1:GOTIFY_PORT/stream retry=0 timeout=5
     # Proxy all other requests to /
     ProxyPass "/" http://127.0.0.1:GOTIFY_PORT/ retry=0 timeout=5
     ProxyPassReverse / http://127.0.0.1:GOTIFY_PORT/
