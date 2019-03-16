@@ -34,6 +34,10 @@ server {
     proxy_set_header   X-Forwarded-Proto http;
     proxy_redirect     http:// $scheme://;
 
+    # The proxy must preserve the host because gotify verifies the host with the origin
+    # for WebSocket connections
+    proxy_set_header   Host $http_host;
+
     # These sets the timeout so that the websocket can stay alive
     proxy_connect_timeout   7m;
     proxy_send_timeout      7m;
@@ -71,6 +75,10 @@ server {
     proxy_set_header   X-Forwarded-For $proxy_add_x_forwarded_for;
     proxy_set_header   X-Forwarded-Proto http;
     proxy_redirect     http:// $scheme://;
+
+    # The proxy must preserve the host because gotify verifies the host with the origin
+    # for WebSocket connections
+    proxy_set_header   Host $http_host;
 
     proxy_connect_timeout   7m;
     proxy_send_timeout      7m;
