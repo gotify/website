@@ -40,10 +40,16 @@
 
     <span class="hljs-attribute">Keepalive</span> <span class="hljs-literal">On</span>
 
+    <span class="hljs-comment"># The proxy must preserve the host because gotify verifies the host with the origin</span>
+    <span class="hljs-comment"># for WebSocket connections</span>
+    <span class="hljs-attribute">ProxyPreserveHost</span> <span class="hljs-literal">On</span>
+
     <span class="hljs-comment"># Proxy web socket requests to /stream</span>
     <span class="hljs-attribute">ProxyPass</span> <span class="hljs-string">"/stream"</span> ws://127.0.0.1:GOTIFY_PORT/stream retry=0 timeout=5
+
     <span class="hljs-comment"># Proxy all other requests to /</span>
     <span class="hljs-attribute">ProxyPass</span> <span class="hljs-string">"/"</span> http://127.0.0.1:GOTIFY_PORT/ retry=0 timeout=5
+
     <span class="hljs-attribute">ProxyPassReverse</span> / http://127.0.0.1:GOTIFY_PORT/
 <span class="hljs-section">&lt;/VirtualHost&gt;</span>
 </code></pre>
@@ -54,11 +60,17 @@
 
     <span class="hljs-attribute">Redirect</span> 301 <span class="hljs-string">"/gotify"</span> <span class="hljs-string">"/gotify/"</span>
 
+    <span class="hljs-comment"># The proxy must preserve the host because gotify verifies the host with the origin</span>
+    <span class="hljs-comment"># for WebSocket connections</span>
+    <span class="hljs-attribute">ProxyPreserveHost</span> <span class="hljs-literal">On</span>
+
     <span class="hljs-comment"># Proxy web socket requests to /stream</span>
     <span class="hljs-attribute">ProxyPass</span> <span class="hljs-string">"/gotify/stream"</span> ws://127.0.0.1:GOTIFY_PORT/stream retry=0 timeout=5
+
     <span class="hljs-comment"># Proxy all other requests to /</span>
     <span class="hljs-attribute">ProxyPass</span> <span class="hljs-string">"/gotify/"</span> http://127.0.0.1:GOTIFY_PORT/ retry=0 timeout=5
     <span class="hljs-comment">#                 ^- !!trailing slash is required!!</span>
+
     <span class="hljs-attribute">ProxyPassReverse</span> /gotify/ http://127.0.0.1:GOTIFY_PORT/
 <span class="hljs-section">&lt;/VirtualHost&gt;</span>
 </code></pre>

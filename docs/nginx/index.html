@@ -54,6 +54,10 @@
     <span class="hljs-attribute">proxy_set_header</span>   X-Forwarded-Proto http;
     <span class="hljs-attribute">proxy_redirect</span>     http:// <span class="hljs-variable">$scheme</span>://;
 
+    <span class="hljs-comment"># The proxy must preserve the host because gotify verifies the host with the origin</span>
+    <span class="hljs-comment"># for WebSocket connections</span>
+    <span class="hljs-attribute">proxy_set_header</span>   Host <span class="hljs-variable">$http_host</span>;
+
     <span class="hljs-comment"># These sets the timeout so that the websocket can stay alive</span>
     <span class="hljs-attribute">proxy_connect_timeout</span>   <span class="hljs-number">7m</span>;
     <span class="hljs-attribute">proxy_send_timeout</span>      <span class="hljs-number">7m</span>;
@@ -86,6 +90,10 @@
     <span class="hljs-attribute">proxy_set_header</span>   X-Forwarded-For <span class="hljs-variable">$proxy_add_x_forwarded_for</span>;
     <span class="hljs-attribute">proxy_set_header</span>   X-Forwarded-Proto http;
     <span class="hljs-attribute">proxy_redirect</span>     http:// <span class="hljs-variable">$scheme</span>://;
+
+    <span class="hljs-comment"># The proxy must preserve the host because gotify verifies the host with the origin</span>
+    <span class="hljs-comment"># for WebSocket connections</span>
+    <span class="hljs-attribute">proxy_set_header</span>   Host <span class="hljs-variable">$http_host</span>;
 
     <span class="hljs-attribute">proxy_connect_timeout</span>   <span class="hljs-number">7m</span>;
     <span class="hljs-attribute">proxy_send_timeout</span>      <span class="hljs-number">7m</span>;
