@@ -19,10 +19,16 @@ The following modules are required:
 
     Keepalive On
 
+    # The proxy must preserve the host because gotify verifies the host with the origin
+    # for WebSocket connections
+    ProxyPreserveHost On
+
     # Proxy web socket requests to /stream
     ProxyPass "/stream" ws://127.0.0.1:GOTIFY_PORT/stream retry=0 timeout=5
+
     # Proxy all other requests to /
     ProxyPass "/" http://127.0.0.1:GOTIFY_PORT/ retry=0 timeout=5
+
     ProxyPassReverse / http://127.0.0.1:GOTIFY_PORT/
 </VirtualHost>
 ```
@@ -36,11 +42,17 @@ The following modules are required:
 
     Redirect 301 "/gotify" "/gotify/"
 
+    # The proxy must preserve the host because gotify verifies the host with the origin
+    # for WebSocket connections
+    ProxyPreserveHost On
+
     # Proxy web socket requests to /stream
     ProxyPass "/gotify/stream" ws://127.0.0.1:GOTIFY_PORT/stream retry=0 timeout=5
+
     # Proxy all other requests to /
     ProxyPass "/gotify/" http://127.0.0.1:GOTIFY_PORT/ retry=0 timeout=5
     #                 ^- !!trailing slash is required!!
+
     ProxyPassReverse /gotify/ http://127.0.0.1:GOTIFY_PORT/
 </VirtualHost>
 ```
