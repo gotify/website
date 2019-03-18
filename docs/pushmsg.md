@@ -3,7 +3,7 @@ id: pushmsg
 title: Push messages
 ---
 
-As already indicated in [Intro](index.md) you need an application to push messages to gotify/server.
+As already indicated in [Intro](index.md) you need an application to push messages to gotify/server. Only the user who created the application is able to get its notifications.
 An application can be added via
 
 - WebUI: click the `apps`-tab in the upper right corner when logged in and add an application
