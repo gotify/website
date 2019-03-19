@@ -1,4 +1,4 @@
-# Gotify Website [![travus-badge][travis-badge]][travis]
+# Gotify Website [![travis-badge][travis-badge]][travis]
 
 -> https://gotify.net
 
