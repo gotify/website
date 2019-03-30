@@ -37,6 +37,9 @@ See <a href="https://gotify.github.io/api-docs/">API-Docs</a></li>
 <p>To authenticate as an application you need the application token.
 The token is returned in the REST request and is viewable in the WebUI.</p>
 <p>Now you can simply use <a href="https://curl.haxx.se/">curl</a>, <a href="https://httpie.org/">HTTPie</a> or any other http-client to push messages.</p>
+<blockquote>
+<p>Since gotify/server v2.0.4 and gotify/android v2.0.6, messages will be rendered as Markdown.</p>
+</blockquote>
 <pre><code class="hljs css language-bash">$ curl -X POST <span class="hljs-string">"https://push.example.de/message?token=&lt;apptoken&gt;"</span> -F <span class="hljs-string">"title=my title"</span> -F <span class="hljs-string">"message=my message"</span> -F <span class="hljs-string">"priority=5"</span>
 $ http -f POST <span class="hljs-string">"https://push.example.de/message?token=&lt;apptoken&gt;"</span> title=<span class="hljs-string">"my title"</span> message=<span class="hljs-string">"my message"</span> priority=<span class="hljs-string">"5"</span>
 </code></pre>
