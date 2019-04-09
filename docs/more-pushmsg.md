@@ -37,8 +37,6 @@ func main() {
 ### PHP (using cURL)
 
 ```php
-<?php
-
 $data = array(
     "title"=> "Hello World",
     "message"=> "Test push From PHP cURL.",
@@ -52,7 +50,7 @@ $url = "http://localhost:8008/message?token=<apptoken>";
 $headers = array
 (
     'Content-Type: application/json; charset=utf-8'
-);  
+);
 
 $ch = curl_init();  
 curl_setopt($ch, CURLOPT_URL, $url);
@@ -97,6 +95,4 @@ else
 curl_close ($ch);
 
 echo "<pre>Output: $message</pre>";
-
-?>
 ```
