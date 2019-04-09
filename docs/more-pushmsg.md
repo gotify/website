@@ -96,4 +96,3 @@ curl_close ($ch);
 
 echo "<pre>Output: $message</pre>";
 ```
-
