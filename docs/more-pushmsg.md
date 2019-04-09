@@ -47,8 +47,7 @@ $data_string = json_encode($data);
 
 $url = "http://localhost:8008/message?token=<apptoken>";
 
-$headers = array
-(
+$headers = array(
     'Content-Type: application/json; charset=utf-8'
 );
 
