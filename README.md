@@ -11,4 +11,3 @@ cd website && npm run start
 
 [travis-badge]: https://travis-ci.org/gotify/cli.svg?branch=master
 [travis]: https://travis-ci.org/gotify/cli
-
