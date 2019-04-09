@@ -65,6 +65,9 @@ $code = curl_getinfo($ch, CURLINFO_HTTP_CODE);
 curl_close ($ch);
 
 switch ($code) {
+    case "200":
+        echo "<strong>Your Message was Submitted</strong>";
+        break;
     case "400":
         echo "<strong>Bad Request</strong>";
         break;
@@ -78,6 +81,6 @@ switch ($code) {
         echo "<strong>API URL Not Found</strong>";
         break;
     default:
-        echo "<strong>Your Message was Submitted</strong>";
+        echo "<strong>Hmm Something Went Wrong or HTTP Status Code is Missing</strong>";
 }
 ```
