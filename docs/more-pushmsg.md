@@ -62,37 +62,22 @@ curl_setopt( $ch,CURLOPT_POSTFIELDS, $data_string);
 $result = curl_exec($ch);
 $code = curl_getinfo($ch, CURLINFO_HTTP_CODE);
 
-if ($code == 400)
-{
- $message = '<strong>Bad Request</strong>';
-}
-else
-{
- if ($code == 401)
- {
-  $message = '<strong>Unauthorized Error - Invalid Token</strong>';
- }
- else
- {
-  if ($code == 403)
-  {
-   $message = '<strong>Forbidden</strong>';
-  }
-  else
-  {
-   if ($code == 404)
-   {
-    $message = '<strong>API URL Not Found</strong>';
-   }
-   else
-   {
-    $message = '<strong>Your Message was Submitted</strong>';
-   }
-  }
- }
-}
-
 curl_close ($ch);
 
-echo "<pre>Output: $message</pre>";
+switch ($code) {
+    case "400":
+        echo "<strong>Bad Request</strong>";
+        break;
+    case "401":
+        echo "<strong>Unauthorized Error - Invalid Token</strong>";
+        break;
+    case "403":
+        echo "<strong>Forbidden</strong>";
+        break;
+    case "404":
+        echo "<strong>API URL Not Found</strong>";
+        break;
+    default:
+        echo "<strong>Your Message was Submitted</strong>";
+}
 ```
