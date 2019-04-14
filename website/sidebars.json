@@ -1,6 +1,6 @@
 {
   "docs": {
-    "Getting Started": ["index", "install", "config", "first-login", "pushmsg"],
+    "Getting Started": ["index", "install", "config", "first-login", "pushmsg", "msgextras"],
     "REST-API": ["swagger-docs"],
     "Plugins": ["plugin","plugin-write", "plugin-deploy"],
     "Development": ["dev-setup", "dev-server-and-tests", "build"],

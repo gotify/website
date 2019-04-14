@@ -15,12 +15,13 @@ The token is returned in the REST request and is viewable in the WebUI.
 
 Now you can simply use [curl](https://curl.haxx.se/), [HTTPie](https://httpie.org/) or any other http-client to push messages.
 
-> Since gotify/server v2.0.4 and gotify/android v2.0.6, messages will be rendered as Markdown.
-
 ```bash
 $ curl -X POST "https://push.example.de/message?token=<apptoken>" -F "title=my title" -F "message=my message" -F "priority=5"
 $ http -f POST "https://push.example.de/message?token=<apptoken>" title="my title" message="my message" priority="5"
 ```
+
+> The message API takes an `extras` property that carries extra information with the message and describes how clients behave to this message.
+> See [message extras](msgextras.md) for more information.
 
 As of gotify/server v1.2.0 only the `message` parameter is required.
 
