@@ -69,7 +69,7 @@ resp = requests.post(<span class="hljs-string">'http://localhost:8008/message?to
 )
 
 <span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span> {
-    http.PostForm(<span class="hljs-string">"http://localhost:8008/message?&lt;apptoken&gt;"</span>,
+    http.PostForm(<span class="hljs-string">"http://localhost:8008/message?token=&lt;apptoken&gt;"</span>,
         url.Values{<span class="hljs-string">"message"</span>: {<span class="hljs-string">"My Message"</span>}, <span class="hljs-string">"title"</span>: {<span class="hljs-string">"My Title"</span>}})
 }
 </code></pre>
