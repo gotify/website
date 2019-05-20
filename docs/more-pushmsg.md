@@ -29,7 +29,7 @@ import (
 )
 
 func main() {
-    http.PostForm("http://localhost:8008/message?<apptoken>",
+    http.PostForm("http://localhost:8008/message?token=<apptoken>",
         url.Values{"message": {"My Message"}, "title": {"My Title"}})
 }
 ```
