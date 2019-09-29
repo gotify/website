@@ -20,7 +20,7 @@ Start the UI development server.
 _Commands must be executed inside the ui directory._
 
 ```bash
-$ npm start
+$ yarn start
 ```
 
 Open `http://localhost:3000` inside your favorite browser.
@@ -68,13 +68,13 @@ Build the ui because the end2end test should be run against the production build
 (This needs to be done on every change in the UI)
 
 ```bash
-$ (cd ui && npm run build)
+$ (cd ui && yarn build)
 ```
 
-Now execute the tests with npm
+Now execute the tests with yarn
 
 ```bash
-$ (cd ui && npm run test)
+$ (cd ui && yarn test)
 ```
 
 ### Execute Static Checks

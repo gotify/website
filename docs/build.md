@@ -8,7 +8,7 @@ title: Build Gotify
 1. Build the UI
 
    ```bash
-   $ (cd ui && npm run build)
+   $ (cd ui && yarn build)
    ```
 
 1. Generate static assets for go.

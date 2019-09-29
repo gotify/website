@@ -7,6 +7,7 @@ Gotify requires:
 
 - Go 1.11+
 - Node 11.x
+- Yarn 9+
 
 ## Clone sources
 
@@ -35,8 +36,8 @@ $ go get -d
 
 _Commands must be executed inside the ui directory._
 
-Download dependencies with [npm](https://github.com/npm/npm).
+Download dependencies with [yarn](https://github.com/yarnpkg/yarn).
 
 ```bash
-$ npm install
+$ yarn
 ```
