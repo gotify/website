@@ -58,7 +58,7 @@
 <h3><a class="anchor" aria-hidden="true" id="ui"></a><a href="#ui" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>UI</h3>
 <p>Start the UI development server.</p>
 <p><em>Commands must be executed inside the ui directory.</em></p>
-<pre><code class="hljs css language-bash">$ npm start
+<pre><code class="hljs css language-bash">$ yarn start
 </code></pre>
 <p>Open <code>http://localhost:3000</code> inside your favorite browser.</p>
 <p>The UI requires a Gotify server running on <code>localhost:80</code>. This can be adjusted inside
@@ -84,10 +84,10 @@ $ go tool cover -html=coverage.txt <span class="hljs-comment"># get a HTML cover
 <h3><a class="anchor" aria-hidden="true" id="execute-ui-end2end-tests"></a><a href="#execute-ui-end2end-tests" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Execute UI (end2end) Tests</h3>
 <p>Build the ui because the end2end test should be run against the production build.
 (This needs to be done on every change in the UI)</p>
-<pre><code class="hljs css language-bash">$ (<span class="hljs-built_in">cd</span> ui &amp;&amp; npm run build)
+<pre><code class="hljs css language-bash">$ (<span class="hljs-built_in">cd</span> ui &amp;&amp; yarn build)
 </code></pre>
-<p>Now execute the tests with npm</p>
-<pre><code class="hljs css language-bash">$ (<span class="hljs-built_in">cd</span> ui &amp;&amp; npm run <span class="hljs-built_in">test</span>)
+<p>Now execute the tests with yarn</p>
+<pre><code class="hljs css language-bash">$ (<span class="hljs-built_in">cd</span> ui &amp;&amp; yarn <span class="hljs-built_in">test</span>)
 </code></pre>
 <h3><a class="anchor" aria-hidden="true" id="execute-static-checks"></a><a href="#execute-static-checks" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Execute Static Checks</h3>
 <p>The following command checks the formatting and executes some linters like tslint and govet.</p>
