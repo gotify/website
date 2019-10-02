@@ -83,3 +83,36 @@ switch ($code) {
         echo "<strong>Hmm Something Went Wrong or HTTP Status Code is Missing</strong>";
 }
 ```
+
+### Node.js - Using Axios
+
+```javascript
+////////////////////////////////////////
+// Send Push Message to Gotify Server //
+////////////////////////////////////////
+
+var url = "http://localhost:8008/message?token=<apptoken>";
+var bodyFormData = {
+  title: "Hello from Javascript",
+  message: "Test Push Service from Node.js",
+  priority: 5
+};
+axios({
+  method: "post",
+  headers: {
+    "Content-Type": "application/json"
+  },
+  url: url,
+  data: bodyFormData
+})
+  .then(function(response) {
+    console.log(response.data);
+  })
+  .catch(function(error) {
+    if (!error.response) {
+      console.log("Gotify API URL is Missing");
+    } else {
+      console.log(error.response.data);
+    }
+  });
+```
