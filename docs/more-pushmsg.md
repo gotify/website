@@ -84,12 +84,10 @@ switch ($code) {
 }
 ```
 
-### Node.js - Using Axios
+### JavaScript
 
 ```javascript
-////////////////////////////////////////
-// Send Push Message to Gotify Server //
-////////////////////////////////////////
+const axios = require("axios");
 
 var url = "http://localhost:8008/message?token=<apptoken>";
 var bodyFormData = {
@@ -97,6 +95,7 @@ var bodyFormData = {
   message: "Test Push Service from Node.js",
   priority: 5
 };
+
 axios({
   method: "post",
   headers: {
@@ -110,7 +109,7 @@ axios({
   })
   .catch(function(error) {
     if (!error.response) {
-      console.log("Gotify API URL is Missing");
+      console.log(error);
     } else {
       console.log(error.response.data);
     }
