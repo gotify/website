@@ -102,7 +102,7 @@ axios({
     "Content-Type": "application/json"
   },
   url: url,
-  data: bodyFormData
+  data: bodyFormData,
 })
   .then(function(response) {
     console.log(response.data);
