@@ -1,6 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>Configuration · Gotify</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="&lt;p&gt;gotify/server can be configured per config file and environment variables.&lt;/p&gt;
-"/><meta name="docsearch:language" content="en"/><meta property="og:title" content="Configuration · Gotify"/><meta property="og:type" content="website"/><meta property="og:url" content="https://gotify.net/"/><meta property="og:description" content="&lt;p&gt;gotify/server can be configured per config file and environment variables.&lt;/p&gt;
-"/><meta name="twitter:card" content="summary"/><link rel="shortcut icon" href="/img/favicon.png"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css"/><link rel="stylesheet" href="/css/main.css"/><script src="/js/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/"><h2 class="headerTitle">Gotify</h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class="siteNavGroupActive"><a href="/docs/" target="_self">Docs</a></li><li class=""><a href="/api-docs" target="_self">API-Docs</a></li><li class=""><a href="https://github.com/gotify" target="_self">SourceCode</a></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="container docsNavContainer" id="docsNav"><nav class="toc"><div class="toggleNav"><section class="navWrapper wrapper"><div class="navBreadcrumb wrapper"><div class="navToggle" id="navToggler"><i></i></div><h2><i>›</i><span>Getting Started</span></h2><div class="tocToggler" id="tocToggler"><i class="icon-toc"></i></div></div><div class="navGroups"><div class="navGroup"><h3 class="navGroupCategoryTitle">Getting Started</h3><ul class=""><li class="navListItem"><a class="navItem" href="/docs/">Intro</a></li><li class="navListItem"><a class="navItem" href="/docs/install">Installation</a></li><li class="navListItem navListItemActive"><a class="navItem" href="/docs/config">Configuration</a></li><li class="navListItem"><a class="navItem" href="/docs/first-login">First Login</a></li><li class="navListItem"><a class="navItem" href="/docs/pushmsg">Push messages</a></li><li class="navListItem"><a class="navItem" href="/docs/msgextras">Message Extras</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">REST-API</h3><ul class=""><li class="navListItem"><a class="navItem" href="/docs/swagger-docs">Swagger Documentation</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Plugins</h3><ul class=""><li class="navListItem"><a class="navItem" href="/docs/plugin">Intro to Gotify Plugins</a></li><li class="navListItem"><a class="navItem" href="/docs/plugin-write">Writing Plugins</a></li><li class="navListItem"><a class="navItem" href="/docs/plugin-deploy">Building and Deploying Plugins</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Development</h3><ul class=""><li class="navListItem"><a class="navItem" href="/docs/dev-setup">Setup Environment</a></li><li class="navListItem"><a class="navItem" href="/docs/dev-server-and-tests">Servers and Tests</a></li><li class="navListItem"><a class="navItem" href="/docs/build">Build Gotify</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Miscellaneous</h3><ul class=""><li class="navListItem"><a class="navItem" href="/docs/nginx">nginx config</a></li><li class="navListItem"><a class="navItem" href="/docs/apache">Apache reverse proxy</a></li><li class="navListItem"><a class="navItem" href="/docs/more-pushmsg">(more) Push message examples</a></li></ul></div></div></section></div><script>
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>Configuration · Gotify</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="gotify/server can be configured per config file and environment variables."/><meta name="docsearch:language" content="en"/><meta property="og:title" content="Configuration · Gotify"/><meta property="og:type" content="website"/><meta property="og:url" content="https://gotify.net/"/><meta property="og:description" content="gotify/server can be configured per config file and environment variables."/><meta name="twitter:card" content="summary"/><link rel="shortcut icon" href="/img/favicon.png"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css"/><script src="/js/scrollSpy.js"></script><link rel="stylesheet" href="/css/main.css"/><script src="/js/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/"><h2 class="headerTitle">Gotify</h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class="siteNavGroupActive"><a href="/docs/" target="_self">Docs</a></li><li class=""><a href="/api-docs" target="_self">API-Docs</a></li><li class=""><a href="https://github.com/gotify" target="_self">SourceCode</a></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="docsNavContainer" id="docsNav"><nav class="toc"><div class="toggleNav"><section class="navWrapper wrapper"><div class="navBreadcrumb wrapper"><div class="navToggle" id="navToggler"><div class="hamburger-menu"><div class="line1"></div><div class="line2"></div><div class="line3"></div></div></div><h2><i>›</i><span>Getting Started</span></h2><div class="tocToggler" id="tocToggler"><i class="icon-toc"></i></div></div><div class="navGroups"><div class="navGroup"><h3 class="navGroupCategoryTitle">Getting Started</h3><ul class=""><li class="navListItem"><a class="navItem" href="/docs/">Intro</a></li><li class="navListItem"><a class="navItem" href="/docs/install">Installation</a></li><li class="navListItem navListItemActive"><a class="navItem" href="/docs/config">Configuration</a></li><li class="navListItem"><a class="navItem" href="/docs/first-login">First Login</a></li><li class="navListItem"><a class="navItem" href="/docs/pushmsg">Push messages</a></li><li class="navListItem"><a class="navItem" href="/docs/msgextras">Message Extras</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">REST-API</h3><ul class=""><li class="navListItem"><a class="navItem" href="/docs/swagger-docs">Swagger Documentation</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Plugins</h3><ul class=""><li class="navListItem"><a class="navItem" href="/docs/plugin">Intro to Gotify Plugins</a></li><li class="navListItem"><a class="navItem" href="/docs/plugin-write">Writing Plugins</a></li><li class="navListItem"><a class="navItem" href="/docs/plugin-deploy">Building and Deploying Plugins</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Development</h3><ul class=""><li class="navListItem"><a class="navItem" href="/docs/dev-setup">Setup Environment</a></li><li class="navListItem"><a class="navItem" href="/docs/dev-server-and-tests">Servers and Tests</a></li><li class="navListItem"><a class="navItem" href="/docs/build">Build Gotify</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Miscellaneous</h3><ul class=""><li class="navListItem"><a class="navItem" href="/docs/nginx">nginx config</a></li><li class="navListItem"><a class="navItem" href="/docs/apache">Apache reverse proxy</a></li><li class="navListItem"><a class="navItem" href="/docs/more-pushmsg">(more) Push message examples</a></li></ul></div></div></section></div><script>
             var coll = document.getElementsByClassName('collapsible');
             var checkActiveCategory = true;
             for (var i = 0; i < coll.length; i++) {
@@ -28,10 +26,16 @@
               createToggler('#navToggler', '#docsNav', 'docsSliderActive');
               createToggler('#tocToggler', 'body', 'tocActive');
 
-              const headings = document.querySelector('.toc-headings');
+              var headings = document.querySelector('.toc-headings');
               headings && headings.addEventListener('click', function(event) {
-                if (event.target.tagName === 'A') {
-                  document.body.classList.remove('tocActive');
+                var el = event.target;
+                while(el !== headings){
+                  if (el.tagName === 'A') {
+                    document.body.classList.remove('tocActive');
+                    break;
+                  } else{
+                    el = el.parentNode;
+                  }
                 }
               }, false);
 
@@ -61,35 +65,35 @@ When using docker it is recommended to use environment variables.</p>
 <p><strong>Note</strong>: When strings contain reserved yml characters then they need to be escaped.
 <a href="https://stackoverflow.com/a/22235064/4244993">A list of reserved characters and how to escape them.</a></p>
 <pre><code class="hljs css language-yml"><span class="hljs-attr">server:</span>
-<span class="hljs-attr">  listenaddr:</span> <span class="hljs-string">""</span> <span class="hljs-comment"># the address to bind on, leave empty to bind on all addresses</span>
-<span class="hljs-attr">  port:</span> <span class="hljs-number">80</span> <span class="hljs-comment"># the port for the http server</span>
-<span class="hljs-attr">  ssl:</span>
-<span class="hljs-attr">    enabled:</span> <span class="hljs-literal">false</span> <span class="hljs-comment"># if https should be enabled</span>
-<span class="hljs-attr">    redirecttohttps:</span> <span class="hljs-literal">true</span> <span class="hljs-comment"># redirect to https if site is accessed by http</span>
-<span class="hljs-attr">    listenaddr:</span> <span class="hljs-string">""</span> <span class="hljs-comment"># the address to bind on, leave empty to bind on all addresses</span>
-<span class="hljs-attr">    port:</span> <span class="hljs-number">443</span> <span class="hljs-comment"># the https port</span>
-<span class="hljs-attr">    certfile:</span> <span class="hljs-comment"># the cert file (leave empty when using letsencrypt)</span>
-<span class="hljs-attr">    certkey:</span> <span class="hljs-comment"># the cert key (leave empty when using letsencrypt)</span>
-<span class="hljs-attr">    letsencrypt:</span>
-<span class="hljs-attr">      enabled:</span> <span class="hljs-literal">false</span> <span class="hljs-comment"># if the certificate should be requested from letsencrypt</span>
-<span class="hljs-attr">      accepttos:</span> <span class="hljs-literal">false</span> <span class="hljs-comment"># if you accept the tos from letsencrypt</span>
-<span class="hljs-attr">      cache:</span> <span class="hljs-string">data/certs</span> <span class="hljs-comment"># the directory of the cache from letsencrypt</span>
-<span class="hljs-attr">      hosts:</span> <span class="hljs-comment"># the hosts for which letsencrypt should request certificates</span>
-<span class="hljs-bullet">        -</span> <span class="hljs-string">mydomain.tld</span>
-<span class="hljs-bullet">        -</span> <span class="hljs-string">myotherdomain.tld</span>
-<span class="hljs-attr">  responseheaders:</span> <span class="hljs-comment"># response headers are added to every response (default: none)</span>
-<span class="hljs-attr">    Access-Control-Allow-Origin:</span> <span class="hljs-string">"*"</span>
-<span class="hljs-attr">    Access-Control-Allow-Methods:</span> <span class="hljs-string">"GET,POST"</span>
-<span class="hljs-attr">  stream:</span>
-<span class="hljs-attr">    allowedorigins:</span> <span class="hljs-comment"># allowed origins for websocket connections (same origin is always allowed, default only same origin)</span>
-<span class="hljs-bullet">      -</span> <span class="hljs-string">".+.example.com"</span>
-<span class="hljs-bullet">      -</span> <span class="hljs-string">"otherdomain.com"</span>
+  <span class="hljs-attr">listenaddr:</span> <span class="hljs-string">""</span> <span class="hljs-comment"># the address to bind on, leave empty to bind on all addresses</span>
+  <span class="hljs-attr">port:</span> <span class="hljs-number">80</span> <span class="hljs-comment"># the port for the http server</span>
+  <span class="hljs-attr">ssl:</span>
+    <span class="hljs-attr">enabled:</span> <span class="hljs-literal">false</span> <span class="hljs-comment"># if https should be enabled</span>
+    <span class="hljs-attr">redirecttohttps:</span> <span class="hljs-literal">true</span> <span class="hljs-comment"># redirect to https if site is accessed by http</span>
+    <span class="hljs-attr">listenaddr:</span> <span class="hljs-string">""</span> <span class="hljs-comment"># the address to bind on, leave empty to bind on all addresses</span>
+    <span class="hljs-attr">port:</span> <span class="hljs-number">443</span> <span class="hljs-comment"># the https port</span>
+    <span class="hljs-attr">certfile:</span> <span class="hljs-comment"># the cert file (leave empty when using letsencrypt)</span>
+    <span class="hljs-attr">certkey:</span> <span class="hljs-comment"># the cert key (leave empty when using letsencrypt)</span>
+    <span class="hljs-attr">letsencrypt:</span>
+      <span class="hljs-attr">enabled:</span> <span class="hljs-literal">false</span> <span class="hljs-comment"># if the certificate should be requested from letsencrypt</span>
+      <span class="hljs-attr">accepttos:</span> <span class="hljs-literal">false</span> <span class="hljs-comment"># if you accept the tos from letsencrypt</span>
+      <span class="hljs-attr">cache:</span> <span class="hljs-string">data/certs</span> <span class="hljs-comment"># the directory of the cache from letsencrypt</span>
+      <span class="hljs-attr">hosts:</span> <span class="hljs-comment"># the hosts for which letsencrypt should request certificates</span>
+        <span class="hljs-bullet">-</span> <span class="hljs-string">mydomain.tld</span>
+        <span class="hljs-bullet">-</span> <span class="hljs-string">myotherdomain.tld</span>
+  <span class="hljs-attr">responseheaders:</span> <span class="hljs-comment"># response headers are added to every response (default: none)</span>
+    <span class="hljs-attr">Access-Control-Allow-Origin:</span> <span class="hljs-string">"*"</span>
+    <span class="hljs-attr">Access-Control-Allow-Methods:</span> <span class="hljs-string">"GET,POST"</span>
+  <span class="hljs-attr">stream:</span>
+    <span class="hljs-attr">allowedorigins:</span> <span class="hljs-comment"># allowed origins for websocket connections (same origin is always allowed, default only same origin)</span>
+      <span class="hljs-bullet">-</span> <span class="hljs-string">".+.example.com"</span>
+      <span class="hljs-bullet">-</span> <span class="hljs-string">"otherdomain.com"</span>
 <span class="hljs-attr">database:</span> <span class="hljs-comment"># see below</span>
-<span class="hljs-attr">  dialect:</span> <span class="hljs-string">sqlite3</span>
-<span class="hljs-attr">  connection:</span> <span class="hljs-string">data/gotify.db</span>
+  <span class="hljs-attr">dialect:</span> <span class="hljs-string">sqlite3</span>
+  <span class="hljs-attr">connection:</span> <span class="hljs-string">data/gotify.db</span>
 <span class="hljs-attr">defaultuser:</span> <span class="hljs-comment"># on database creation, gotify creates an admin user (these values will only be used for the first start, if you want to edit the user after the first start use the WebUI)</span>
-<span class="hljs-attr">  name:</span> <span class="hljs-string">admin</span> <span class="hljs-comment"># the username of the default user</span>
-<span class="hljs-attr">  pass:</span> <span class="hljs-string">admin</span> <span class="hljs-comment"># the password of the default user</span>
+  <span class="hljs-attr">name:</span> <span class="hljs-string">admin</span> <span class="hljs-comment"># the username of the default user</span>
+  <span class="hljs-attr">pass:</span> <span class="hljs-string">admin</span> <span class="hljs-comment"># the password of the default user</span>
 <span class="hljs-attr">passstrength:</span> <span class="hljs-number">10</span> <span class="hljs-comment"># the bcrypt password strength (higher = better but also slower)</span>
 <span class="hljs-attr">uploadedimagesdir:</span> <span class="hljs-string">data/images</span> <span class="hljs-comment"># the directory for storing uploaded images</span>
 <span class="hljs-attr">pluginsdir:</span> <span class="hljs-string">data/plugins</span> <span class="hljs-comment"># the directory where plugin resides (leave empty to disable plugins)</span>
