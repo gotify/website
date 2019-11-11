@@ -6,14 +6,15 @@ title: Running as a service
 Like any Linux executable, gotify can be configured to run as a service managed by systemd (available e.g. on Ubuntu Server and Amazon Linux).
 It is also good practice to put executables, logs and program data into their
 standard posix locations:
- - `/var/lib/gotify`: program data
- - `/usr/share/gotify/bin`: executable
- - `/var/log/gotify`: logs
 
+- `/var/lib/gotify`: program data
+- `/usr/share/gotify/bin`: executable
+- `/var/log/gotify`: logs
 
 ## Config
 
 An example config pointing to the right file locations can be seen here:
+
 ```yml
 # Example configuration file for the server.
 # Save it to `systemd-config.yml` when edited
@@ -34,8 +35,8 @@ server:
       accepttos: false # if you accept the tos from letsencrypt
       cache: /var/lib/gotify/certs # the directory of the cache from letsencrypt
       hosts: # the hosts for which letsencrypt should request certificates
-#      - mydomain.tld
-#      - myotherdomain.tld
+  #      - mydomain.tld
+  #      - myotherdomain.tld
 
   responseheaders: # response headers are added to every response (default: none)
     Access-Control-Allow-Origin: "*"
@@ -61,6 +62,7 @@ pluginsdir: /var/lib/gotify/plugins # the directory where plugins reside
 ## `.service` file
 
 To configure systemd for running gotify, we need a `gotify.service` file like this (more on the structure of this file [here](https://www.freedesktop.org/software/systemd/man/systemd.service.html)):
+
 ```
 [Unit]
 Description=gotify
@@ -84,11 +86,13 @@ WantedBy=multi-user.target
 ## Installation
 
 After creating such a `systemd-config.yml` and `gotify.service` file in our unzipped folder containing the binary for linux (see [Installation](installation.md) for details), the only thing left to do is
- - copying the files to the right locations
- - creating a user to run gotify as
- - reload systemd configuration.
+
+- copying the files to the right locations
+- creating a user to run gotify as
+- reload systemd configuration.
 
 You can do this with the following commands (or create a `install-service.sh` file from this, make it executable and run it):
+
 ```bash
 #!/bin/bash
 
@@ -116,15 +120,17 @@ echo "- Start at boot with sudo systemctl enable gotify"
 ```
 
 After this, you can
- - start gotify with `sudo systemctl start gotify`
- - stop gotify with `sudo systemctl stop gotify`
- - run gotify at startup with `sudo systemctl enable gotify`
- - stop running gotify at startup with `sudo systemctl disable gotify`
- - access logs reliably with `sudo journalctl -u gotify`
+
+- start gotify with `sudo systemctl start gotify`
+- stop gotify with `sudo systemctl stop gotify`
+- run gotify at startup with `sudo systemctl enable gotify`
+- stop running gotify at startup with `sudo systemctl disable gotify`
+- access logs reliably with `sudo journalctl -u gotify`
 
 ## Removal
 
 To uninstall gotify, you can do the following (or save as `uninstall-service.sh` and run):
+
 ```bash
 #!/bin/bash
 sudo systemctl stop gotify.service
