@@ -52,6 +52,8 @@ Before starting gotify/server you may read the [Configuration](configuration.md)
 $ sudo ./gotify-linux-amd64
 ```
 
+If you are on a Linux system with `systemd` available and want to run gotify as a Service, you may want to read [Running as a Service](running-as-a-service.md).
+
 ## Source
 
 See [build](build.md).
