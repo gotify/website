@@ -52,6 +52,9 @@ Before starting gotify/server you may read the [Configuration](configuration.md)
 $ sudo ./gotify-linux-amd64
 ```
 
+## Installing in ARM7 (Raspberry Pi)
+Installation Instructions: [Check Here](https://letsfoss.com/setting-up-gotify-in-raspberry-pi/)
+
 ## Source
 
 See [build](build.md).
