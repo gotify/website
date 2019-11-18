@@ -51,6 +51,17 @@ Before starting gotify/server you may read the [Configuration](configuration.md)
 ```bash
 $ sudo ./gotify-linux-amd64
 ```
+## Steps for Installing in ARM7 Devices (Raspberry Pi)
+Download `gotify-linux-arm-7.zip` under [Release](https://github.com/gotify/server/releases) Tab
+
+Navigate to the Downloaded Directory
+
+Unzip the archive `unzip gotify-linux-arm-7.zip`
+
+Give Permission to run as Executable `sudo chmod +x gotify-linux-arm-7`
+
+Now, Run `sudo ./gotify-linux-arm-7`
+
 
 ## Source
 
