@@ -24,24 +24,39 @@ In this example the directory is mounted to `/var/gotify/data` this directory sh
 
 ## Binary
 
-In this tutorial we set up gotify/server v2.0.5 on a 64 bit linux server but it should be similar on other platforms.
+Latest version:
+<a href="https://github.com/gotify/server/releases/latest">
+<img alt="latest release" src="https://img.shields.io/github/release/gotify/server.svg">
+</a>
+
+### Supported Platforms:
+
+- linux-amd64 (64bit)
+- linux-386 (32bit)
+- arm-7 (32bit used for Raspberry Pi)
+- arm64 (ARMv8)
+- windows-386.exe (32bit)
+- windows-amd64.exe (64bit)
 
 Download the zip with the binary for your platform from [gotify/server Releases](https://github.com/gotify/server/releases).
 
+This tutorial uses placeholders for the version and the platform.
+You have to replace `{VERSION}` with the most recent version and `{PLATFORM}` with one of the supported platforms.
+
 ```bash
-$ wget https://github.com/gotify/server/releases/download/v2.0.5/gotify-linux-amd64.zip
+$ wget https://github.com/gotify/server/releases/download/v{VERSION}/gotify-{PLATFORM}.zip
 ```
 
 Unzip the archive.
 
 ```bash
-$ unzip gotify-linux-amd64.zip
+$ unzip gotify-{PLATFORM}.zip
 ```
 
 Make the binary executable.
 
 ```bash
-$ chmod +x gotify-linux-amd64
+$ chmod +x gotify-{PLATFORM}
 ```
 
 Execute gotify/server. (By default gotify/server is started on port 80 so it requires sudo)
@@ -49,7 +64,7 @@ Execute gotify/server. (By default gotify/server is started on port 80 so it req
 Before starting gotify/server you may read the [Configuration](configuration.md) if you f.ex. want to change the port or use a different database.
 
 ```bash
-$ sudo ./gotify-linux-amd64
+$ sudo ./gotify-{PLATFORM}
 ```
 
 ## Source
