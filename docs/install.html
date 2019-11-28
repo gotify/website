@@ -65,20 +65,34 @@
 <p><code>/app/data</code> contains the database file (if sqlite is used), images for applications and cert-files (if lets encrypt is enabled).
 In this example the directory is mounted to <code>/var/gotify/data</code> this directory should be included in a backup.</p>
 <h2><a class="anchor" aria-hidden="true" id="binary"></a><a href="#binary" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Binary</h2>
-<p>In this tutorial we set up gotify/server v2.0.5 on a 64 bit linux server but it should be similar on other platforms.</p>
+<p>Latest version:
+<a href="https://github.com/gotify/server/releases/latest">
+<img alt="latest release" src="https://img.shields.io/github/release/gotify/server.svg">
+</a></p>
+<h3><a class="anchor" aria-hidden="true" id="supported-platforms"></a><a href="#supported-platforms" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Supported Platforms:</h3>
+<ul>
+<li>linux-amd64 (64bit)</li>
+<li>linux-386 (32bit)</li>
+<li>arm-7 (32bit used for Raspberry Pi)</li>
+<li>arm64 (ARMv8)</li>
+<li>windows-386.exe (32bit)</li>
+<li>windows-amd64.exe (64bit)</li>
+</ul>
 <p>Download the zip with the binary for your platform from <a href="https://github.com/gotify/server/releases">gotify/server Releases</a>.</p>
-<pre><code class="hljs css language-bash">$ wget https://github.com/gotify/server/releases/download/v2.0.5/gotify-linux-amd64.zip
+<p>This tutorial uses placeholders for the version and the platform.
+You have to replace <code>{VERSION}</code> with the most recent version and <code>{PLATFORM}</code> with one of the supported platforms.</p>
+<pre><code class="hljs css language-bash">$ wget https://github.com/gotify/server/releases/download/v{VERSION}/gotify-{PLATFORM}.zip
 </code></pre>
 <p>Unzip the archive.</p>
-<pre><code class="hljs css language-bash">$ unzip gotify-linux-amd64.zip
+<pre><code class="hljs css language-bash">$ unzip gotify-{PLATFORM}.zip
 </code></pre>
 <p>Make the binary executable.</p>
-<pre><code class="hljs css language-bash">$ chmod +x gotify-linux-amd64
+<pre><code class="hljs css language-bash">$ chmod +x gotify-{PLATFORM}
 </code></pre>
 <p>Execute gotify/server. (By default gotify/server is started on port 80 so it requires sudo)</p>
 <p>Before starting gotify/server you may read the <a href="/docs/config">Configuration</a> if you f.ex. want to change the port or use a different database.</p>
-<pre><code class="hljs css language-bash">$ sudo ./gotify-linux-amd64
+<pre><code class="hljs css language-bash">$ sudo ./gotify-{PLATFORM}
 </code></pre>
 <h2><a class="anchor" aria-hidden="true" id="source"></a><a href="#source" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Source</h2>
 <p>See <a href="/docs/build">build</a>.</p>
-</span></div></article></div><div class="docs-prevnext"><a class="docs-prev button" href="/docs/index"><span class="arrow-prev">← </span><span>Intro</span></a><a class="docs-next button" href="/docs/config"><span>Configuration</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#docker">Docker</a></li><li><a href="#binary">Binary</a></li><li><a href="#source">Source</a></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="copyright">Copyright © 2019 Gotify</section></footer></div></body></html>
+</span></div></article></div><div class="docs-prevnext"><a class="docs-prev button" href="/docs/index"><span class="arrow-prev">← </span><span>Intro</span></a><a class="docs-next button" href="/docs/config"><span>Configuration</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#docker">Docker</a></li><li><a href="#binary">Binary</a><ul class="toc-headings"><li><a href="#supported-platforms">Supported Platforms:</a></li></ul></li><li><a href="#source">Source</a></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="copyright">Copyright © 2019 Gotify</section></footer></div></body></html>
