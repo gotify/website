@@ -115,3 +115,101 @@ axios({
     }
   });
 ```
+
+### Java
+
+With maven dependency:
+```
+<dependency>
+    <groupId>com.fasterxml.jackson.core</groupId>
+    <artifactId>jackson-databind</artifactId>
+    <version>2.9.8</version>
+</dependency>
+```
+And code:
+```
+package com.gotify.client;
+
+import com.fasterxml.jackson.databind.ObjectMapper;
+
+import java.io.BufferedReader;
+import java.io.DataOutputStream;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.net.HttpURLConnection;
+import java.net.URL;
+
+public class GotifyClient {
+
+    // example main method
+    public static void main(String[] args) throws IOException {
+        GotifyClient client = new GotifyClient("http://localhost:8008/message?token=<apptoken>");
+        client.sendMessage("Hi there", "Hello from Java", 5);
+    }
+
+    String gotifyUrl;
+
+    public GotifyClient(String gotifyUrl) {
+        this.gotifyUrl = gotifyUrl;
+    }
+
+    public void sendMessage(String msg, String title, int priority) throws IOException {
+        Message message = new Message(msg, priority, title);
+        ObjectMapper mapper = new ObjectMapper();
+        doHTTPPost(gotifyUrl, mapper.writeValueAsString(message));
+    }
+
+    static String doHTTPPost(String urlString, String params) throws IOException {
+        URL url = new URL(urlString);
+        HttpURLConnection yc = (HttpURLConnection) url.openConnection();
+        yc.setRequestMethod("POST");
+        yc.setRequestProperty("Content-Type", "application/json");
+        yc.setDoOutput(true);
+        DataOutputStream wr = new DataOutputStream(yc.getOutputStream());
+        wr.writeBytes(params);
+        wr.flush();
+        wr.close();
+
+        BufferedReader in = new BufferedReader(new InputStreamReader(yc.getInputStream()));
+        String inputLine = in.readLine();
+        in.close();
+        return inputLine;
+    }
+
+    public static class Message {
+        String message;
+        int priority;
+        String title;
+
+        public Message(String message, int priority, String title) {
+            this.message = message;
+            this.priority = priority;
+            this.title = title;
+        }
+
+        public String getMessage() {
+            return message;
+        }
+
+        public void setMessage(String message) {
+            this.message = message;
+        }
+
+        public int getPriority() {
+            return priority;
+        }
+
+        public void setPriority(int priority) {
+            this.priority = priority;
+        }
+
+        public String getTitle() {
+            return title;
+        }
+
+        public void setTitle(String title) {
+            this.title = title;
+        }
+    }
+}
+```
