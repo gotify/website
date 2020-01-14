@@ -119,7 +119,7 @@ axios({
 ### Java
 
 With maven dependency:
-```
+```xml
 <dependency>
     <groupId>com.fasterxml.jackson.core</groupId>
     <artifactId>jackson-databind</artifactId>
@@ -127,7 +127,7 @@ With maven dependency:
 </dependency>
 ```
 And code:
-```
+```java
 package com.gotify.client;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
