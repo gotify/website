@@ -147,7 +147,7 @@ public class GotifyClient {
         client.sendMessage("Hi there", "Hello from Java", 5);
     }
 
-    String gotifyUrl;
+    private String gotifyUrl;
 
     public GotifyClient(String gotifyUrl) {
         this.gotifyUrl = gotifyUrl;
@@ -159,7 +159,7 @@ public class GotifyClient {
         doHTTPPost(gotifyUrl, mapper.writeValueAsString(message));
     }
 
-    static String doHTTPPost(String urlString, String params) throws IOException {
+    private static String doHTTPPost(String urlString, String params) throws IOException {
         URL url = new URL(urlString);
         HttpURLConnection yc = (HttpURLConnection) url.openConnection();
         yc.setRequestMethod("POST");
