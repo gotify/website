@@ -119,6 +119,7 @@ axios({
 ### Java
 
 With maven dependency:
+
 ```xml
 <dependency>
     <groupId>com.fasterxml.jackson.core</groupId>
@@ -126,7 +127,9 @@ With maven dependency:
     <version>2.10.1</version>
 </dependency>
 ```
+
 And code:
+
 ```java
 package com.gotify.client;
 
