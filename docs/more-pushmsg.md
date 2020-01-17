@@ -131,49 +131,42 @@ And code:
 package com.gotify.client;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-
-import java.io.BufferedReader;
-import java.io.DataOutputStream;
 import java.io.IOException;
-import java.io.InputStreamReader;
+import java.io.OutputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
 public class GotifyClient {
+    private static final ObjectMapper MAPPER = new ObjectMapper();
 
     // example main method
     public static void main(String[] args) throws IOException {
         GotifyClient client = new GotifyClient("http://localhost:8008/message?token=<apptoken>");
-        client.sendMessage("Hi there", "Hello from Java", 5);
+        Message message = new Message("My Title", "Hello from Java!", 10);
+        if (client.sendMessage(message)) {
+            System.out.println("Message sent!");
+        } else {
+            System.out.println("Something went wrong :(.");
+        }
     }
 
-    private String gotifyUrl;
+    private final String gotifyUrl;
 
     public GotifyClient(String gotifyUrl) {
         this.gotifyUrl = gotifyUrl;
     }
 
-    public void sendMessage(String msg, String title, int priority) throws IOException {
-        Message message = new Message(msg, priority, title);
-        ObjectMapper mapper = new ObjectMapper();
-        doHTTPPost(gotifyUrl, mapper.writeValueAsString(message));
-    }
+    private boolean sendMessage(Message message) throws IOException {
+        URL url = new URL(gotifyUrl);
+        HttpURLConnection connection = (HttpURLConnection) url.openConnection();
+        connection.setRequestMethod("POST");
+        connection.setRequestProperty("Content-Type", "application/json");
+        connection.setDoOutput(true);
+        try (OutputStream outputStream = connection.getOutputStream()) {
+            MAPPER.writeValue(outputStream, message);
+        }
 
-    private static String doHTTPPost(String urlString, String params) throws IOException {
-        URL url = new URL(urlString);
-        HttpURLConnection yc = (HttpURLConnection) url.openConnection();
-        yc.setRequestMethod("POST");
-        yc.setRequestProperty("Content-Type", "application/json");
-        yc.setDoOutput(true);
-        DataOutputStream wr = new DataOutputStream(yc.getOutputStream());
-        wr.writeBytes(params);
-        wr.flush();
-        wr.close();
-
-        BufferedReader in = new BufferedReader(new InputStreamReader(yc.getInputStream()));
-        String inputLine = in.readLine();
-        in.close();
-        return inputLine;
+        return connection.getResponseCode() >= 200 && connection.getResponseCode() < 400;
     }
 
     public static class Message {
@@ -181,35 +174,18 @@ public class GotifyClient {
         int priority;
         String title;
 
-        public Message(String message, int priority, String title) {
+        public Message(String title, String message, int priority) {
             this.message = message;
             this.priority = priority;
             this.title = title;
         }
 
-        public String getMessage() {
-            return message;
-        }
-
-        public void setMessage(String message) {
-            this.message = message;
-        }
-
-        public int getPriority() {
-            return priority;
-        }
-
-        public void setPriority(int priority) {
-            this.priority = priority;
-        }
-
-        public String getTitle() {
-            return title;
-        }
-
-        public void setTitle(String title) {
-            this.title = title;
-        }
+        public String getMessage() { return message; }
+        public void setMessage(String message) { this.message = message; }
+        public int getPriority() { return priority; }
+        public void setPriority(int priority) { this.priority = priority; }
+        public String getTitle() { return title; }
+        public void setTitle(String title) { this.title = title; }
     }
 }
 ```
