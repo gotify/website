@@ -123,7 +123,7 @@ With maven dependency:
 <dependency>
     <groupId>com.fasterxml.jackson.core</groupId>
     <artifactId>jackson-databind</artifactId>
-    <version>2.9.8</version>
+    <version>2.10.1</version>
 </dependency>
 ```
 And code:
