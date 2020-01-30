@@ -7,7 +7,7 @@ As already indicated in [Intro](index.md) you need an application to push messag
 An application can be added via
 
 - WebUI: click the `apps`-tab in the upper right corner when logged in and add an application
-- REST-API: `curl -u admin:admin -X POST https://yourdomain.com/application -F "name=test" -F "description=tutorial"`
+- REST-API: `curl -u admin:admin https://yourdomain.com/application -F "name=test" -F "description=tutorial"`
   See [API-Docs](https://gotify.github.io/api-docs/)
 
 To authenticate as an application you need the application token.
@@ -16,7 +16,7 @@ The token is returned in the REST request and is viewable in the WebUI.
 Now you can simply use [curl](https://curl.haxx.se/), [HTTPie](https://httpie.org/) or any other http-client to push messages.
 
 ```bash
-$ curl -X POST "https://push.example.de/message?token=<apptoken>" -F "title=my title" -F "message=my message" -F "priority=5"
+$ curl "https://push.example.de/message?token=<apptoken>" -F "title=my title" -F "message=my message" -F "priority=5"
 $ http -f POST "https://push.example.de/message?token=<apptoken>" title="my title" message="my message" priority="5"
 ```
 
