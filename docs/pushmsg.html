@@ -58,13 +58,13 @@
 An application can be added via</p>
 <ul>
 <li>WebUI: click the <code>apps</code>-tab in the upper right corner when logged in and add an application</li>
-<li>REST-API: <code>curl -u admin:admin -X POST https://yourdomain.com/application -F &quot;name=test&quot; -F &quot;description=tutorial&quot;</code>
+<li>REST-API: <code>curl -u admin:admin https://yourdomain.com/application -F &quot;name=test&quot; -F &quot;description=tutorial&quot;</code>
 See <a href="https://gotify.github.io/api-docs/">API-Docs</a></li>
 </ul>
 <p>To authenticate as an application you need the application token.
 The token is returned in the REST request and is viewable in the WebUI.</p>
 <p>Now you can simply use <a href="https://curl.haxx.se/">curl</a>, <a href="https://httpie.org/">HTTPie</a> or any other http-client to push messages.</p>
-<pre><code class="hljs css language-bash">$ curl -X POST <span class="hljs-string">"https://push.example.de/message?token=&lt;apptoken&gt;"</span> -F <span class="hljs-string">"title=my title"</span> -F <span class="hljs-string">"message=my message"</span> -F <span class="hljs-string">"priority=5"</span>
+<pre><code class="hljs css language-bash">$ curl <span class="hljs-string">"https://push.example.de/message?token=&lt;apptoken&gt;"</span> -F <span class="hljs-string">"title=my title"</span> -F <span class="hljs-string">"message=my message"</span> -F <span class="hljs-string">"priority=5"</span>
 $ http -f POST <span class="hljs-string">"https://push.example.de/message?token=&lt;apptoken&gt;"</span> title=<span class="hljs-string">"my title"</span> message=<span class="hljs-string">"my message"</span> priority=<span class="hljs-string">"5"</span>
 </code></pre>
 <blockquote>
