@@ -37,6 +37,17 @@ server:
   responseheaders: # response headers are added to every response (default: none)
     Access-Control-Allow-Origin: "*"
     Access-Control-Allow-Methods: "GET,POST"
+  cors: # A better way to define CORS headers. NOTE: setting the CORS headers above will override the CORS config defined here
+    alloworigins:
+      - ".+.example.com"
+      - "otherdomain.com"
+    allowmethods:
+      - "GET"
+      - "POST"
+    allowheaders:
+      - "Authorization"
+      - "content-type"
+
   stream:
     allowedorigins: # allowed origins for websocket connections (same origin is always allowed, default only same origin)
       - ".+.example.com"
@@ -93,6 +104,10 @@ GOTIFY_SERVER_SSL_LETSENCRYPT_CACHE=certs
 # lists are a little weird but do-able (:
 GOTIFY_SERVER_SSL_LETSENCRYPT_HOSTS=- mydomain.tld\n- myotherdomain.tld
 GOTIFY_SERVER_RESPONSEHEADERS="Access-Control-Allow-Origin: \"*\"\nAccess-Control-Allow-Methods: \"GET,POST\""
+# NOTE: setting CORS headers in RESPONSEHEADERS above will override the CORS config below
+GOTIFY_SERVER_CORS_ALLOWORIGINS="- \".+.example.com\"\n- \"otherdomain.com\""
+GOTIFY_SERVER_CORS_ALLOWMETHODS="- \"GET\"\n- \"POST\""
+GOTIFY_SERVER_CORS_ALLOWHEADERS="- \"Authorization\"\n- \"content-type\""
 GOTIFY_SERVER_STREAM_ALLOWEDORIGINS="- \".+.example.com\"\n- \"otherdomain.com\""
 GOTIFY_DATABASE_DIALECT=sqlite3
 GOTIFY_DATABASE_CONNECTION=data/gotify.db
