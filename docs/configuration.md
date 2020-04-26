@@ -32,21 +32,21 @@ server:
       accepttos: false # if you accept the tos from letsencrypt
       cache: data/certs # the directory of the cache from letsencrypt
       hosts: # the hosts for which letsencrypt should request certificates
-#       - mydomain.tld
-#       - myotherdomain.tld
+  #     - mydomain.tld
+  #     - myotherdomain.tld
   responseheaders: # response headers are added to every response (default: none)
-#    X-Custom-Header: "custom value"
+  # X-Custom-Header: "custom value"
 
   cors: # Sets cors headers only when needed and provides support for multiple allowed origins. Overrides Access-Control-* Headers in response headers.
     alloworigins:
-#     - ".+.example.com"
-#     - "otherdomain.com"
+    # - ".+.example.com"
+    # - "otherdomain.com"
     allowmethods:
-#     - "GET"
-#     - "POST"
+    # - "GET"
+    # - "POST"
     allowheaders:
-#     - "Authorization"
-#     - "content-type"
+  #   - "Authorization"
+  #   - "content-type"
 
   stream:
     allowedorigins: # allowed origins for websocket connections (same origin is always allowed, default only same origin)
