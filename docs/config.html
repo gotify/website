@@ -82,8 +82,19 @@ When using docker it is recommended to use environment variables.</p>
         <span class="hljs-bullet">-</span> <span class="hljs-string">mydomain.tld</span>
         <span class="hljs-bullet">-</span> <span class="hljs-string">myotherdomain.tld</span>
   <span class="hljs-attr">responseheaders:</span> <span class="hljs-comment"># response headers are added to every response (default: none)</span>
-    <span class="hljs-attr">Access-Control-Allow-Origin:</span> <span class="hljs-string">"*"</span>
-    <span class="hljs-attr">Access-Control-Allow-Methods:</span> <span class="hljs-string">"GET,POST"</span>
+    <span class="hljs-attr">X-Custom-Header:</span> <span class="hljs-string">"custom value"</span>
+
+  <span class="hljs-attr">cors:</span> <span class="hljs-comment"># Sets cors headers only when needed and provides support for multiple allowed origins. Overrides Access-Control-* Headers in response headers.</span>
+    <span class="hljs-attr">alloworigins:</span>
+      <span class="hljs-bullet">-</span> <span class="hljs-string">".+.example.com"</span>
+      <span class="hljs-bullet">-</span> <span class="hljs-string">"otherdomain.com"</span>
+    <span class="hljs-attr">allowmethods:</span>
+      <span class="hljs-bullet">-</span> <span class="hljs-string">"GET"</span>
+      <span class="hljs-bullet">-</span> <span class="hljs-string">"POST"</span>
+    <span class="hljs-attr">allowheaders:</span>
+      <span class="hljs-bullet">-</span> <span class="hljs-string">"Authorization"</span>
+      <span class="hljs-bullet">-</span> <span class="hljs-string">"content-type"</span>
+
   <span class="hljs-attr">stream:</span>
     <span class="hljs-attr">allowedorigins:</span> <span class="hljs-comment"># allowed origins for websocket connections (same origin is always allowed, default only same origin)</span>
       <span class="hljs-bullet">-</span> <span class="hljs-string">".+.example.com"</span>
@@ -132,7 +143,11 @@ GOTIFY_SERVER_SSL_LETSENCRYPT_ACCEPTTOS=<span class="hljs-literal">false</span>
 GOTIFY_SERVER_SSL_LETSENCRYPT_CACHE=certs
 <span class="hljs-comment"># lists are a little weird but do-able (:</span>
 GOTIFY_SERVER_SSL_LETSENCRYPT_HOSTS=- mydomain.tld\n- myotherdomain.tld
-GOTIFY_SERVER_RESPONSEHEADERS=<span class="hljs-string">"Access-Control-Allow-Origin: \"*\"\nAccess-Control-Allow-Methods: \"GET,POST\""</span>
+GOTIFY_SERVER_RESPONSEHEADERS=<span class="hljs-string">"X-Custom-Header: \"custom value\""</span>
+<span class="hljs-comment"># <span class="hljs-doctag">NOTE:</span> override Access-Control-* Headers on responseheaders</span>
+GOTIFY_SERVER_CORS_ALLOWORIGINS=<span class="hljs-string">"- \".+.example.com\"\n- \"otherdomain.com\""</span>
+GOTIFY_SERVER_CORS_ALLOWMETHODS=<span class="hljs-string">"- \"GET\"\n- \"POST\""</span>
+GOTIFY_SERVER_CORS_ALLOWHEADERS=<span class="hljs-string">"- \"Authorization\"\n- \"content-type\""</span>
 GOTIFY_SERVER_STREAM_ALLOWEDORIGINS=<span class="hljs-string">"- \".+.example.com\"\n- \"otherdomain.com\""</span>
 GOTIFY_DATABASE_DIALECT=sqlite3
 GOTIFY_DATABASE_CONNECTION=data/gotify.db
