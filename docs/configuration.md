@@ -32,26 +32,26 @@ server:
       accepttos: false # if you accept the tos from letsencrypt
       cache: data/certs # the directory of the cache from letsencrypt
       hosts: # the hosts for which letsencrypt should request certificates
-        - mydomain.tld
-        - myotherdomain.tld
+#       - mydomain.tld
+#       - myotherdomain.tld
   responseheaders: # response headers are added to every response (default: none)
-    X-Custom-Header: "custom value"
+#    X-Custom-Header: "custom value"
 
   cors: # Sets cors headers only when needed and provides support for multiple allowed origins. Overrides Access-Control-* Headers in response headers.
     alloworigins:
-      - ".+.example.com"
-      - "otherdomain.com"
+#     - ".+.example.com"
+#     - "otherdomain.com"
     allowmethods:
-      - "GET"
-      - "POST"
+#     - "GET"
+#     - "POST"
     allowheaders:
-      - "Authorization"
-      - "content-type"
+#     - "Authorization"
+#     - "content-type"
 
   stream:
     allowedorigins: # allowed origins for websocket connections (same origin is always allowed, default only same origin)
-      - ".+.example.com"
-      - "otherdomain.com"
+#     - ".+.example.com"
+#     - "otherdomain.com"
 database: # see below
   dialect: sqlite3
   connection: data/gotify.db
@@ -102,13 +102,12 @@ GOTIFY_SERVER_SSL_LETSENCRYPT_ENABLED=false
 GOTIFY_SERVER_SSL_LETSENCRYPT_ACCEPTTOS=false
 GOTIFY_SERVER_SSL_LETSENCRYPT_CACHE=certs
 # lists are a little weird but do-able (:
-GOTIFY_SERVER_SSL_LETSENCRYPT_HOSTS=- mydomain.tld\n- myotherdomain.tld
+# GOTIFY_SERVER_SSL_LETSENCRYPT_HOSTS=- mydomain.tld\n- myotherdomain.tld
 GOTIFY_SERVER_RESPONSEHEADERS="X-Custom-Header: \"custom value\""
-# NOTE: override Access-Control-* Headers on responseheaders
-GOTIFY_SERVER_CORS_ALLOWORIGINS="- \".+.example.com\"\n- \"otherdomain.com\""
-GOTIFY_SERVER_CORS_ALLOWMETHODS="- \"GET\"\n- \"POST\""
-GOTIFY_SERVER_CORS_ALLOWHEADERS="- \"Authorization\"\n- \"content-type\""
-GOTIFY_SERVER_STREAM_ALLOWEDORIGINS="- \".+.example.com\"\n- \"otherdomain.com\""
+# GOTIFY_SERVER_CORS_ALLOWORIGINS="- \".+.example.com\"\n- \"otherdomain.com\""
+# GOTIFY_SERVER_CORS_ALLOWMETHODS="- \"GET\"\n- \"POST\""
+# GOTIFY_SERVER_CORS_ALLOWHEADERS="- \"Authorization\"\n- \"content-type\""
+# GOTIFY_SERVER_STREAM_ALLOWEDORIGINS="- \".+.example.com\"\n- \"otherdomain.com\""
 GOTIFY_DATABASE_DIALECT=sqlite3
 GOTIFY_DATABASE_CONNECTION=data/gotify.db
 GOTIFY_DEFAULTUSER_NAME=admin
