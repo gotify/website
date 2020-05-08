@@ -11,14 +11,16 @@ Extras are stored in a key-value scheme and are only accepted in `POST /message`
 Keys under `.extras` should be in the following format: `<top-namespace>::[<sub-namespace>::]<action>`.
 Some of the namespaces are used by official clients:
 
-| Namespace                            | Description                             |
-| ------------------------------------ | --------------------------------------- |
-| [`client::display`](#client-display) | Changes how client displays information |
-| `client::*`                          | Reserved                                |
-| `android::*`                         | Reserved                                |
-| `ios::*`                             | Reserved                                |
-| `server::*`                          | Reserved                                |
-| All Other                            | Defined by end-users                    |
+| Namespace                                      | Description                             |
+| ---------------------------------------------- | --------------------------------------- |
+| `client::*`                                    | Reserved                                |
+| [`client::display`](#client-display)           | Changes how client displays information |
+| [`client::notification`](#client-notification) | Customizes the notification             |
+| `android::*`                                   | Reserved                                |
+| [`android::action`](#android-action)           | React to events                         |
+| `ios::*`                                       | Reserved                                |
+| `server::*`                                    | Reserved                                |
+| All Other                                      | Defined by end-users                    |
 
 ## `client::display`
 
@@ -58,3 +60,49 @@ Some of the namespaces are used by official clients:
 | ---------------- | ------ | --------------------------------------------------------------- |
 | gotify/server ui | v2.0.5 | Uses [GitHub Flavored Markdown](https://github.github.com/gfm/) |
 | gotify/android   | v2.0.7 | Uses [commonmark-spec](https://spec.commonmark.org/0.28/)       |
+
+## `client::notification`
+
+#### Definition
+
+`click`.`url` (string): Opens an URL on notification click.
+
+#### Example
+
+```json
+{
+  "extras": {
+    "client::notification": {
+      "click": { "url": "https://gotify.net" }
+    }
+  }
+}
+```
+
+#### Support
+
+| Client         | since   | description                                    |
+| -------------- | ------- | ---------------------------------------------- |
+| gotify/android | v2.0.10 | Prevents the default of opening the Gotify app |
+
+## `android::action`
+
+`onReceive`.`intentUrl` (string): Opens an intent after the notification was delivered.
+
+#### Example
+
+```json
+{
+  "extras": {
+    "android::action": {
+      "onReceive": { "intentUrl": "https://gotify.net" }
+    }
+  }
+}
+```
+
+#### Support
+
+| Client         | since   | description                                                        |
+| -------------- | ------- | ------------------------------------------------------------------ |
+| gotify/android | v2.0.11 | Only works when the gotify app is in focus (limitation of android) |
