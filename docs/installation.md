@@ -22,6 +22,32 @@ $ docker run -p 80:80 -v /var/gotify/data:/app/data gotify/server-arm7
 `/app/data` contains the database file (if sqlite is used), images for applications and cert-files (if lets encrypt is enabled).
 In this example the directory is mounted to `/var/gotify/data` this directory should be included in a backup.
 
+The time zone inside the container is configurable via the `TZ` environment variable:
+
+```bash
+$ docker run -p 80:80 -e TZ="Europe/Berlin" -v /var/gotify/data:/app/data gotify/server
+```
+
+<details><summary>Docker Compose</summary>
+<p>
+
+```yml
+version: "3"
+
+services:
+  gotify:
+    image: gotify/server
+    ports:
+      - 8080:80
+    environment:
+      - GOTIFY_DEFAULTUSER_PASS=custom
+    volumes:
+      - "./gotify_data:/app/data"
+```
+
+</p>
+</details>
+
 ## Binary
 
 Latest version:
