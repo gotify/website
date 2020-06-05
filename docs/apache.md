@@ -56,3 +56,20 @@ The following modules are required:
     ProxyPassReverse /gotify/ http://127.0.0.1:GOTIFY_PORT/
 </VirtualHost>
 ```
+
+## Troubleshooting
+
+With some additional Apache configuration, the `ProxyPass` for the `/stream` endpoint may not work correctly.
+The request fails with `400 Bad Request` and the following error is logged inside gotify/server.
+
+```
+Error #01: websocket: the client is not using the websocket protocol: 'upgrade' token not found in 'Connection' header
+```
+
+To fix this issue, add the following rewrite rule to your virtual host config:
+
+```
+RewriteEngine  on
+RewriteCond %{HTTP:Upgrade} =websocket
+RewriteRule /gotify/stream(.*) ws://127.0.0.1:GOTIFY_PORT/stream$1 [P,L]
+```
