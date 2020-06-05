@@ -7,6 +7,7 @@ Here are configuration examples for setting up apache as reverse proxy for gotif
 
 The following modules are required:
 
+- mod_rewrite
 - mod_proxy
 - mod_proxy_wstunnel
 - mod_proxy_http
@@ -47,6 +48,9 @@ The following modules are required:
     ProxyPreserveHost On
 
     # Proxy web socket requests to /stream
+    RewriteEngine  on
+    RewriteCond %{HTTP:Upgrade} =websocket
+    RewriteRule /gotify/stream(.*) ws://127.0.0.1:GOTIFY_PORT/stream$1 [P,L]
     ProxyPass "/gotify/stream" ws://127.0.0.1:GOTIFY_PORT/stream retry=0 timeout=5
 
     # Proxy all other requests to /
