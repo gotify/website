@@ -16,7 +16,7 @@ title: Build Gotify
    Run [packr](https://github.com/gobuffalo/packr) (embeds static assets in go binaries)
 
    ```bash
-   $ packr
+   $ go run hack/packr/packr.go
    ```
 
 1. Build the Go Binary
