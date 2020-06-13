@@ -131,21 +131,21 @@ curl_close ($ch);
 <span class="hljs-keyword">var</span> bodyFormData = {
   <span class="hljs-attr">title</span>: <span class="hljs-string">"Hello from Javascript"</span>,
   <span class="hljs-attr">message</span>: <span class="hljs-string">"Test Push Service from Node.js"</span>,
-  <span class="hljs-attr">priority</span>: <span class="hljs-number">5</span>
+  <span class="hljs-attr">priority</span>: <span class="hljs-number">5</span>,
 };
 
 axios({
   <span class="hljs-attr">method</span>: <span class="hljs-string">"post"</span>,
   <span class="hljs-attr">headers</span>: {
-    <span class="hljs-string">"Content-Type"</span>: <span class="hljs-string">"application/json"</span>
+    <span class="hljs-string">"Content-Type"</span>: <span class="hljs-string">"application/json"</span>,
   },
   <span class="hljs-attr">url</span>: url,
-  <span class="hljs-attr">data</span>: bodyFormData
+  <span class="hljs-attr">data</span>: bodyFormData,
 })
-  .then(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">response</span>) </span>{
+  .then(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">response</span>) </span>{
     <span class="hljs-built_in">console</span>.log(response.data);
   })
-  .catch(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">error</span>) </span>{
+  .catch(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">error</span>) </span>{
     <span class="hljs-keyword">if</span> (!error.response) {
       <span class="hljs-built_in">console</span>.log(error);
     } <span class="hljs-keyword">else</span> {
