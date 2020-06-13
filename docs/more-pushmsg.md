@@ -93,21 +93,21 @@ var url = "http://localhost:8008/message?token=<apptoken>";
 var bodyFormData = {
   title: "Hello from Javascript",
   message: "Test Push Service from Node.js",
-  priority: 5
+  priority: 5,
 };
 
 axios({
   method: "post",
   headers: {
-    "Content-Type": "application/json"
+    "Content-Type": "application/json",
   },
   url: url,
-  data: bodyFormData
+  data: bodyFormData,
 })
-  .then(function(response) {
+  .then(function (response) {
     console.log(response.data);
   })
-  .catch(function(error) {
+  .catch(function (error) {
     if (!error.response) {
       console.log(error);
     } else {
