@@ -82,6 +82,8 @@ $ wget -O config.yml https://raw.githubusercontent.com/gotify/server/master/conf
 When using postgres without SSL then `sslmode=disable` must be added to the connection string.
 See [#90](https://github.com/gotify/server/issues/90).
 
+> For `mysql` and `postgres`: Make sure the defined database exists and the user has sufficient permissions.
+
 ## Environment Variables
 
 Strings in list or map environment settings (f.ex. `GOTIFY_SERVER_RESPONSEHEADERS` and `GOTIFY_SERVER_SSL_LETSENCRYPT_HOSTS`) need to be escaped.
