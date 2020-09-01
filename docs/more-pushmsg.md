@@ -192,3 +192,14 @@ public class GotifyClient {
     }
 }
 ```
+
+### Wget
+
+```sh
+token="<apptoken>"
+subject="wget"
+message="Test push from wget"
+priority=5
+
+wget "http://localhost:8008/message?token=$token" --post-data "title=$subject&message=$message&priority=$priority" -O /dev/null
+```
