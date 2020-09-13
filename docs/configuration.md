@@ -18,6 +18,7 @@ gotify/server looks in the following paths for config files
 
 ```yml
 server:
+  keepaliveperiodseconds: 0 # 0 = use system default; set the interval in which keepalive packages will be sent. Only change this value if you know what you are doing.
   listenaddr: "" # the address to bind on, leave empty to bind on all addresses
   port: 80 # the port for the http server
   ssl:
@@ -49,6 +50,7 @@ server:
   #   - "content-type"
 
   stream:
+    pingperiodseconds: 45 # the interval in which websocket pings will be sent. Only change this value if you know what you are doing.
     allowedorigins: # allowed origins for websocket connections (same origin is always allowed, default only same origin)
 #     - ".+.example.com"
 #     - "otherdomain.com"
@@ -93,6 +95,7 @@ See yml config documentation.
 
 ```bash
 GOTIFY_SERVER_PORT=80
+GOTIFY_SERVER_KEEPALIVEPERIODSECONDS=0
 GOTIFY_SERVER_LISTENADDR=
 GOTIFY_SERVER_SSL_ENABLED=false
 GOTIFY_SERVER_SSL_REDIRECTTOHTTPS=true
@@ -110,6 +113,7 @@ GOTIFY_SERVER_RESPONSEHEADERS="X-Custom-Header: \"custom value\""
 # GOTIFY_SERVER_CORS_ALLOWMETHODS="- \"GET\"\n- \"POST\""
 # GOTIFY_SERVER_CORS_ALLOWHEADERS="- \"Authorization\"\n- \"content-type\""
 # GOTIFY_SERVER_STREAM_ALLOWEDORIGINS="- \".+.example.com\"\n- \"otherdomain.com\""
+GOTIFY_SERVER_STREAM_PINGPERIODSECONDS=45
 GOTIFY_DATABASE_DIALECT=sqlite3
 GOTIFY_DATABASE_CONNECTION=data/gotify.db
 GOTIFY_DEFAULTUSER_NAME=admin
