@@ -1,5 +1,5 @@
 # Gotify Website [![travis-badge][travis-badge]][travis]
-
+# to go on the Website click on the given link below.
 -> https://gotify.net
 
 ## Run locally
