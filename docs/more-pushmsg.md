@@ -89,8 +89,8 @@ switch ($code) {
 ```javascript
 const axios = require("axios");
 
-var url = "http://localhost:8008/message?token=<apptoken>";
-var bodyFormData = {
+const url = "http://localhost:8008/message?token=<apptoken>";
+const bodyFormData = {
   title: "Hello from Javascript",
   message: "Test Push Service from Node.js",
   priority: 5,
@@ -104,27 +104,19 @@ axios({
   url: url,
   data: bodyFormData,
 })
-  .then(function (response) {
-    console.log(response.data);
-  })
-  .catch(function (error) {
-    if (!error.response) {
-      console.log(error);
-    } else {
-      console.log(error.response.data);
-    }
-  });
+  .then((response) => console.log(response.data))
+  .catch((err) => console.log(err.response ? error.response.data : err));
 ```
 
-### Java
+### Java 11
 
-With maven dependency:
+With Maven dependency:
 
 ```xml
 <dependency>
     <groupId>com.fasterxml.jackson.core</groupId>
     <artifactId>jackson-databind</artifactId>
-    <version>2.10.1</version>
+    <version>2.12.1</version>
 </dependency>
 ```
 
@@ -134,18 +126,20 @@ And code:
 package com.gotify.client;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+
 import java.io.IOException;
-import java.io.OutputStream;
-import java.net.HttpURLConnection;
-import java.net.URL;
+import java.net.URI;
+import java.net.http.HttpClient;
+import java.net.http.HttpRequest;
+import java.net.http.HttpResponse;
 
 public class GotifyClient {
-    private static final ObjectMapper MAPPER = new ObjectMapper();
+    private static final String BASE_URL = "http://localhost:8080";
+    private static final String TOKEN = "<YOUR_TOKEN>";
 
-    // example main method
-    public static void main(String[] args) throws IOException {
-        GotifyClient client = new GotifyClient("http://localhost:8008/message?token=<apptoken>");
-        Message message = new Message("My Title", "Hello from Java!", 10);
+    public static void main(String[] args) throws IOException, InterruptedException {
+        final var client = new GotifyClient(BASE_URL, TOKEN);
+        final var message = new Message("My Title", "Hello from Java!", 10);
         if (client.sendMessage(message)) {
             System.out.println("Message sent!");
         } else {
@@ -154,28 +148,34 @@ public class GotifyClient {
     }
 
     private final String gotifyUrl;
+    private final HttpClient httpClient;
+    private final ObjectMapper objectMapper;
 
-    public GotifyClient(String gotifyUrl) {
-        this.gotifyUrl = gotifyUrl;
+    public GotifyClient(String baseUrl, String token) {
+        this.gotifyUrl = String.format("%s/message?token=%s", baseUrl, token);
+        this.httpClient = HttpClient.newHttpClient();
+        this.objectMapper = new ObjectMapper();
     }
 
-    private boolean sendMessage(Message message) throws IOException {
-        URL url = new URL(gotifyUrl);
-        HttpURLConnection connection = (HttpURLConnection) url.openConnection();
-        connection.setRequestMethod("POST");
-        connection.setRequestProperty("Content-Type", "application/json");
-        connection.setDoOutput(true);
-        try (OutputStream outputStream = connection.getOutputStream()) {
-            MAPPER.writeValue(outputStream, message);
-        }
+    private boolean sendMessage(Message message) throws IOException, InterruptedException {
+        final var bodyData = objectMapper.writeValueAsString(message);
 
-        return connection.getResponseCode() >= 200 && connection.getResponseCode() < 400;
+        final var request = HttpRequest.newBuilder()
+                .uri(URI.create(gotifyUrl))
+                .header("Content-Type", "application/json")
+                .POST(HttpRequest.BodyPublishers.ofString(bodyData))
+                .build();
+
+        final var response = httpClient.send(request, HttpResponse.BodyHandlers.ofString());
+        System.out.println(response.body());
+
+        return response.statusCode() >= 200 && response.statusCode() < 400;
     }
 
     public static class Message {
-        String message;
-        int priority;
-        String title;
+        private String message;
+        private String title;
+        private int priority;
 
         public Message(String title, String message, int priority) {
             this.message = message;
