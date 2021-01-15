@@ -1,6 +1,6 @@
 ---
 id: nginx
-title: nginx config
+title: nginx reverse proxy
 ---
 
 You may want to use your nginx server as a reverse proxy to run gotify.
@@ -50,7 +50,7 @@ If you want to use https, keep it to false in gotify and rely on nginx to set it
 
 # At a subpath
 
-Here is the equivalent of the sample config above but running in a subpath
+Here is the equivalent of the sample config above but running on a subpath
 
 ```nginx
 upstream gotify {
