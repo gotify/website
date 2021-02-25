@@ -201,7 +201,6 @@ public class GotifyClient {
 Const GOTIFY_URL As String = "https://gotify.some-web.space/message?token=<apptoken>"
 
 ' Send a post via PushOver to Gotify server
-' Based on the code from Makah on https://stackoverflow.com/questions/31139449
 ' @param In title as String: The message title
 ' @param In message as String: The message that you want to send
 ' @param In priority as Integer: The message priority
