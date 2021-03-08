@@ -196,7 +196,7 @@ public class GotifyClient {
 ### VB/VBA
 
 ```vb
-Const GOTIFY_URL As String = "https://gotify.some-web.space/message?token=<apptoken>"
+Const GOTIFY_URL As String = "http://localhost:8008/message?token=<apptoken>"
 
 '--- Based on pushover-vba by Mauricio Arieira (https://github.com/makah/pushover-vba)
 Public Function PushToGotify(ByVal title As String, ByVal message As String, ByVal priority As Integer) As String
