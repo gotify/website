@@ -39,5 +39,5 @@ _Commands must be executed inside the ui directory._
 Download dependencies with [yarn](https://github.com/yarnpkg/yarn).
 
 ```bash
-$ yarn
+$ yarn install
 ```
