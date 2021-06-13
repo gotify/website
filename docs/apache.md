@@ -24,7 +24,7 @@ The following modules are required:
     ProxyPreserveHost On
 
     # Proxy web socket requests to /stream
-    ProxyPass "/stream" ws://127.0.0.1:GOTIFY_PORT/stream retry=0 timeout=5
+    ProxyPass "/stream" ws://127.0.0.1:GOTIFY_PORT/stream retry=0 timeout=60
 
     # Proxy all other requests to /
     ProxyPass "/" http://127.0.0.1:GOTIFY_PORT/ retry=0 timeout=5
@@ -47,7 +47,7 @@ The following modules are required:
     ProxyPreserveHost On
 
     # Proxy web socket requests to /stream
-    ProxyPass "/gotify/stream" ws://127.0.0.1:GOTIFY_PORT/stream retry=0 timeout=5
+    ProxyPass "/gotify/stream" ws://127.0.0.1:GOTIFY_PORT/stream retry=0 timeout=60
 
     # Proxy all other requests to /
     ProxyPass "/gotify/" http://127.0.0.1:GOTIFY_PORT/ retry=0 timeout=5

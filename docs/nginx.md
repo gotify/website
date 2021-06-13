@@ -39,9 +39,9 @@ server {
     proxy_set_header   Host $http_host;
 
     # These sets the timeout so that the websocket can stay alive
-    proxy_connect_timeout   7m;
-    proxy_send_timeout      7m;
-    proxy_read_timeout      7m;
+    proxy_connect_timeout   1m;
+    proxy_send_timeout      1m;
+    proxy_read_timeout      1m;
   }
 }
 ```
@@ -80,9 +80,9 @@ server {
     # for WebSocket connections
     proxy_set_header   Host $http_host;
 
-    proxy_connect_timeout   7m;
-    proxy_send_timeout      7m;
-    proxy_read_timeout      7m;
+    proxy_connect_timeout   1m;
+    proxy_send_timeout      1m;
+    proxy_read_timeout      1m;
   }
 }
 ```
