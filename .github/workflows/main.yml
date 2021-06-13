@@ -1,0 +1,18 @@
+name: build
+on: [push, pull_request]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/setup-node@v2
+        with:
+          node-version: "16"
+      - uses: actions/checkout@v2.3.1
+      - run: (cd website && npm ci)
+      - run: (cd website && npm run format:test)
+      - run: (cd website && npm run build)
+      - uses: JamesIves/github-pages-deploy-action@4.1.4
+        if: github.ref == 'refs/heads/master'
+        with:
+          branch: gh-pages
+          folder: website/build/website
