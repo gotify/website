@@ -65,7 +65,7 @@ When using docker it is recommended to use environment variables.</p>
 <p><strong>Note</strong>: When strings contain reserved yml characters then they need to be escaped.
 <a href="https://stackoverflow.com/a/22235064/4244993">A list of reserved characters and how to escape them.</a></p>
 <pre><code class="hljs css language-yml"><span class="hljs-attr">server:</span>
-  <span class="hljs-attr">keepaliveperiodseconds:</span> <span class="hljs-number">0</span> <span class="hljs-comment"># 0 = use system default; set the interval in which keepalive packages will be sent. Only change this value if you know what you are doing.</span>
+  <span class="hljs-attr">keepaliveperiodseconds:</span> <span class="hljs-number">0</span> <span class="hljs-comment"># 0 = use Go default (15s); -1 = disable keepalive; set the interval in which keepalive packets will be sent. Only change this value if you know what you are doing.</span>
   <span class="hljs-attr">listenaddr:</span> <span class="hljs-string">""</span> <span class="hljs-comment"># the address to bind on, leave empty to bind on all addresses</span>
   <span class="hljs-attr">port:</span> <span class="hljs-number">80</span> <span class="hljs-comment"># the port for the http server</span>
   <span class="hljs-attr">ssl:</span>
