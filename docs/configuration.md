@@ -18,7 +18,7 @@ gotify/server looks in the following paths for config files
 
 ```yml
 server:
-  keepaliveperiodseconds: 0 # 0 = use system default; set the interval in which keepalive packages will be sent. Only change this value if you know what you are doing.
+  keepaliveperiodseconds: 0 # 0 = use Go default (15s); -1 = disable keepalive; set the interval in which keepalive packets will be sent. Only change this value if you know what you are doing.
   listenaddr: "" # the address to bind on, leave empty to bind on all addresses
   port: 80 # the port for the http server
   ssl:
