@@ -63,6 +63,7 @@ defaultuser: # on database creation, gotify creates an admin user (these values 
 passstrength: 10 # the bcrypt password strength (higher = better but also slower)
 uploadedimagesdir: data/images # the directory for storing uploaded images
 pluginsdir: data/plugins # the directory where plugin resides (leave empty to disable plugins)
+registration: false # enable registrations
 ```
 
 You can download an example config like this:
@@ -121,4 +122,5 @@ GOTIFY_DEFAULTUSER_PASS=admin
 GOTIFY_PASSSTRENGTH=10
 GOTIFY_UPLOADEDIMAGESDIR=data/images
 GOTIFY_PLUGINSDIR=data/plugins
+GOTIFY_REGISTRATION=false
 ```
