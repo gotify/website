@@ -11,13 +11,14 @@ Before starting gotify/server you may read the [Configuration](configuration.md)
 
 ```bash
 $ docker run -p 80:80 -v /var/gotify/data:/app/data gotify/server
+# or via GitHub registry
+$ docker run -p 80:80 -v /var/gotify/data:/app/data ghcr.io/gotify/server
 ```
 
-there is a specific docker image for arm-7 processors (raspberry pi), named gotify/server-arm7.
+There are also specific docker images for other architectures:
 
-```bash
-$ docker run -p 80:80 -v /var/gotify/data:/app/data gotify/server-arm7
-```
+- `gotify/server-arm7` / `ghcr.io/gotify/server-arm7`: for arm-7 processors (raspberry pi)
+- `gotify/server-arm64` / `ghcr.io/gotify/server-arm64`: for arm-64 processors
 
 `/app/data` contains the database file (if sqlite is used), images for applications and cert-files (if lets encrypt is enabled).
 In this example the directory is mounted to `/var/gotify/data` this directory should be included in a backup.
