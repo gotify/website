@@ -58,10 +58,14 @@
 <p>Setting up gotify/server with docker is pretty easy, you basically just have to start the docker container and you are ready to go:</p>
 <p>Before starting gotify/server you may read the <a href="/docs/config">Configuration</a> if you f.ex. use a different database.</p>
 <pre><code class="hljs css language-bash">$ docker run -p 80:80 -v /var/gotify/data:/app/data gotify/server
+<span class="hljs-comment"># or via GitHub registry</span>
+$ docker run -p 80:80 -v /var/gotify/data:/app/data ghcr.io/gotify/server
 </code></pre>
-<p>there is a specific docker image for arm-7 processors (raspberry pi), named gotify/server-arm7.</p>
-<pre><code class="hljs css language-bash">$ docker run -p 80:80 -v /var/gotify/data:/app/data gotify/server-arm7
-</code></pre>
+<p>There are also specific docker images for other architectures:</p>
+<ul>
+<li><code>gotify/server-arm7</code> / <code>ghcr.io/gotify/server-arm7</code>: for arm-7 processors (raspberry pi)</li>
+<li><code>gotify/server-arm64</code> / <code>ghcr.io/gotify/server-arm64</code>: for arm-64 processors</li>
+</ul>
 <p><code>/app/data</code> contains the database file (if sqlite is used), images for applications and cert-files (if lets encrypt is enabled).
 In this example the directory is mounted to <code>/var/gotify/data</code> this directory should be included in a backup.</p>
 <p>The time zone inside the container is configurable via the <code>TZ</code> environment variable:</p>
