@@ -7,6 +7,18 @@ Have a look at [Here](pushmsg.md) for "How to obtain an application token".
 
 NOTE: Assuming Gotify is running on `http://localhost:8008`.
 
+### Bash (using cURL and markdown)
+
+```bash
+#!/bin/bash
+TITLE="My Title"
+MESSAGE="Hello: ![](https://gotify.net/img/logo.png)"
+PRIORITY=5
+URL="http://localhost:8008/message?token=<apptoken>"
+
+curl -s -S --data '{"message": "'"${MESSAGE}"'", "title": "'"${TITLE}"'", "priority":'"${PRIORITY}"', "extras": {"client::display": {"contentType": "text/markdown"}}}' -X POST -H Content-Type:application/json "$URL"
+```
+
 ### Python
 
 ```python
