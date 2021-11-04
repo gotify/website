@@ -147,7 +147,7 @@ The app creates push notification on newly received messages.
                     {
                         title: 'Simple',
                         content:
-                            "Both Gotify's API and user interface is designed to be as simple as possible.",
+                            "Both Gotify's API and user interface are designed to be as simple as possible.",
                     },
                     {
                         title: 'Cross Platform',
