@@ -79,8 +79,8 @@ $ wget -O config.yml https://raw.githubusercontent.com/gotify/server/master/conf
 | Dialect  |                              Connection                              |
 | :------: | :------------------------------------------------------------------: |
 | sqlite3  |                        `path/to/database.db`                         |
-|  mysql   |   `gotify:secret@/gotifydb?charset=utf8&parseTime=True&loc=Local`    |
-| postgres | `host=localhost port=3306 user=gotify dbname=gotify password=secret` |
+| postgres |   `gotify:secret@/gotifydb?charset=utf8&parseTime=True&loc=Local`    |
+| mysql    | `host=localhost port=3306 user=gotify dbname=gotify password=secret` |
 
 When using postgres without SSL then `sslmode=disable` must be added to the connection string.
 See [#90](https://github.com/gotify/server/issues/90).
