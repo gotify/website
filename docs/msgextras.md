@@ -11,19 +11,20 @@ Extras are stored in a key-value scheme and are only accepted in `POST /message`
 Keys under `.extras` should be in the following format: `<top-namespace>::[<sub-namespace>::]<action>`.
 Some of the namespaces are used by official clients:
 
-| Namespace                                       | Description                                |
-| ----------------------------------------------- | ------------------------------------------ |
-| `client::*`                                     | Reserved                                   |
-| [`client::display`](#clientdisplay)             | Changes how client displays information    |
-| [`client::notification`](#clientnotification)   | Customizes the notification                |
-| `android::*`                                    | Reserved                                   |
-| [`android::action`](#androidaction)             | React to events                            |
-| [`android::notification`](#androidnotification) | Customizes the notification (android only) |
-| `ios::*`                                        | Reserved                                   |
-| `server::*`                                     | Reserved                                   |
-| All Other                                       | Defined by end-users                       |
+| Namespace                                     | Description                             |
+| --------------------------------------------- | --------------------------------------- |
+| `client::*`                                   | Reserved                                |
+| [`client::display`](#clientdisplay)           | Changes how client displays information |
+| [`client::notification`](#clientnotification) | Customizes the notification             |
+| `android::*`                                  | Reserved                                |
+| [`android::action`](#androidaction)           | React to events                         |
+| `ios::*`                                      | Reserved                                |
+| `server::*`                                   | Reserved                                |
+| All Other                                     | Defined by end-users                    |
 
 ## `client::display`
+
+### `contentType`
 
 #### Definition
 
@@ -64,7 +65,7 @@ Some of the namespaces are used by official clients:
 
 ## `client::notification`
 
-#### Definition
+### `click`.`url`
 
 `click`.`url` (string): Opens an URL on notification click.
 
@@ -86,7 +87,31 @@ Some of the namespaces are used by official clients:
 | -------------- | ------- | ---------------------------------------------- |
 | gotify/android | v2.0.10 | Prevents the default of opening the Gotify app |
 
+### `bigImageUrl`
+
+`bigImageUrl` (string): Shows a big image in the notification.
+
+#### Example
+
+```json
+{
+  "extras": {
+    "client::notification": {
+      "bigImageUrl": "https://placekitten.com/400/300"
+    }
+  }
+}
+```
+
+#### Support
+
+| Client         | since  | description                                                                                                           |
+| -------------- | ------ | --------------------------------------------------------------------------------------------------------------------- |
+| gotify/android | v2.3.0 | You may have to expand the notification. Added with [gotify/android#200](https://github.com/gotify/android/pull/200). |
+
 ## `android::action`
+
+### `onReceive`.`intentUrl`
 
 `onReceive`.`intentUrl` (string): Opens an intent after the notification was delivered.
 
@@ -107,25 +132,3 @@ Some of the namespaces are used by official clients:
 | Client         | since   | description                                                        |
 | -------------- | ------- | ------------------------------------------------------------------ |
 | gotify/android | v2.0.11 | Only works when the gotify app is in focus (limitation of android) |
-
-## `android::notification`
-
-`bigImageUrl` (string): Shows a big image in the notification.
-
-#### Example
-
-```json
-{
-  "extras": {
-    "android::notification": {
-      "bigImageUrl": "https://placekitten.com/400/300"
-    }
-  }
-}
-```
-
-#### Support
-
-| Client         | since  | description                                                                                                           |
-| -------------- | ------ | --------------------------------------------------------------------------------------------------------------------- |
-| gotify/android | v2.3.0 | You may have to expand the notification. Added with [gotify/android#200](https://github.com/gotify/android/pull/200). |
