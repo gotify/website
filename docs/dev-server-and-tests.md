@@ -7,6 +7,12 @@ title: Servers and Tests
 
 ### Backend
 
+The backend needs a built ui. Run
+
+```bash
+$ (cd ui && yarn build)
+```
+
 Start the server in development mode.
 
 ```bash
