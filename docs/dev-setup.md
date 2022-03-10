@@ -5,9 +5,9 @@ title: Setup Environment
 
 Gotify requires:
 
-- Go 1.11+
-- Node 11.x
-- Yarn 9+
+- Go 1.17 or newer
+- Node 16.x or newer
+- Yarn 1.9 or newer
 
 ## Clone sources
 
