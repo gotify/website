@@ -60,8 +60,8 @@ Latest version:
 
 - linux-amd64 (64bit)
 - linux-386 (32bit)
-- arm-7 (32bit used for Raspberry Pi)
-- arm64 (ARMv8)
+- linux-arm-7 (32bit used for Raspberry Pi)
+- linux-arm64 (ARMv8)
 - windows-386.exe (32bit)
 - windows-amd64.exe (64bit)
 
