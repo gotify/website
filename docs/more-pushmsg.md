@@ -16,7 +16,7 @@ MESSAGE="Hello: ![](https://gotify.net/img/logo.png)"
 PRIORITY=5
 URL="http://localhost:8008/message?token=<apptoken>"
 
-curl -s -S --data '{"message": "'"${MESSAGE}"'", "title": "'"${TITLE}"'", "priority":'"${PRIORITY}"', "extras": {"client::display": {"contentType": "text/markdown"}}}' -X POST -H Content-Type:application/json "$URL"
+curl -s -S --data '{"message": "'"${MESSAGE}"'", "title": "'"${TITLE}"'", "priority":'"${PRIORITY}"', "extras": {"client::display": {"contentType": "text/markdown"}}}' -H 'Content-Type: application/json' "$URL"
 ```
 
 ### Python
