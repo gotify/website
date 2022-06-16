@@ -81,6 +81,38 @@ Some of the namespaces are used by official clients:
 }
 ```
 
+### `actions`.`open`
+
+`actions`.`open` (string): Opens an URL on "open" button notification click.
+
+#### Example
+
+```json
+{
+  "extras": {
+    "client::notification": {
+      "actions": { "open": "https://gotify.net" }
+    }
+  }
+}
+```
+
+### `actions`.`share`
+
+`actions`.`share` (string): Share an URL on "share" button notification click.
+
+#### Example
+
+```json
+{
+  "extras": {
+    "client::notification": {
+      "actions": { "share": "https://gotify.net" }
+    }
+  }
+}
+```
+
 #### Support
 
 | Client         | since   | description                                    |
