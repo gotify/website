@@ -3,7 +3,7 @@ id: more-pushmsg
 title: (more) Push message examples
 ---
 
-Have a look at [Here](pushmsg.md) for "How to obtain an application token".
+Have a look [here](pushmsg.md) for "How to obtain an application token".
 
 NOTE: Assuming Gotify is running on `http://localhost:8008`.
 
