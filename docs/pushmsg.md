@@ -16,7 +16,7 @@ The token is returned in the REST request and is viewable in the WebUI.
 Now you can simply use [curl](https://curl.haxx.se/), [HTTPie](https://httpie.org/) or any other http-client to push messages.
 
 ```bash
-$ curl "https://push.example.de/message?token=<apptoken>" -F "title=my title" -F "message=my message" -F "priority=5"
+$ curl -X POST "https://push.example.de/message?token=<apptoken>" -F "title=my title" -F "message=my message" -F "priority=5"
 $ http -f POST "https://push.example.de/message?token=<apptoken>" title="my title" message="my message" priority="5"
 ```
 
