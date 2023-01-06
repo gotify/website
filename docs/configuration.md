@@ -16,6 +16,13 @@ gotify/server looks in the following paths for config files
 **Note**: When strings contain reserved yml characters then they need to be escaped.
 [A list of reserved characters and how to escape them.](https://stackoverflow.com/a/22235064/4244993)
 
+**Note**: Since the config file contains sensitive data such as the
+administrator's password, it can be protected with:
+
+```bash
+$ sudo chmod go-rw /etc/gotify/config.yml
+```
+
 ```yml
 server:
   keepaliveperiodseconds: 0 # 0 = use Go default (15s); -1 = disable keepalive; set the interval in which keepalive packets will be sent. Only change this value if you know what you are doing.
