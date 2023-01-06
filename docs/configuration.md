@@ -89,7 +89,7 @@ See [#90](https://github.com/gotify/server/issues/90).
 
 ## Environment Variables
 
-Strings in list or map environment settings (f.ex. `GOTIFY_SERVER_RESPONSEHEADERS` and `GOTIFY_SERVER_SSL_LETSENCRYPT_HOSTS`) need to be escaped.
+Strings in list or map environment settings (e.g. `GOTIFY_SERVER_RESPONSEHEADERS` and `GOTIFY_SERVER_SSL_LETSENCRYPT_HOSTS`) need to be escaped.
 [A list of reserved characters and how to escape them.](https://stackoverflow.com/a/22235064/4244993)
 
 See yml config documentation.

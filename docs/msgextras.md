@@ -42,7 +42,7 @@ Some of the namespaces are used by official clients:
 > the attacker could inject malformed markdown which leads to information disclosure.
 >
 > It is recommended to use `text/plain` to reduce possible security issues
-> when using text from external sources like f.ex. output from scripts.
+> when using text from external sources like e.g. output from scripts.
 
 #### Example
 

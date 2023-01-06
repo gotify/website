@@ -7,7 +7,7 @@ title: Installation
 
 Setting up gotify/server with docker is pretty easy, you basically just have to start the docker container and you are ready to go:
 
-Before starting gotify/server you may read the [Configuration](configuration.md) if you f.ex. use a different database.
+Before starting gotify/server you may read the [Configuration](configuration.md) if you e.g. use a different database.
 
 ```bash
 $ docker run -p 80:80 -v /var/gotify/data:/app/data gotify/server
@@ -88,7 +88,7 @@ $ chmod +x gotify-{PLATFORM}
 
 Execute gotify/server. (By default gotify/server is started on port 80 so it requires sudo)
 
-Before starting gotify/server you may read the [Configuration](configuration.md) if you f.ex. want to change the port or use a different database.
+Before starting gotify/server you may read the [Configuration](configuration.md) if you e.g. want to change the port or use a different database.
 
 ```bash
 $ sudo ./gotify-{PLATFORM}
