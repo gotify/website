@@ -32,15 +32,15 @@ set -e
 DATA=/opt/gotify/data
 cd $DATA/images
 for FILE in *; do
-	if [ $FILE -nt $DATA/images-rescaled ]; then
-		EXT=$(echo "${FILE#*.}"|tr '[:upper:]' '[:lower:]')
-		if [ $EXT = png -o $EXT = jpg -o $EXT = jpeg ]; then
-			convert $FILE -resize "512>" $FILE
-		fi
-		if [ $EXT = png ]; then
-			optipng $FILE
-		fi
-	fi
+    if [ $FILE -nt $DATA/images-rescaled ]; then
+        EXT=$(echo "${FILE#*.}"|tr '[:upper:]' '[:lower:]')
+        if [ $EXT = png -o $EXT = jpg -o $EXT = jpeg ]; then
+            convert $FILE -resize "512>" $FILE
+        fi
+        if [ $EXT = png ]; then
+            optipng $FILE
+        fi
+    fi
 done
 touch $DATA/images-rescaled
 ```
@@ -48,12 +48,23 @@ touch $DATA/images-rescaled
 Note that if `$DATA/images-rescaled` is missing, all files are selected for
 rescaling and optimization. 
 
+Run the following command on the script
+
 ```bash
 sudo chmod go-rw /opt/gotify-rescale-images.sh
 sudo chmod u+x /opt/gotify-rescale-images.sh
 ```
+
 The script can be tested by running it manually. Having a backup of the data
 directory before doing that is always wise.
+
+If users upload images with a transparent background that make the image hard to
+see, it is possible to enforce a white background by adding the following line
+before the `optipng` command
+
+```shell
+            convert $FILE -background white -alpha remove -alpha off $FILE
+```
 
 # Scheduling
 
