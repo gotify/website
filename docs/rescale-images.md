@@ -70,6 +70,6 @@ before the `optipng` command
 
 Add the following line to a file in e.g. `/etc/cron.d/gotify`
 
-```crond
+```shell
 12	12	* * *	root	/opt/gotify/gotify-optimize-images.sh
 ```
