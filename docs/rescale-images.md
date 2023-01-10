@@ -34,7 +34,7 @@ cd $DATA/images
 for FILE in *; do
     if [ $FILE -nt $DATA/images-rescaled ]; then
         EXT=$(echo "${FILE#*.}"|tr '[:upper:]' '[:lower:]')
-        if [ $EXT = png -o $EXT = jpg -o $EXT = jpeg ]; then
+        if [ $EXT = png -o $EXT = jpg -o $EXT = jpeg  -o $EXT = gif ]; then
             convert $FILE -resize "512>" $FILE
         fi
         if [ $EXT = png ]; then
@@ -60,11 +60,13 @@ directory before doing that is always wise.
 
 If users upload images with a transparent background that make the image hard to
 see, it is possible to enforce a white background by adding the following line
-before the `optipng` command
+before the `optipng` command for PNG images
 
 ```shell
             convert $FILE -background white -alpha remove -alpha off $FILE
 ```
+
+and add it in an extra `if` for GIF images.
 
 # Scheduling
 
