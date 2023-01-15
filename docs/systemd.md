@@ -10,8 +10,8 @@ To manage starting, logging, etc. of Gotify, systemd can be used.
 For this example, Gotify is installed by root in a directory called
 `/opt/gotify/` and the executable in there is called `gotify`. The config file
 will be `/etc/gotify/config.yml` using relative paths as in the example and the
-service will be run as root. A file called `/opt/gotify.service` should be
-created by root containing:
+service will be run as root. A file called `/opt/gotify/gotify.service` should
+be created by root containing:
 
 ```desktop
 [Unit]
@@ -38,8 +38,7 @@ Then the following commands enable systemd to start Gotify at boot:
 ```bash
 sudo mkdir /var/log/gotify
 sudo chmod -R go-rw /opt/gotify /etc/gotify/config.yml /var/log/gotify
-sudo cd /etc/systemd/system
-sudo ln -s /opt/gotify/gotify.service
+sudo ln -s /opt/gotify/gotify.service /etc/systemd/system/gotify.service
 sudo systemctl daemon-reload
 sudo systemctl enable gotify
 ```
