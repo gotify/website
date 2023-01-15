@@ -4,5 +4,5 @@
     "REST-API": ["swagger-docs"],
     "Plugins": ["plugin","plugin-write", "plugin-deploy"],
     "Development": ["dev-setup", "dev-server-and-tests", "build"],
-    "Miscellaneous": ["nginx", "apache", "caddy", "haproxy", "more-pushmsg"]}
+    "Miscellaneous": ["nginx", "apache", "caddy", "haproxy", "more-pushmsg", "optimize-images"]}
 }
