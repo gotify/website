@@ -10,7 +10,7 @@ Setting up gotify/server with docker is pretty easy, you basically just have to 
 Before starting gotify/server you may read the [Configuration](configuration.md) if you f.ex. use a different database.
 
 ```bash
-$ docker run -p 80:80 -v /var/gotify/data:/app/data gotify/server
+$ docker run --detach --restart=unless-stopped --publish=80:80 --volume=/var/gotify/data:/app/data gotify/server
 # or via GitHub registry
 $ docker run -p 80:80 -v /var/gotify/data:/app/data ghcr.io/gotify/server
 ```
