@@ -5,6 +5,9 @@ title: systemd configuration
 
 To manage starting, logging, etc. of Gotify, systemd can be used.
 
+> This is only a minimal example and does not provide the most secure or "best"
+> way to run gotify. Please adjust the config to your needs.
+
 # Installation
 
 For this example, Gotify is installed by root in a directory called
