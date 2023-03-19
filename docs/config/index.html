@@ -64,6 +64,11 @@ When using docker it is recommended to use environment variables.</p>
 </ul>
 <p><strong>Note</strong>: When strings contain reserved yml characters then they need to be escaped.
 <a href="https://stackoverflow.com/a/22235064/4244993">A list of reserved characters and how to escape them.</a></p>
+<p><strong>Note</strong>: The config file <code>/etc/gotify/config.yml</code> can contain sensitive data
+such as the initial admin password. When using it, you should remove read/write
+rights from users not owning the file:</p>
+<pre><code class="hljs css language-bash">$ sudo chmod go-rw /etc/gotify/config.yml
+</code></pre>
 <pre><code class="hljs css language-yml"><span class="hljs-attr">server:</span>
   <span class="hljs-attr">keepaliveperiodseconds:</span> <span class="hljs-number">0</span> <span class="hljs-comment"># 0 = use Go default (15s); -1 = disable keepalive; set the interval in which keepalive packets will be sent. Only change this value if you know what you are doing.</span>
   <span class="hljs-attr">listenaddr:</span> <span class="hljs-string">""</span> <span class="hljs-comment"># the address to bind on, leave empty to bind on all addresses</span>
