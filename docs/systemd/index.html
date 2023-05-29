@@ -75,8 +75,8 @@ be created by root containing:</p>
 <span class="hljs-attr">User</span>=root
 <span class="hljs-attr">WorkingDirectory</span>=/opt/gotify
 <span class="hljs-attr">ExecStart</span>=/opt/gotify/gotify
-<span class="hljs-attr">StandardOutput</span>=file:/var/log/gotify/gotify.log
-<span class="hljs-attr">StandardError</span>=file:/var/log/gotify/gotify-error.log
+<span class="hljs-attr">StandardOutput</span>=append:/var/log/gotify/gotify.log
+<span class="hljs-attr">StandardError</span>=append:/var/log/gotify/gotify-error.log
 <span class="hljs-attr">Restart</span>=always
 <span class="hljs-attr">RestartSec</span>=<span class="hljs-number">3</span>
 
