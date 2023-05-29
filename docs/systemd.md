@@ -27,8 +27,8 @@ Type=simple
 User=root
 WorkingDirectory=/opt/gotify
 ExecStart=/opt/gotify/gotify
-StandardOutput=file:/var/log/gotify/gotify.log
-StandardError=file:/var/log/gotify/gotify-error.log
+StandardOutput=append:/var/log/gotify/gotify.log
+StandardError=append:/var/log/gotify/gotify-error.log
 Restart=always
 RestartSec=3
 
