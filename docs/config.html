@@ -128,8 +128,8 @@ rights from users not owning the file:</p>
 </thead>
 <tbody>
 <tr><td style="text-align:center">sqlite3</td><td style="text-align:center"><code>path/to/database.db</code></td></tr>
-<tr><td style="text-align:center">mysql</td><td style="text-align:center"><code>gotify:secret@/gotifydb?charset=utf8&amp;parseTime=True&amp;loc=Local</code></td></tr>
-<tr><td style="text-align:center">postgres</td><td style="text-align:center"><code>host=localhost port=3306 user=gotify dbname=gotify password=secret</code></td></tr>
+<tr><td style="text-align:center">mysql</td><td style="text-align:center"><code>gotify:secret@tcp(localhost:3306)/gotifydb?charset=utf8&amp;parseTime=True&amp;loc=Local</code></td></tr>
+<tr><td style="text-align:center">postgres</td><td style="text-align:center"><code>host=localhost port=5432 user=gotify dbname=gotifydb password=secret</code></td></tr>
 </tbody>
 </table>
 <p>When using postgres without SSL then <code>sslmode=disable</code> must be added to the connection string.
