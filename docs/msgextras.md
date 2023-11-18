@@ -129,6 +129,6 @@ Some of the namespaces are used by official clients:
 
 #### Support
 
-| Client         | since   | description                                                        |
-| -------------- | ------- | ------------------------------------------------------------------ |
-| gotify/android | v2.0.11 | Only works when the gotify app is in focus (limitation of android) |
+| Client         | since   | description                                                                                                                    |
+| -------------- | ------- | ------------------------------------------------------------------------------------------------------------------------------ |
+| gotify/android | v2.0.11 | You need to enable "Intent Action Permission" in the app settings, otherwise this feature only works when the app is in focus. |
