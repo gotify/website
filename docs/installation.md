@@ -67,11 +67,13 @@ Latest version:
 
 Download the zip with the binary for your platform from [gotify/server Releases](https://github.com/gotify/server/releases).
 
-This tutorial uses placeholders for the version and the platform.
-You have to replace `{VERSION}` with the most recent version and `{PLATFORM}` with one of the supported platforms.
+This tutorial uses placeholders for the platform.
+You have to replace `{PLATFORM}` with one of the supported platforms. The most recent version is automatically determined by the commands.
 
 ```bash
-$ wget https://github.com/gotify/server/releases/download/v{VERSION}/gotify-{PLATFORM}.zip
+$ VERSION=$(curl -s https://api.github.com/repos/gotify/server/releases/latest | grep "tag_name" | awk '{print substr($2, 3, le
+ngth($2)-4) }')
+$ wget https://github.com/gotify/server/releases/download/v$VERSION/gotify-{PLATFORM}.zip
 ```
 
 Unzip the archive.
