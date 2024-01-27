@@ -88,7 +88,7 @@ $ chmod +x gotify-{PLATFORM}
 
 Execute gotify/server. (By default gotify/server is started on port 80 so it requires sudo)
 
-Before starting gotify/server you may read the [Configuration](configuration.md) if you f.ex. want to change the port or use a different database.
+Before starting gotify/server you may read the [Configuration](configuration.md) if you for example want to change the port or use a different database.
 
 ```bash
 $ sudo ./gotify-{PLATFORM}
