@@ -153,13 +153,12 @@ GOTIFY_SERVER_SSL_CERTKEY=
 GOTIFY_SERVER_SSL_LETSENCRYPT_ENABLED=<span class="hljs-literal">false</span>
 GOTIFY_SERVER_SSL_LETSENCRYPT_ACCEPTTOS=<span class="hljs-literal">false</span>
 GOTIFY_SERVER_SSL_LETSENCRYPT_CACHE=certs
-<span class="hljs-comment"># lists are a little weird but do-able (:</span>
-<span class="hljs-comment"># GOTIFY_SERVER_SSL_LETSENCRYPT_HOSTS=- mydomain.tld\n- myotherdomain.tld</span>
-GOTIFY_SERVER_RESPONSEHEADERS=<span class="hljs-string">"X-Custom-Header: \"custom value\""</span>
-<span class="hljs-comment"># GOTIFY_SERVER_CORS_ALLOWORIGINS="- \".+.example.com\"\n- \"otherdomain.com\""</span>
-<span class="hljs-comment"># GOTIFY_SERVER_CORS_ALLOWMETHODS="- \"GET\"\n- \"POST\""</span>
-<span class="hljs-comment"># GOTIFY_SERVER_CORS_ALLOWHEADERS="- \"Authorization\"\n- \"content-type\""</span>
-<span class="hljs-comment"># GOTIFY_SERVER_STREAM_ALLOWEDORIGINS="- \".+.example.com\"\n- \"otherdomain.com\""</span>
+<span class="hljs-comment"># GOTIFY_SERVER_SSL_LETSENCRYPT_HOSTS=[mydomain.tld, myotherdomain.tld]</span>
+<span class="hljs-comment"># GOTIFY_SERVER_RESPONSEHEADERS={X-Custom-Header: "custom value", x-other: value}</span>
+<span class="hljs-comment"># GOTIFY_SERVER_CORS_ALLOWORIGINS=[.+\.example\.com, otherdomain\.com]</span>
+<span class="hljs-comment"># GOTIFY_SERVER_CORS_ALLOWMETHODS=[GET, POST]</span>
+<span class="hljs-comment"># GOTIFY_SERVER_CORS_ALLOWHEADERS=[X-Gotify-Key, Authorization]</span>
+<span class="hljs-comment"># GOTIFY_SERVER_STREAM_ALLOWEDORIGINS=[.+.example\.com, otherdomain\.com]</span>
 GOTIFY_SERVER_STREAM_PINGPERIODSECONDS=45
 GOTIFY_DATABASE_DIALECT=sqlite3
 GOTIFY_DATABASE_CONNECTION=data/gotify.db
