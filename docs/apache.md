@@ -70,6 +70,7 @@ To fix this issue, add the following rewrite rule to your virtual host config:
 
 ```
 RewriteEngine  on
-RewriteCond %{HTTP:Upgrade} =websocket
+RewriteCond %{HTTP:Connection} upgrade [NC]
+RewriteCond %{HTTP:Upgrade} websocket [NC]
 RewriteRule /gotify/stream(.*) ws://127.0.0.1:GOTIFY_PORT/stream$1 [P,L]
 ```
