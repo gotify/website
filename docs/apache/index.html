@@ -108,7 +108,8 @@ The request fails with <code>400 Bad Request</code> and the following error is l
 </code></pre>
 <p>To fix this issue, add the following rewrite rule to your virtual host config:</p>
 <pre><code class="hljs"><span class="hljs-attribute"><span class="hljs-nomarkup">RewriteEngine</span></span>  <span class="hljs-literal">on</span>
-<span class="hljs-attribute"><span class="hljs-nomarkup">RewriteCond</span></span> <span class="hljs-variable">%{HTTP:Upgrade}</span> =websocket
+<span class="hljs-attribute"><span class="hljs-nomarkup">RewriteCond</span></span> <span class="hljs-variable">%{HTTP:Connection}</span> upgrade<span class="hljs-meta"> [NC]</span>
+<span class="hljs-attribute"><span class="hljs-nomarkup">RewriteCond</span></span> <span class="hljs-variable">%{HTTP:Upgrade}</span> websocket<span class="hljs-meta"> [NC]</span>
 <span class="hljs-attribute"><span class="hljs-nomarkup">RewriteRule</span></span> /gotify/stream(.*) ws://127.0.0.1:GOTIFY_PORT/stream<span class="hljs-number">$1</span><span class="hljs-meta"> [P,L]</span>
 </code></pre>
 </span></div></article></div><div class="docs-prevnext"><a class="docs-prev button" href="/docs/nginx"><span class="arrow-prev">← </span><span>nginx reverse proxy</span></a><a class="docs-next button" href="/docs/caddy"><span>Caddy 2 reverse proxy</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#proxy-requests">Proxy requests</a></li><li><a href="#proxy-requests-with-sub-path">Proxy requests with sub path</a></li><li><a href="#troubleshooting">Troubleshooting</a></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="copyright">Copyright © 2024 Gotify</section></footer></div></body></html>
