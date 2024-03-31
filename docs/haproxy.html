@@ -60,6 +60,7 @@
     bind 0.0.0.0:80
     default_backend backend_gotify
     timeout<span class="hljs-built_in"> client </span>60s
+    timeout client-fin 30s
 
 backend backend_gotify
    <span class="hljs-built_in"> server </span> backend01       127.0.0.1:GOTIFY_PORT  check
