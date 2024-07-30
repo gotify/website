@@ -63,9 +63,13 @@ See <a href="https://gotify.github.io/api-docs/">API-Docs</a></li>
 </ul>
 <p>To authenticate as an application you need the application token.
 The token is returned in the REST request and is viewable in the WebUI.</p>
-<p>Now you can simply use <a href="https://curl.haxx.se/">curl</a>, <a href="https://httpie.org/">HTTPie</a> or any other http-client to push messages.</p>
+<p>Now you can simply use <a href="https://curl.haxx.se/">curl</a>, <a href="https://httpie.org/">HTTPie</a> or any other installed http-client to push messages.</p>
 <pre><code class="hljs css language-bash">$ curl <span class="hljs-string">"https://push.example.de/message?token=&lt;apptoken&gt;"</span> -F <span class="hljs-string">"title=my title"</span> -F <span class="hljs-string">"message=my message"</span> -F <span class="hljs-string">"priority=5"</span>
 $ http -f POST <span class="hljs-string">"https://push.example.de/message?token=&lt;apptoken&gt;"</span> title=<span class="hljs-string">"my title"</span> message=<span class="hljs-string">"my message"</span> priority=<span class="hljs-string">"5"</span>
+</code></pre>
+<p>On Microsoft PowerShell, you could alternatively use the built-in <code>Invoke-RestMethod</code> or <code>Invoke-WebRequest</code> cmdlets.</p>
+<pre><code class="hljs css language-powershell">PS&gt; <span class="hljs-built_in">Invoke-RestMethod</span> <span class="hljs-literal">-Uri</span> <span class="hljs-string">"https://push.example.de/message?token=&lt;apptoken&gt;"</span> <span class="hljs-literal">-Method</span> POST <span class="hljs-literal">-Body</span> <span class="hljs-selector-tag">@</span>{title=<span class="hljs-string">"my title"</span>; message=<span class="hljs-string">"my message"</span>; priority=<span class="hljs-number">5</span>} <span class="hljs-comment"># return is automatically parsed into a PowerShell object</span>
+PS&gt; <span class="hljs-built_in">Invoke-WebRequest</span> <span class="hljs-literal">-Uri</span> <span class="hljs-string">"https://push.example.de/message?token=&lt;apptoken&gt;"</span> <span class="hljs-literal">-Method</span> POST <span class="hljs-literal">-Body</span> <span class="hljs-selector-tag">@</span>{title=<span class="hljs-string">"my title"</span>; message=<span class="hljs-string">"my message"</span>; priority=<span class="hljs-number">5</span>} <span class="hljs-comment"># return is as raw response</span>
 </code></pre>
 <blockquote>
 <p>The message API takes an <code>extras</code> property that carries extra information with the message and describes how clients behave to this message.
