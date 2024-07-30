@@ -13,11 +13,18 @@ An application can be added via
 To authenticate as an application you need the application token.
 The token is returned in the REST request and is viewable in the WebUI.
 
-Now you can simply use [curl](https://curl.haxx.se/), [HTTPie](https://httpie.org/) or any other http-client to push messages.
+Now you can simply use [curl](https://curl.haxx.se/), [HTTPie](https://httpie.org/) or any other installed http-client to push messages.
 
 ```bash
 $ curl "https://push.example.de/message?token=<apptoken>" -F "title=my title" -F "message=my message" -F "priority=5"
 $ http -f POST "https://push.example.de/message?token=<apptoken>" title="my title" message="my message" priority="5"
+```
+
+On Microsoft PowerShell, you could alternatively use the built-in `Invoke-RestMethod` or `Invoke-WebRequest` cmdlets.
+
+```powershell
+PS> Invoke-RestMethod -Uri "https://push.example.de/message?token=<apptoken>" -Method POST -Body @{title="my title"; message="my message"; priority=5} # return is automatically parsed into a PowerShell object
+PS> Invoke-WebRequest -Uri "https://push.example.de/message?token=<apptoken>" -Method POST -Body @{title="my title"; message="my message"; priority=5} # return is as raw response
 ```
 
 > The message API takes an `extras` property that carries extra information with the message and describes how clients behave to this message.
