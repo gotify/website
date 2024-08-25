@@ -71,12 +71,13 @@ rights from users not owning the file:</p>
 </code></pre>
 <pre><code class="hljs css language-yml"><span class="hljs-attr">server:</span>
   <span class="hljs-attr">keepaliveperiodseconds:</span> <span class="hljs-number">0</span> <span class="hljs-comment"># 0 = use Go default (15s); -1 = disable keepalive; set the interval in which keepalive packets will be sent. Only change this value if you know what you are doing.</span>
-  <span class="hljs-attr">listenaddr:</span> <span class="hljs-string">""</span> <span class="hljs-comment"># the address to bind on, leave empty to bind on all addresses</span>
-  <span class="hljs-attr">port:</span> <span class="hljs-number">80</span> <span class="hljs-comment"># the port for the http server</span>
+  <span class="hljs-attr">listenaddr:</span> <span class="hljs-string">""</span> <span class="hljs-comment"># the address to bind on, leave empty to bind on all addresses. Prefix with "unix:" to create a unix socket. Example: "unix:/tmp/gotify.sock".</span>
+  <span class="hljs-attr">port:</span> <span class="hljs-number">80</span> <span class="hljs-comment"># the port the HTTP server will listen on</span>
+
   <span class="hljs-attr">ssl:</span>
     <span class="hljs-attr">enabled:</span> <span class="hljs-literal">false</span> <span class="hljs-comment"># if https should be enabled</span>
     <span class="hljs-attr">redirecttohttps:</span> <span class="hljs-literal">true</span> <span class="hljs-comment"># redirect to https if site is accessed by http</span>
-    <span class="hljs-attr">listenaddr:</span> <span class="hljs-string">""</span> <span class="hljs-comment"># the address to bind on, leave empty to bind on all addresses</span>
+    <span class="hljs-attr">listenaddr:</span> <span class="hljs-string">""</span> <span class="hljs-comment"># the address to bind on, leave empty to bind on all addresses. Prefix with "unix:" to create a unix socket. Example: "unix:/tmp/gotify.sock".</span>
     <span class="hljs-attr">port:</span> <span class="hljs-number">443</span> <span class="hljs-comment"># the https port</span>
     <span class="hljs-attr">certfile:</span> <span class="hljs-comment"># the cert file (leave empty when using letsencrypt)</span>
     <span class="hljs-attr">certkey:</span> <span class="hljs-comment"># the cert key (leave empty when using letsencrypt)</span>
@@ -89,6 +90,10 @@ rights from users not owning the file:</p>
   <span class="hljs-comment">#     - myotherdomain.tld</span>
   <span class="hljs-attr">responseheaders:</span> <span class="hljs-comment"># response headers are added to every response (default: none)</span>
   <span class="hljs-comment"># X-Custom-Header: "custom value"</span>
+  <span class="hljs-attr">trustedproxies:</span> <span class="hljs-comment"># IPs or IP ranges of trusted proxies. Used to obtain the remote ip via the X-Forwarded-For header. (configure 127.0.0.1 to trust sockets)</span>
+  <span class="hljs-comment">#   - 127.0.0.1</span>
+  <span class="hljs-comment">#   - 192.168.178.0/24</span>
+  <span class="hljs-comment">#   - ::1</span>
 
   <span class="hljs-attr">cors:</span> <span class="hljs-comment"># Sets cors headers only when needed and provides support for multiple allowed origins. Overrides Access-Control-* Headers in response headers.</span>
     <span class="hljs-attr">alloworigins:</span>
@@ -155,6 +160,7 @@ GOTIFY_SERVER_SSL_LETSENCRYPT_ACCEPTTOS=<span class="hljs-literal">false</span>
 GOTIFY_SERVER_SSL_LETSENCRYPT_CACHE=certs
 <span class="hljs-comment"># GOTIFY_SERVER_SSL_LETSENCRYPT_HOSTS=[mydomain.tld, myotherdomain.tld]</span>
 <span class="hljs-comment"># GOTIFY_SERVER_RESPONSEHEADERS={X-Custom-Header: "custom value", x-other: value}</span>
+<span class="hljs-comment"># GOTIFY_SERVER_TRUSTEDPROXIES=[127.0.0.1,192.168.178.2/24]</span>
 <span class="hljs-comment"># GOTIFY_SERVER_CORS_ALLOWORIGINS=[.+\.example\.com, otherdomain\.com]</span>
 <span class="hljs-comment"># GOTIFY_SERVER_CORS_ALLOWMETHODS=[GET, POST]</span>
 <span class="hljs-comment"># GOTIFY_SERVER_CORS_ALLOWHEADERS=[X-Gotify-Key, Authorization]</span>
