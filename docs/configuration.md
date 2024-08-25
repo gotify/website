@@ -27,12 +27,13 @@ $ sudo chmod go-rw /etc/gotify/config.yml
 ```yml
 server:
   keepaliveperiodseconds: 0 # 0 = use Go default (15s); -1 = disable keepalive; set the interval in which keepalive packets will be sent. Only change this value if you know what you are doing.
-  listenaddr: "" # the address to bind on, leave empty to bind on all addresses
-  port: 80 # the port for the http server
+  listenaddr: "" # the address to bind on, leave empty to bind on all addresses. Prefix with "unix:" to create a unix socket. Example: "unix:/tmp/gotify.sock".
+  port: 80 # the port the HTTP server will listen on
+
   ssl:
     enabled: false # if https should be enabled
     redirecttohttps: true # redirect to https if site is accessed by http
-    listenaddr: "" # the address to bind on, leave empty to bind on all addresses
+    listenaddr: "" # the address to bind on, leave empty to bind on all addresses. Prefix with "unix:" to create a unix socket. Example: "unix:/tmp/gotify.sock".
     port: 443 # the https port
     certfile: # the cert file (leave empty when using letsencrypt)
     certkey: # the cert key (leave empty when using letsencrypt)
@@ -45,6 +46,10 @@ server:
   #     - myotherdomain.tld
   responseheaders: # response headers are added to every response (default: none)
   # X-Custom-Header: "custom value"
+  trustedproxies: # IPs or IP ranges of trusted proxies. Used to obtain the remote ip via the X-Forwarded-For header. (configure 127.0.0.1 to trust sockets)
+#   - 127.0.0.1
+#   - 192.168.178.0/24
+#   - ::1
 
   cors: # Sets cors headers only when needed and provides support for multiple allowed origins. Overrides Access-Control-* Headers in response headers.
     alloworigins:
@@ -117,6 +122,7 @@ GOTIFY_SERVER_SSL_LETSENCRYPT_ACCEPTTOS=false
 GOTIFY_SERVER_SSL_LETSENCRYPT_CACHE=certs
 # GOTIFY_SERVER_SSL_LETSENCRYPT_HOSTS=[mydomain.tld, myotherdomain.tld]
 # GOTIFY_SERVER_RESPONSEHEADERS={X-Custom-Header: "custom value", x-other: value}
+# GOTIFY_SERVER_TRUSTEDPROXIES=[127.0.0.1,192.168.178.2/24]
 # GOTIFY_SERVER_CORS_ALLOWORIGINS=[.+\.example\.com, otherdomain\.com]
 # GOTIFY_SERVER_CORS_ALLOWMETHODS=[GET, POST]
 # GOTIFY_SERVER_CORS_ALLOWHEADERS=[X-Gotify-Key, Authorization]
