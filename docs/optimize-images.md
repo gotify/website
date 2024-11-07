@@ -25,7 +25,7 @@ Install
 Create a script, e.g. `/opt/gotify/optimize-images.sh` containing
 
 ```bash
-#!/usr/bin/env sh
+#!/usr/bin/env bash
 set -e
 
 DATA=/home/jm/src/gotify/server/data
