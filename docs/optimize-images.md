@@ -25,14 +25,14 @@ Install
 Create a script, e.g. `/opt/gotify/optimize-images.sh` containing
 
 ```bash
-#!/usr/bin/env sh
+#!/usr/bin/env bash
 set -e
 
 DATA=/home/jm/src/gotify/server/data
 
 for FILE in "$DATA"/images/*; do
     if [ "$FILE" -nt "$DATA"/images-optimized ]; then
-        EXT=$(echo "${FILE#*.}"|tr '[:upper:]' '[:lower:]')
+        EXT=$(echo "${FILE##*.}"|tr '[:upper:]' '[:lower:]')
         if [ "$EXT" = png -o "$EXT" = jpg -o "$EXT" = jpeg  -o "$EXT" = gif ]; then
             convert "$FILE" -resize "512>" "$FILE"
         fi
