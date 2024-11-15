@@ -61,11 +61,10 @@
 <span class="hljs-comment"># or via GitHub registry</span>
 $ docker run -p 80:80 -v /var/gotify/data:/app/data ghcr.io/gotify/server
 </code></pre>
-<p>There are also specific docker images for other architectures:</p>
-<ul>
-<li><code>gotify/server-arm7</code> / <code>ghcr.io/gotify/server-arm7</code>: for arm-7 processors (raspberry pi 4 and below)</li>
-<li><code>gotify/server-arm64</code> / <code>ghcr.io/gotify/server-arm64</code>: for arm-64 processors</li>
-</ul>
+<p><a href="https://hub.docker.com/r/gotify/server">gotify/server</a> and
+<a href="https://github.com/gotify/server/pkgs/container/server">ghcr.io/gotify/server</a>
+are multi-arch docker images, they will work for the architectures: amd64,
+i386, arm64, armv7, and riscv64.</p>
 <p><code>/app/data</code> contains the database file (if sqlite is used), images for applications and cert-files (if lets encrypt is enabled).
 In this example the directory is mounted to <code>/var/gotify/data</code> this directory should be included in a backup.</p>
 <p>The time zone inside the container is configurable via the <code>TZ</code> environment variable:</p>
