@@ -15,10 +15,10 @@ $ docker run -p 80:80 -v /var/gotify/data:/app/data gotify/server
 $ docker run -p 80:80 -v /var/gotify/data:/app/data ghcr.io/gotify/server
 ```
 
-There are also specific docker images for other architectures:
-
-- `gotify/server-arm7` / `ghcr.io/gotify/server-arm7`: for arm-7 processors (raspberry pi 4 and below)
-- `gotify/server-arm64` / `ghcr.io/gotify/server-arm64`: for arm-64 processors
+[gotify/server](https://hub.docker.com/r/gotify/server) and
+[ghcr.io/gotify/server](https://github.com/gotify/server/pkgs/container/server)
+are multi-arch docker images, they will work for the architectures: amd64,
+i386, arm64, armv7, and riscv64.
 
 `/app/data` contains the database file (if sqlite is used), images for applications and cert-files (if lets encrypt is enabled).
 In this example the directory is mounted to `/var/gotify/data` this directory should be included in a backup.
