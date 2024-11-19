@@ -19,17 +19,10 @@ $ git clone https://github.com/gotify/server.git && cd server
 
 ## Setup Backend
 
-If you are in GOPATH, enable [go modules](https://github.com/golang/go/wiki/Modules) explicitly:
-
-```bash
-$ export GO111MODULE=on
-```
-
 Download dependencies
 
 ```bash
 $ make download-tools
-$ go get -d
 ```
 
 ## Setup UI
