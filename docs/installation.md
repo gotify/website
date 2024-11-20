@@ -41,9 +41,12 @@ services:
     ports:
       - 8080:80
     environment:
-      - GOTIFY_DEFAULTUSER_PASS=custom
+      GOTIFY_DEFAULTUSER_PASS: 'my-com"plex.\password'
     volumes:
       - "./gotify_data:/app/data"
+    # to run gotify as a dedicated user:
+    # sudo chown -R 1234:1234 ./gotify_data
+    user: "1234:1234"
 ```
 
 </p>
