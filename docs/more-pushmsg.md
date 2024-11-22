@@ -99,19 +99,19 @@ switch ($code) {
 ### JavaScript
 
 ```javascript
-const axios = require("axios");
+const axios = require('axios');
 
-const url = "http://localhost:8008/message?token=<apptoken>";
+const url = 'http://localhost:8008/message?token=<apptoken>';
 const bodyFormData = {
-  title: "Hello from Javascript",
-  message: "Test Push Service from Node.js",
+  title: 'Hello from Javascript',
+  message: 'Test Push Service from Node.js',
   priority: 5,
 };
 
 axios({
-  method: "post",
+  method: 'post',
   headers: {
-    "Content-Type": "application/json",
+    'Content-Type': 'application/json',
   },
   url: url,
   data: bodyFormData,

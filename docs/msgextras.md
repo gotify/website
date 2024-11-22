@@ -75,7 +75,7 @@ Some of the namespaces are used by official clients:
 {
   "extras": {
     "client::notification": {
-      "click": { "url": "https://gotify.net" }
+      "click": {"url": "https://gotify.net"}
     }
   }
 }
@@ -121,7 +121,7 @@ Some of the namespaces are used by official clients:
 {
   "extras": {
     "android::action": {
-      "onReceive": { "intentUrl": "https://gotify.net" }
+      "onReceive": {"intentUrl": "https://gotify.net"}
     }
   }
 }
