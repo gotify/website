@@ -72,7 +72,7 @@ In this example the directory is mounted to <code>/var/gotify/data</code> this d
 </code></pre>
 <p><details><summary>Docker Compose</summary></p>
 <p>
-<pre><code class="hljs css language-yml"><span class="hljs-attr">version:</span> <span class="hljs-string">"3"</span>
+<pre><code class="hljs css language-yml"><span class="hljs-attr">version:</span> <span class="hljs-string">'3'</span>
 
 <span class="hljs-attr">services:</span>
   <span class="hljs-attr">gotify:</span>
@@ -80,9 +80,12 @@ In this example the directory is mounted to <code>/var/gotify/data</code> this d
     <span class="hljs-attr">ports:</span>
       <span class="hljs-bullet">-</span> <span class="hljs-number">8080</span><span class="hljs-string">:80</span>
     <span class="hljs-attr">environment:</span>
-      <span class="hljs-bullet">-</span> <span class="hljs-string">GOTIFY_DEFAULTUSER_PASS=custom</span>
+      <span class="hljs-attr">GOTIFY_DEFAULTUSER_PASS:</span> <span class="hljs-string">'admin'</span>
     <span class="hljs-attr">volumes:</span>
-      <span class="hljs-bullet">-</span> <span class="hljs-string">"./gotify_data:/app/data"</span>
+      <span class="hljs-bullet">-</span> <span class="hljs-string">'./gotify_data:/app/data'</span>
+    <span class="hljs-comment"># to run gotify as a dedicated user:</span>
+    <span class="hljs-comment"># sudo chown -R 1234:1234 ./gotify_data</span>
+    <span class="hljs-comment"># user: "1234:1234"</span>
 </code></pre>
 </p>
 </details>
