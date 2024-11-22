@@ -33,7 +33,7 @@ $ docker run -p 80:80 -e TZ="Europe/Berlin" -v /var/gotify/data:/app/data gotify
 <p>
 
 ```yml
-version: "3"
+version: '3'
 
 services:
   gotify:
@@ -43,7 +43,7 @@ services:
     environment:
       GOTIFY_DEFAULTUSER_PASS: 'admin'
     volumes:
-      - "./gotify_data:/app/data"
+      - './gotify_data:/app/data'
     # to run gotify as a dedicated user:
     # sudo chown -R 1234:1234 ./gotify_data
     # user: "1234:1234"
