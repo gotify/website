@@ -33,8 +33,7 @@ $ docker run -p 80:80 -e TZ="Europe/Berlin" -v /var/gotify/data:/app/data gotify
 <p>
 
 ```yml
-version: '3'
-
+---
 services:
   gotify:
     image: gotify/server
