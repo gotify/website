@@ -46,7 +46,7 @@ server {
 }
 ```
 
-If you want to use https, keep it to false in gotify and rely on nginx to set it up like you would with any other website.
+If you want to use HTTPS through Nginx, keep the gotify setting GOTIFY_SERVER_SSL_ENABLED=false and rely on nginx to encrypt your traffic like you would with any other website.
 
 # At a subpath
 
