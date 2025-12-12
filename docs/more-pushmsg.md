@@ -120,7 +120,7 @@ axios({
   .catch((err) => console.log(err.response ? error.response.data : err));
 ```
 
-### Java 11
+### Java 21
 
 With Maven dependency:
 
@@ -128,14 +128,14 @@ With Maven dependency:
 <dependency>
     <groupId>com.fasterxml.jackson.core</groupId>
     <artifactId>jackson-databind</artifactId>
-    <version>2.12.1</version>
+    <version>2.20.1</version>
 </dependency>
 ```
 
 And code:
 
 ```java
-package com.gotify.client;
+package com.example.gotify;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 
@@ -146,62 +146,36 @@ import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 
 public class GotifyClient {
-    private static final String BASE_URL = "http://localhost:8080";
-    private static final String TOKEN = "<YOUR_TOKEN>";
+    
+    // Your Gotify server and application token
+    private static final String GOTIFY_BASE_URL = "http://localhost:8008";
+    private static final String APP_TOKEN = "<YOUR_APP_TOKEN>";
 
     public static void main(String[] args) throws IOException, InterruptedException {
-        final var client = new GotifyClient(BASE_URL, TOKEN);
-        final var message = new Message("My Title", "Hello from Java!", 10);
-        if (client.sendMessage(message)) {
-            System.out.println("Message sent!");
-        } else {
-            System.out.println("Something went wrong :(.");
-        }
+        var client = HttpClient.newHttpClient();
+        var message = new Message("My Title", "Hello from Java!", 5);
+
+        boolean success = sendPush(client, message);
+        System.out.println(success ? "Message sent!" : "Failed to send message.");
     }
 
-    private final String gotifyUrl;
-    private final HttpClient httpClient;
-    private final ObjectMapper objectMapper;
+    private static boolean sendPush(HttpClient client, Message message) throws IOException, InterruptedException {
+        var objectMapper = new ObjectMapper();
+        String jsonBody = objectMapper.writeValueAsString(message);
 
-    public GotifyClient(String baseUrl, String token) {
-        this.gotifyUrl = String.format("%s/message?token=%s", baseUrl, token);
-        this.httpClient = HttpClient.newHttpClient();
-        this.objectMapper = new ObjectMapper();
-    }
-
-    private boolean sendMessage(Message message) throws IOException, InterruptedException {
-        final var bodyData = objectMapper.writeValueAsString(message);
-
-        final var request = HttpRequest.newBuilder()
-                .uri(URI.create(gotifyUrl))
+        var request = HttpRequest.newBuilder()
+                .uri(URI.create(GOTIFY_BASE_URL + "/message?token=" + APP_TOKEN))
                 .header("Content-Type", "application/json")
-                .POST(HttpRequest.BodyPublishers.ofString(bodyData))
+                .POST(HttpRequest.BodyPublishers.ofString(jsonBody))
                 .build();
 
-        final var response = httpClient.send(request, HttpResponse.BodyHandlers.ofString());
-        System.out.println(response.body());
+        var response = client.send(request, HttpResponse.BodyHandlers.ofString());
+        System.out.printf("Response status: %d, body: %s%n", response.statusCode(), response.body());
 
-        return response.statusCode() >= 200 && response.statusCode() < 400;
+        return response.statusCode() >= 200 && response.statusCode() < 300;
     }
 
-    public static class Message {
-        private String message;
-        private String title;
-        private int priority;
-
-        public Message(String title, String message, int priority) {
-            this.message = message;
-            this.priority = priority;
-            this.title = title;
-        }
-
-        public String getMessage() { return message; }
-        public void setMessage(String message) { this.message = message; }
-        public int getPriority() { return priority; }
-        public void setPriority(int priority) { this.priority = priority; }
-        public String getTitle() { return title; }
-        public void setTitle(String title) { this.title = title; }
-    }
+    public record Message(String title, String message, int priority) {}
 }
 ```
 
