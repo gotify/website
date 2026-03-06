@@ -2,6 +2,7 @@
 
 ## Building
 
+> [!note]
 > This tutorial assumes that you want to build your plugin for gotify/server `v2.0.0`. If you want to build for a different
 > version then replace v2.0.0 with your desired version.
 
@@ -73,6 +74,7 @@ $ docker run --rm -v "$PWD/.:/proj" -w /proj gotify/build:1.12.0-linux-386 \
 
 ### Without Docker (not recommended)
 
+> [!note]
 > Plugins built without the gotify/server build environment, will probably not work with the built binaries from
 > [gotify/server Releases](https://github.com/gotify/server/releases).
 

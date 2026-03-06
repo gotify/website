@@ -2,10 +2,11 @@
 
 To manage starting, logging, etc. of Gotify, systemd can be used.
 
+> [!note]
 > This is only a minimal example and does not provide the most secure or "best"
 > way to run gotify. Please adjust the config to your needs.
 
-# Installation
+## Installation
 
 For this example, Gotify is installed by root in a directory called
 `/opt/gotify/` and the executable in there is called `gotify`. The config file
@@ -43,7 +44,7 @@ sudo systemctl daemon-reload
 sudo systemctl enable gotify
 ```
 
-# Start
+## Start
 
 Gotify can then be started manually with:
 

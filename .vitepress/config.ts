@@ -35,7 +35,7 @@ export default defineConfig({
         },
         {
           text: 'REST-API',
-          items: [{text: 'Swagger Documentation', link: '/docs/swagger-docs'}],
+          items: [{text: 'Swagger Documentation', link: '/api-docs'}],
         },
         {
           text: 'Plugins',

@@ -26,8 +26,7 @@ The time zone inside the container is configurable via the `TZ` environment vari
 $ docker run -p 80:80 -e TZ="Europe/Berlin" -v /var/gotify/data:/app/data gotify/server
 ```
 
-<details><summary>Docker Compose</summary>
-<p>
+::: details Example docker-compose.yaml
 
 ```yml
 ---
@@ -45,8 +44,7 @@ services:
     # user: "1234:1234"
 ```
 
-</p>
-</details>
+:::details
 
 ## Binary
 
