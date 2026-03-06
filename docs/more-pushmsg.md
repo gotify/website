@@ -1,7 +1,4 @@
----
-id: more-pushmsg
-title: (more) Push message examples
----
+# (more) Push message examples
 
 Have a look [here](pushmsg.md) for "How to obtain an application token".
 

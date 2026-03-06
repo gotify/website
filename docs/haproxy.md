@@ -1,13 +1,10 @@
----
-id: haproxy
-title: Haproxy reverse proxy
----
+# Haproxy reverse proxy
 
 Here are configuration examples for setting up Haproxy as reverse proxy for gotify/server.
 
 ## Proxy requests
 
-```haproxy
+```txt
 frontend www
     bind 0.0.0.0:80
     default_backend backend_gotify

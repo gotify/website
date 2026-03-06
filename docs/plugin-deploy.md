@@ -1,7 +1,4 @@
----
-id: plugin-deploy
-title: Building and Deploying Plugins
----
+# Building and Deploying Plugins
 
 ## Building
 
@@ -96,7 +93,7 @@ $ go build -o /path/to/gotify/plugin/dir/myplugin.so -buildmode=plugin
 
 ## Deploying
 
-Gotify loads plugin from the `pluginsdir` directory in the [configuration](configuration.md). All files in that directory are loaded as plugins.
+Gotify loads plugin from the `pluginsdir` directory in the [configuration](config.md). All files in that directory are loaded as plugins.
 
 Copy built shared object to the gotify plugin directory:
 
@@ -120,4 +117,4 @@ $ gotify
 - If the conflicting package is a 3rd party dependency (starts with a hostname, eg: `github.com/...`):
   - Check if your project `go.mod` is out of date ( `go mod tidy` )
   - Your plugin might have a common dependency with gotify but with a different version, modify that dependency version manually in `go.mod` or use [gomod-cap](https://github.com/gotify/plugin-api/#githubcomgotifycmdgomod-cap).
-- If you still cannot resolve the dependency issue, try [building](installation.md#source) gotify from source.
+- If you still cannot resolve the dependency issue, try [building](install.md#source) gotify from source.

@@ -1,7 +1,4 @@
----
-id: dev-server-and-tests
-title: Servers and Tests
----
+# Servers and Tests
 
 ## Start development servers
 

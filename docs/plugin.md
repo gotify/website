@@ -1,7 +1,4 @@
----
-id: plugin
-title: Intro to Gotify Plugins
----
+# Intro to Gotify Plugins
 
 > Plugins are currently only supported on Linux and MacOS due to a current limitation of golang.
 
@@ -31,7 +28,7 @@ Gotify provides built-in plugin functionality built on top of the [go plugin sys
 
 First let's see a minimal example of gotify plugin, you can copy this boilerplate code to bootstrap your own plugin:
 
-```golang
+```go
 package main
 
 import (

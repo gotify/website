@@ -1,7 +1,4 @@
----
-id: config
-title: Configuration
----
+# Configuration
 
 gotify/server can be configured per config file and environment variables.
 When using docker it is recommended to use environment variables.

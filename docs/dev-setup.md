@@ -1,7 +1,4 @@
----
-id: dev-setup
-title: Setup Environment
----
+# Setup Environment
 
 Gotify requires:
 

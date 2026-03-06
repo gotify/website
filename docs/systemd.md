@@ -1,7 +1,4 @@
----
-id: systemd
-title: systemd configuration
----
+# systemd configuration
 
 To manage starting, logging, etc. of Gotify, systemd can be used.
 

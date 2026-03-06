@@ -1,7 +1,4 @@
----
-id: caddy
-title: Caddy 2 reverse proxy
----
+# Caddy 2 reverse proxy
 
 Setting up [Caddy](https://caddyserver.com) as a reverse proxy is very straightforward. Here are two config examples.
 

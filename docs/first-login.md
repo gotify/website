@@ -1,7 +1,4 @@
----
-id: first-login
-title: First Login
----
+# First Login
 
 After setting up gotify/server you can login to the WebUI. When first launched an initial account is created so you can log in. If you have not overriden the defaults in the configuration, use username: `admin` password: `admin`.
 

@@ -1,7 +1,4 @@
----
-id: nginx
-title: nginx reverse proxy
----
+# nginx reverse proxy
 
 You may want to use your nginx server as a reverse proxy to run gotify.
 
