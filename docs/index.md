@@ -1,7 +1,4 @@
----
-id: index
-title: Intro
----
+# Intro
 
 This is the documentation of gotify/server. Lets start with some definitions:
 
@@ -14,4 +11,4 @@ Users are only able to manage (view/edit/delete) clients and applications (inclu
 
 A message has the following attributes: content, title, creation date, application id and priority.
 
-![](../img/intro.png)
+![](/img/intro.png)

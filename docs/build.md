@@ -1,7 +1,4 @@
----
-id: build
-title: Build Gotify
----
+# Build Gotify
 
 1. [Setup development environment](dev-setup.md)
 

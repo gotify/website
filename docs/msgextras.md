@@ -1,7 +1,4 @@
----
-id: msgextras
-title: Message Extras
----
+# Message Extras
 
 Extras are used to carry extra information, change how clients behave, etc.
 Extras are stored in a key-value scheme and are only accepted in `POST /message` requests with `application/json` content-type.

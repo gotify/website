@@ -1,11 +1,8 @@
----
-id: nginx
-title: nginx reverse proxy
----
+# nginx reverse proxy
 
 You may want to use your nginx server as a reverse proxy to run gotify.
 
-# At the root of the domain
+## At the root of the domain
 
 Here is a sample config file if you run your gotify instance on port 1245
 
@@ -48,7 +45,7 @@ server {
 
 If you want to use HTTPS through Nginx, keep the gotify setting GOTIFY_SERVER_SSL_ENABLED=false and rely on nginx to encrypt your traffic like you would with any other website.
 
-# At a subpath
+## At a subpath
 
 Here is the equivalent of the sample config above but running on a subpath
 

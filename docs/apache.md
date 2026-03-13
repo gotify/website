@@ -1,7 +1,4 @@
----
-id: apache
-title: Apache reverse proxy
----
+# Apache reverse proxy
 
 Here are configuration examples for setting up apache as reverse proxy for gotify/server.
 

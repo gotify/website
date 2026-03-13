@@ -1,13 +1,10 @@
----
-id: plugin-write
-title: Writing Plugins
----
+# Writing Plugins
 
 ## Description
 
 Lets take a closer look at the minimal plugin instance we created in the [intro](plugin.md) part:
 
-```golang
+```go
 // Plugin is plugin instance
 type Plugin struct{}
 
@@ -47,7 +44,7 @@ Markdown is supported.
 
 The REST API for this exposed at [`/plugin/:id/display`](/api-docs#/plugin/getPluginDisplay).
 
-```golang
+```go
 // Plugin is the plugin instance
 type Plugin struct {
     userCtx plugin.UserContext
@@ -74,7 +71,7 @@ func NewGotifyPluginInstance(ctx plugin.UserContext) plugin.Plugin {
 [`Messenger`](https://godoc.org/github.com/gotify/plugin-api#Messenger) is used to send messages.
 It is called with a callback that plugin instances can call at any time to send messages to the user.
 
-```golang
+```go
 // Plugin is the plugin instance
 type Plugin struct {
     msgHandler plugin.MessageHandler
@@ -102,7 +99,7 @@ func (c *Plugin) Enable() error {
 [`Storager`](https://godoc.org/github.com/gotify/plugin-api#Storager) is used to store permanent information on the gotify database on the user level.
 Data serialization is handled by the plugin itself.
 
-```golang
+```go
 // Plugin is the plugin instance
 type Plugin struct {
     storageHandler plugin.StorageHandler
@@ -143,7 +140,7 @@ The base path is the base path of the `RouterGroup`, which is kept consistent be
 Plugins can assemble an absolute webhook URL by combining `basePath` and `location` parameter in `Displayer` call.
 Useful to register webhook handlers. In theory you can even register a complete UI here.
 
-```golang
+```go
 // Plugin is the plugin instance
 type Plugin struct {
     basePath string
@@ -183,7 +180,7 @@ Marshaling and Unmarshaling is handled by the gotify main program.
 
 The REST API for this is exposed at [`/plugin/:id/config`](/api-docs#/plugin/getPluginConfig).
 
-```golang
+```go
 // Plugin is the plugin instance
 type Plugin struct {
     config *Config
@@ -229,6 +226,6 @@ Although we have covered how to implement plugin functionalities in the last cha
 
 - Use [go modules](https://github.com/golang/go/wiki/Modules) to manage dependencies, and use [gomod-cap](https://github.com/gotify/plugin-api/#githubcomgotifycmdgomod-cap) to prevent incompatible dependencies.
 - Handle all errors. A panic in a goroutine spawned in the plugin can crash the whole gotify program.
-- Provide detailed plugin info and utilize [`Displayer`](/docs/plugin-api#displayer) to show instructions to users. A detailed plugin info would be shown in the WebUI which makes it easier to be identified and used.
+- Provide detailed plugin info and utilize [`Displayer`](/docs/plugin-write#displayer) to show instructions to users. A detailed plugin info would be shown in the WebUI which makes it easier to be identified and used.
 
 You can clone the official plugin [template](https://github.com/gotify/plugin-template) and [have a look at community contributions](https://github.com/gotify/contrib) to see plugins in action and/or to bootstrap your project.

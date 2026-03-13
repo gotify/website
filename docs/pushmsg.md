@@ -1,7 +1,4 @@
----
-id: pushmsg
-title: Push messages
----
+# Push messages
 
 As already indicated in [Intro](index.md) you need an application to push messages to gotify/server. Only the user who created the application is able to see its messages.
 An application can be added via

@@ -1,11 +1,8 @@
----
-id: caddy
-title: Caddy 2 reverse proxy
----
+# Caddy 2 reverse proxy
 
 Setting up [Caddy](https://caddyserver.com) as a reverse proxy is very straightforward. Here are two config examples.
 
-# As a standalone domain
+## As a standalone domain
 
 Here is a sample config file if you run your gotify instance on port 1245
 
@@ -19,7 +16,7 @@ gotify.example.com {
 
 Caddy automatically deploys SSL certificates from Let's Encrypt for your domain. If you want to explicitly disable TLS encryption, prefix your server name with `http://`.
 
-# At a subpath
+## At a subpath
 
 Here is the equivalent of the sample config above but running under a sub path.
 

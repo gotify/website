@@ -1,7 +1,4 @@
----
-id: traefik
-title: Traefik reverse proxy
----
+# Traefik reverse proxy
 
 ```yaml
 services:

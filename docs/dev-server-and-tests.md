@@ -1,7 +1,4 @@
----
-id: dev-server-and-tests
-title: Servers and Tests
----
+# Servers and Tests
 
 ## Start development servers
 
@@ -36,7 +33,7 @@ The UI requires a Gotify server running on `localhost:80`. This can be adjusted 
 
 ## Update Swagger spec
 
-The [gotify/server REST-API](swagger-docs.md) is documented via Swagger. The Swagger definition is generated via source code comments
+The [gotify/server REST-API](/api-docs) is documented via Swagger. The Swagger definition is generated via source code comments
 ([example comment](https://github.com/gotify/server/blob/09c1516a170dfb47d29644db622655b540b94922/api/application.go#L33)).
 
 After changing such a source code comment, you can run the following command to update the Swagger definition.

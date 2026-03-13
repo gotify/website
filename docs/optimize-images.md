@@ -1,7 +1,4 @@
----
-id: optimize-images
-title: Optimize uploaded images
----
+# Optimize uploaded images
 
 Users can upload images for applications. Large images are not rescaled by
 Gotify and can take up unneeded disk space and network bandwidth. The script
@@ -61,6 +58,6 @@ directory before doing that is always wise.
 
 Add the following line to a file in e.g. `/etc/cron.d/gotify`
 
-```cron
+```txt
 12	12	* * *	root	/opt/gotify/optimize-images.sh
 ```
