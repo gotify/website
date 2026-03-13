@@ -44,7 +44,7 @@ services:
     # user: "1234:1234"
 ```
 
-:::details
+:::
 
 ## Binary
 
