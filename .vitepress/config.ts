@@ -54,8 +54,9 @@ export default defineConfig({
           ],
         },
         {
-          text: 'Miscellaneous',
+          text: 'Guides',
           items: [
+            {text: 'OpenID Connect (OIDC)', link: '/docs/oidc'},
             {text: 'Apache reverse proxy', link: '/docs/apache'},
             {text: 'Caddy 2 reverse proxy', link: '/docs/caddy'},
             {text: 'Haproxy reverse proxy', link: '/docs/haproxy'},

@@ -40,33 +40,46 @@ server:
       enabled: false # if the certificate should be requested from letsencrypt
       accepttos: false # if you accept the tos from letsencrypt
       cache: data/certs # the directory of the cache from letsencrypt
+      directoryurl: # override the directory url of the ACME server
+        # Let's Encrypt highly recommend testing against their staging environment before using their production environment.
+        # Staging server has high rate limits for testing and debugging, issued certificates are not valid
+        # example: https://acme-staging-v02.api.letsencrypt.org/directory
       hosts: # the hosts for which letsencrypt should request certificates
-  #     - mydomain.tld
-  #     - myotherdomain.tld
+  #       - mydomain.tld
+  #       - myotherdomain.tld
   responseheaders: # response headers are added to every response (default: none)
-  # X-Custom-Header: "custom value"
+  #   X-Custom-Header: "custom value"
+
   trustedproxies: # IPs or IP ranges of trusted proxies. Used to obtain the remote ip via the X-Forwarded-For header. (configure 127.0.0.1 to trust sockets)
-  #   - 127.0.0.1
-  #   - 192.168.178.0/24
+  #   - 127.0.0.1/32
   #   - ::1
+  securecookie: false # If the secure flag should be set on cookies. See https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/Set-Cookie#secure
 
   cors: # Sets cors headers only when needed and provides support for multiple allowed origins. Overrides Access-Control-* Headers in response headers.
     alloworigins:
-    # - ".+.example.com"
-    # - "otherdomain.com"
+    #     - ".+.example.com"
+    #     - "otherdomain.com"
     allowmethods:
-    # - "GET"
-    # - "POST"
+    #     - "GET"
+    #     - "POST"
     allowheaders:
-  #   - "Authorization"
-  #   - "content-type"
-
+  #     - "Authorization"
+  #     - "content-type"
   stream:
     pingperiodseconds: 45 # the interval in which websocket pings will be sent. Only change this value if you know what you are doing.
-    allowedorigins: # allowed origins for websocket connections (same origin is always allowed, default only same origin)
+    allowedorigins: # allowed origins for websocket connections (same origin is always allowed)
 #     - ".+.example.com"
 #     - "otherdomain.com"
-database: # see below
+oidc:
+  enabled: false # Enable OpenID Connect login, allowing users to authenticate via an external identity provider (e.g. Keycloak, Authelia, Google).
+  issuer: # The OIDC issuer URL. This is the base URL of your identity provider, used to discover endpoints. Example: "https://auth.example.com/realms/myrealm"
+  clientid: # The client ID registered with your identity provider for this application.
+  clientsecret: # The client secret for the registered client.
+  redirecturl: http://gotify.example.org/auth/oidc/callback # The callback URL that the identity provider redirects to after authentication. Must match exactly what is configured in your identity provider.
+  autoregister: true # If true, automatically create a new user on first OIDC login. If false, only existing users can log in via OIDC.
+  usernameclaim: preferred_username # The OIDC claim used to determine the username. Common values: "preferred_username" or "email".
+
+database: # for database see (configure database section)
   dialect: sqlite3
   connection: data/gotify.db
 defaultuser: # on database creation, gotify creates an admin user (these values will only be used for the first start, if you want to edit the user after the first start use the WebUI)
@@ -118,7 +131,8 @@ GOTIFY_SERVER_SSL_CERTFILE=
 GOTIFY_SERVER_SSL_CERTKEY=
 GOTIFY_SERVER_SSL_LETSENCRYPT_ENABLED=false
 GOTIFY_SERVER_SSL_LETSENCRYPT_ACCEPTTOS=false
-GOTIFY_SERVER_SSL_LETSENCRYPT_CACHE=certs
+GOTIFY_SERVER_SSL_LETSENCRYPT_CACHE=data/certs
+GOTIFY_SERVER_SSL_LETSENCRYPT_DIRECTORYURL=
 # GOTIFY_SERVER_SSL_LETSENCRYPT_HOSTS=[mydomain.tld, myotherdomain.tld]
 # GOTIFY_SERVER_RESPONSEHEADERS={X-Custom-Header: "custom value", x-other: value}
 # GOTIFY_SERVER_TRUSTEDPROXIES=[127.0.0.1,192.168.178.2/24]
@@ -127,6 +141,7 @@ GOTIFY_SERVER_SSL_LETSENCRYPT_CACHE=certs
 # GOTIFY_SERVER_CORS_ALLOWHEADERS=[X-Gotify-Key, Authorization]
 # GOTIFY_SERVER_STREAM_ALLOWEDORIGINS=[.+.example\.com, otherdomain\.com]
 GOTIFY_SERVER_STREAM_PINGPERIODSECONDS=45
+GOTIFY_SERVER_SECURECOOKIE=false
 GOTIFY_DATABASE_DIALECT=sqlite3
 GOTIFY_DATABASE_CONNECTION=data/gotify.db
 GOTIFY_DEFAULTUSER_NAME=admin
@@ -135,4 +150,11 @@ GOTIFY_PASSSTRENGTH=10
 GOTIFY_UPLOADEDIMAGESDIR=data/images
 GOTIFY_PLUGINSDIR=data/plugins
 GOTIFY_REGISTRATION=false
+GOTIFY_OIDC_ENABLED=false
+GOTIFY_OIDC_ISSUER=
+GOTIFY_OIDC_CLIENTID=
+GOTIFY_OIDC_CLIENTSECRET=
+GOTIFY_OIDC_REDIRECTURL=http://gotify.example.org/auth/oidc/callback
+GOTIFY_OIDC_AUTOREGISTER=true
+GOTIFY_OIDC_USERNAMECLAIM=preferred_username
 ```
