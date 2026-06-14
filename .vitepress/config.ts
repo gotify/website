@@ -42,7 +42,10 @@ export default defineConfig({
           items: [
             {text: 'Intro to Gotify Plugins', link: '/docs/plugin'},
             {text: 'Writing Plugins', link: '/docs/plugin-write'},
-            {text: 'Building and Deploying Plugins', link: '/docs/plugin-deploy'},
+            {
+              text: 'Building and Deploying Plugins',
+              link: '/docs/plugin-deploy',
+            },
           ],
         },
         {
@@ -57,6 +60,8 @@ export default defineConfig({
           text: 'Guides',
           items: [
             {text: 'OpenID Connect (OIDC)', link: '/docs/oidc'},
+            {text: 'Session Elevation', link: '/docs/session-elevation'},
+            {text: 'Migrate to 3.x', link: '/docs/migrate-to-3'},
             {text: 'Apache reverse proxy', link: '/docs/apache'},
             {text: 'Caddy 2 reverse proxy', link: '/docs/caddy'},
             {text: 'Haproxy reverse proxy', link: '/docs/haproxy'},
