@@ -1,5 +1,20 @@
 # Configuration
 
+<script setup>
+import {data as envExample} from '../config.data.ts'
+</script>
+
+::: details 3.x Config
+
+Gotify 3.x is configured through environment variables, which can be loaded from
+an env file. [`gotify-server.env.example`](https://raw.githubusercontent.com/gotify/server/refs/heads/master/gotify-server.env.example)
+
+<div v-html="envExample"></div>
+
+:::
+
+::: details 2.x Config
+
 gotify/server can be configured per config file and environment variables.
 When using docker it is recommended to use environment variables.
 
@@ -158,3 +173,5 @@ GOTIFY_OIDC_REDIRECTURL=http://gotify.example.org/auth/oidc/callback
 GOTIFY_OIDC_AUTOREGISTER=true
 GOTIFY_OIDC_USERNAMECLAIM=preferred_username
 ```
+
+:::
