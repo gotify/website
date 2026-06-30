@@ -9,6 +9,8 @@
   with [`migrate-config`](#migrating-your-config).
 - If you set list or map environment variables, their syntax changed, see
   [List and map syntax](#list-and-map-syntax).
+- If you rely on the format of tokens or the internal implementation details of token storage, your workflow may need adjusting.
+  See [token format redesign](#token-format-redesign).
 - If you have scripts hitting client-token endpoints, they may now need
   [elevation](#adapting-your-scripts).
 
@@ -78,13 +80,27 @@ GOTIFY_SERVER_RESPONSEHEADERS={"X-Custom-Header":"custom value"}
 
 ## API Changes
 
+### Token Format Redesign
+
+Introduces an EdDSA based token validation scheme to prevent storing plaintext token in database
+and create potential for fulfilling more feature requests related to security and authentication.
+See [#325](https://github.com/gotify/server/issues/325).
+
+Tokens for existing applications can now be rotated via the _application security update_ endpoint.
+
+Existing tokens (starting with `A` and `C`) will continue to work.
+Plugin tokens (starting with `P`) used to access web resources are not affected by this change.
+
+Custom tokens created by manually modifying database entry may cease to work upon upgrading,
+in such case please rotate tokens or recreate the corresponding client/application entry.
+
+### Step-up Authentication
+
 Introduces step-up authentication via time-limited [session
 elevation](./session-elevation.md). A session/client token must re-authenticate
 before sensitive, hard-to-undo actions.
 
 HTTP Basic auth and application tokens are unaffected.
-
-### Endpoints that now require elevation
 
 With a non-elevated client token these return `403`:
 
@@ -93,6 +109,7 @@ With a non-elevated client token these return `403`:
 | `POST /current/user/password`                 | Change current user's password |
 | `DELETE /client/{id}`                         | Delete a client                |
 | `DELETE /application/{id}`                    | Delete an application          |
+| `PUT /application/{id}/security`              | Application security update    |
 | `POST /client/{id}/elevate`                   | Elevate a client token         |
 | `GET /user`, `GET`/`POST`/`DELETE /user/{id}` | Manage users (admin)           |
 
