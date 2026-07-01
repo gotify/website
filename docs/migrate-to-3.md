@@ -83,16 +83,30 @@ GOTIFY_SERVER_RESPONSEHEADERS={"X-Custom-Header":"custom value"}
 ### Token Format Redesign
 
 Introduces an EdDSA based token validation scheme to prevent storing plaintext token in database
-and create potential for fulfilling more feature requests related to security and authentication.
+and create potential for future authentication methods.
 See [#325](https://github.com/gotify/server/issues/325).
+
+This also means to align with secure API design principles,
+tokens will no longer be returned via the API or WebUI except when the token is issued via creation or rotation.
+Workflows dependent on introspecting existing clients or applications for their token will stop working.
+
+::: tip
+The post message endpoint now accepts an "appid" parameter, which allows clients
+to impersonate applications they control without knowing the corresponding application token.
+:::
 
 Tokens for existing applications can now be rotated via the _application security update_ endpoint.
 
 Existing tokens (starting with `A` and `C`) will continue to work.
 Plugin tokens (starting with `P`) used to access web resources are not affected by this change.
 
-Custom tokens created by manually modifying database entry may cease to work upon upgrading,
+Custom tokens created by manually modifying database entries may cease to work upon upgrading,
 in such case please rotate tokens or recreate the corresponding client/application entry.
+
+Client tokens cannot be rotated at initial release, but this may become possible in the future
+without a major version bump.
+Workflows should also not assume a one-to-one relationship between tokens and their corresponding entity,
+as future versions may include signature-based, scoped, encryption-based and other token-passing methods.
 
 ### Step-up Authentication
 
@@ -116,13 +130,14 @@ With a non-elevated client token these return `403`:
 The `Client` and `CurrentUser` models have gotten elevation-related fields. See the
 [API documentation](/api-docs) for details.
 
-### Adapting your scripts
+::: tip
 
-Scripts that hit the endpoints above with a client token now need that token to
-be elevated. Either:
+To update your workflow that uses the endpoints above with a client token. Perform a separate elevation process before the call. Either:
 
-- Use HTTP Basic auth as they are elevated by default.
-- Elevate the client in the WebUI or the api with basic auth.
+- Transitition to use HTTP Basic auth as they are elevated by default.
+- Elevate the client in the WebUI or the api with basic auth before calling these APIs.
+
+:::
 
 ## CLI Changes
 
