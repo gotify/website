@@ -9,8 +9,8 @@
   with [`migrate-config`](#migrating-your-config).
 - If you set list or map environment variables, their syntax changed, see
   [List and map syntax](#list-and-map-syntax).
-- If you rely on the format of tokens or the internal implementation details of token storage, your workflow may need adjusting.
-  See [token format redesign](#token-format-redesign).
+- API tokens are no longer returned in the GET endpoints and are only exposed
+  on creation or rotation. See [Tokens are only shown once](#tokens-are-only-shown-once).
 - If you have scripts hitting client-token endpoints, they may now need
   [elevation](#adapting-your-scripts).
 
@@ -80,7 +80,7 @@ GOTIFY_SERVER_RESPONSEHEADERS={"X-Custom-Header":"custom value"}
 
 ## API Changes
 
-### Token Format Redesign
+### Tokens are only shown once
 
 As part of an effort to align with secure API design principles,
 tokens will no longer be returned via the API or WebUI except when the token is issued via creation or rotation.
