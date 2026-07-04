@@ -82,11 +82,7 @@ GOTIFY_SERVER_RESPONSEHEADERS={"X-Custom-Header":"custom value"}
 
 ### Token Format Redesign
 
-Introduces an EdDSA based token validation scheme to prevent storing plaintext token in database
-and create potential for future authentication methods.
-See [#325](https://github.com/gotify/server/issues/325).
-
-This also means to align with secure API design principles,
+As part of an effort to align with secure API design principles,
 tokens will no longer be returned via the API or WebUI except when the token is issued via creation or rotation.
 Workflows dependent on introspecting existing clients or applications for their token will stop working.
 
@@ -99,14 +95,6 @@ Tokens for existing applications can now be rotated via the _application securit
 
 Existing tokens (starting with `A` and `C`) will continue to work.
 Plugin tokens (starting with `P`) used to access web resources are not affected by this change.
-
-Custom tokens created by manually modifying database entries may cease to work upon upgrading,
-in such case please rotate tokens or recreate the corresponding client/application entry.
-
-Client tokens cannot be rotated at initial release, but this may become possible in the future
-without a major version bump.
-Workflows should also not assume a one-to-one relationship between tokens and their corresponding entity,
-as future versions may include signature-based, scoped, encryption-based and other token-passing methods.
 
 ### Step-up Authentication
 
