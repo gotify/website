@@ -8,11 +8,11 @@
 - The `config.yml` file is no longer supported, convert it to the new env format
   with [`migrate-config`](#migrating-your-config).
 - If you set list or map environment variables, their syntax changed, see
-  [List and map syntax](#list-and-map-syntax).
+  [List and map syntax](#environment-list-and-map-syntax).
 - API tokens are no longer returned in the GET endpoints and are only exposed
   on creation or rotation. See [Tokens are only shown once](#tokens-are-only-shown-once).
 - If you have scripts hitting client-token endpoints, they may now need
-  [elevation](#adapting-your-scripts).
+  [elevation](#step-up-authentication).
 
 ## Config Changes
 
