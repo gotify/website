@@ -13,15 +13,15 @@ The token is returned when creating the application. Starting with Gotify 3, tok
 Now you can use [curl](https://curl.se/), [HTTPie](https://httpie.io/) or any other HTTP client to push messages.
 
 ```bash
-$ curl "https://push.example.de/message?token=<apptoken>" -F "title=my title" -F "message=my message" -F "priority=5"
-$ http -f POST "https://push.example.de/message?token=<apptoken>" title="my title" message="my message" priority="5"
+$ curl "https://push.example.de/message" -H "X-Gotify-Key: <apptoken>" -F "title=my title" -F "message=my message" -F "priority=5"
+$ http -f POST "https://push.example.de/message" "X-Gotify-Key:<apptoken>" title="my title" message="my message" priority="5"
 ```
 
 On Microsoft PowerShell, you can use the built-in `Invoke-RestMethod` or `Invoke-WebRequest` cmdlets.
 
 ```powershell
-PS> Invoke-RestMethod -Uri "https://push.example.de/message?token=<apptoken>" -Method POST -Body @{title="my title"; message="my message"; priority=5} # return is automatically parsed into a PowerShell object
-PS> Invoke-WebRequest -Uri "https://push.example.de/message?token=<apptoken>" -Method POST -Body @{title="my title"; message="my message"; priority=5} # return is as raw response
+PS> Invoke-RestMethod -Uri "https://push.example.de/message" -Headers @{"X-Gotify-Key"="<apptoken>"} -Method POST -Body @{title="my title"; message="my message"; priority=5} # return is automatically parsed into a PowerShell object
+PS> Invoke-WebRequest -Uri "https://push.example.de/message" -Headers @{"X-Gotify-Key"="<apptoken>"} -Method POST -Body @{title="my title"; message="my message"; priority=5} # return is as raw response
 ```
 
 > The message API takes an `extras` property that carries extra information with the message and describes how clients should handle it.
