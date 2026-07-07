@@ -17,8 +17,8 @@ The identity provider **must** support [PKCE](https://oauth.net/2/pkce/) (Proof 
 | `GOTIFY_OIDC_CLIENTID`         | The client ID registered with your identity provider.                                                      |
 | `GOTIFY_OIDC_CLIENTSECRET`     | The client secret.                                                                                         |
 | `GOTIFY_OIDC_REDIRECTURL`      | The callback URL the identity provider redirects to after authentication. Must match your provider config. |
-| `GOTIFY_OIDC_AUTOREGISTER`     | Automatically create a new Gotify user on first OIDC login.                                                |
-| `GOTIFY_OIDC_USERNAMECLAIM`    | The OIDC claim used to determine the username. Common values: `preferred_username` or `email`.             |
+| `GOTIFY_OIDC_AUTOREGISTER`     | Automatically create a new Gotify user on first OIDC login. Enabled by default.                            |
+| `GOTIFY_OIDC_USERNAMECLAIM`    | The OIDC claim used as the username. Common values: `preferred_username` (default) or `email`.             |
 | `GOTIFY_OIDC_LINK_BY_USERNAME` | Link an OIDC identity to an existing local user with the same username. Disabled by default.               |
 | `GOTIFY_OIDC_SCOPES`           | Comma-separated scopes to request. Defaults to `openid,profile,email`.                                     |
 
@@ -47,11 +47,11 @@ This URL must match **exactly** between the Gotify config and your identity prov
 
 ## Linking by username
 
-Gotify identifies users by username. When the OIDC username claim clashes with an existing local user that is not yet bound to an OIDC identity, this login is rejected by default. Set `GOTIFY_OIDC_LINK_BY_USERNAME=true` to bind OIDC identities to existing local users.
+Gotify identifies users by username. By default, an OIDC login is rejected when its username belongs to an existing local user that is not yet linked to an OIDC identity. Set `GOTIFY_OIDC_LINK_BY_USERNAME=true` to link the OIDC identity to the existing local user instead.
 
-Only enable it if you trust that usernames in your identity provider map to the same people as your Gotify usernames.
+Only enable this if you trust that usernames in your identity provider map to the same people as your Gotify usernames.
 
-## Sample IdP Config
+## Sample IdP configurations
 
 ### Authelia
 

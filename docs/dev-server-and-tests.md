@@ -4,7 +4,7 @@
 
 ### Backend
 
-The backend needs a built ui. Run
+The backend embeds the built UI, so build it first.
 
 ```bash
 $ (cd ui && yarn build)
@@ -26,17 +26,18 @@ _Commands must be executed inside the ui directory._
 $ yarn start
 ```
 
-Open `http://localhost:3000` inside your favorite browser.
+Open `http://localhost:5173` inside your favorite browser.
 
-The UI requires a Gotify server running on `localhost:80`. This can be adjusted inside
-[ui/src/index.tsx](https://github.com/gotify/server/blob/master/ui/src/index.tsx).
+The UI development server proxies API requests to a Gotify server running on
+`localhost:80`. Create a `gotify-server.env` in the gotify/server repository
+containing `GOTIFY_SERVER_PORT=8080` to change the port.
 
 ## Update Swagger spec
 
-The [gotify/server REST-API](/api-docs) is documented via Swagger. The Swagger definition is generated via source code comments
+The [gotify/server REST-API](/api-docs) is documented via Swagger. The Swagger definition is generated from source code comments
 ([example comment](https://github.com/gotify/server/blob/09c1516a170dfb47d29644db622655b540b94922/api/application.go#L33)).
 
-After changing such a source code comment, you can run the following command to update the Swagger definition.
+After changing such a comment, run the following command to update the Swagger definition.
 
 ```bash
 $ make update-swagger
@@ -46,7 +47,7 @@ $ make update-swagger
 
 ### Execute Backend Tests
 
-#### Run tests with parallelism
+#### Run tests
 
 ```bash
 $ go test ./...
@@ -59,22 +60,16 @@ $ make test-coverage
 $ go tool cover -html=coverage.txt # get a HTML coverage report
 ```
 
-#### Run Tests with Race Detector
-
-```bash
-$ make test-race
-```
-
 ### Execute UI (end2end) Tests
 
-Build the ui because the end2end test should be run against the production build.
-(This needs to be done on every change in the UI)
+Build the UI because the end2end tests run against the production build.
+(This needs to be done after every change in the UI)
 
 ```bash
 $ (cd ui && yarn build)
 ```
 
-Now execute the tests with yarn
+Now execute the tests with yarn.
 
 ```bash
 $ (cd ui && yarn test)
@@ -82,7 +77,7 @@ $ (cd ui && yarn test)
 
 ### Execute Static Checks
 
-The following command checks the formatting and executes some linters like tslint and govet.
+The following command checks the formatting, runs linters like golangci-lint and eslint, and verifies that the Swagger spec is up to date.
 
 ```bash
 $ make check

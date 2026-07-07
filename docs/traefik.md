@@ -1,5 +1,7 @@
 # Traefik reverse proxy
 
+Here is a Docker Compose example for setting up Traefik as a reverse proxy for Gotify.
+
 ```yaml
 services:
   traefik:
@@ -27,5 +29,6 @@ services:
       'traefik.http.routers.gotify.tls.certresolver': 'letsencrypt'
 ```
 
-This should expose gotify with tls on `gotify.yourdomain.tld` using traefik as
-a reverse proxy. See https://doc.traefik.io/traefik/ for more information.
+This exposes Gotify with TLS on `gotify.yourdomain.tld` using Traefik as a
+reverse proxy. See the [Traefik documentation](https://doc.traefik.io/traefik/)
+for more information.

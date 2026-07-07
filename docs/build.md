@@ -10,8 +10,8 @@
 
 1. Build the Go Binary
 
-   It is recommended to build gotify/server via the [gotify/build docker images](https://github.com/gotify/build),
-   this ensures that [plugins](plugin.md) will be compatible with the built binary (because the same build environment is used).
+   It is recommended to build gotify/server via the [gotify/build docker images](https://github.com/gotify/build).
+   This ensures that [plugins](plugin.md) will be compatible with the built binary because the same build environment is used.
 
    Set the LD_FLAGS with meta information like the version or the commit:
 
@@ -29,6 +29,7 @@
    $ make build-linux-arm-7
    $ make build-linux-arm64
    $ make build-linux-386
+   $ make build-linux-riscv64
    $ make build-windows-amd64
    $ make build-windows-386
    ```
@@ -39,7 +40,7 @@
    $ go build -ldflags="$LD_FLAGS" -o gotify-server
    ```
 
-   _The project has a CGO reference (because of sqlite3), therefore a CGO cross compiler is needed for compiling for
+   _The project has a CGO reference (because of sqlite3), therefore a CGO cross compiler is needed when compiling for
    other platforms (the gotify/build docker images already contain the needed cross compilers)._
 
    ```bash
