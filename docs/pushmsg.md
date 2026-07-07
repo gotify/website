@@ -27,6 +27,8 @@ PS> Invoke-WebRequest -Uri "https://push.example.de/message?token=<apptoken>" -M
 > The message API takes an `extras` property that carries extra information with the message and describes how clients behave to this message.
 > See [message extras](msgextras.md) for more information.
 
+The `priority` parameter controls how clients present the message, f.ex. whether the Android app plays a notification sound. See [message priority](priority.md) for more information.
+
 As of gotify/server v1.2.0 only the `message` parameter is required.
 
 [Here are more examples for pushing messages in different languages.](more-pushmsg.md)

@@ -69,6 +69,7 @@ export default defineConfig({
             {text: 'Apache reverse proxy', link: '/docs/apache'},
             {text: 'Caddy 2 reverse proxy', link: '/docs/caddy'},
             {text: 'Haproxy reverse proxy', link: '/docs/haproxy'},
+            {text: 'Message Priority', link: '/docs/priority'},
             {text: '(more) Push message examples', link: '/docs/more-pushmsg'},
             {text: 'nginx reverse proxy', link: '/docs/nginx'},
             {text: 'Optimize uploaded images', link: '/docs/optimize-images'},
