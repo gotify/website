@@ -4,15 +4,15 @@ To manage starting, logging, etc. of Gotify, systemd can be used.
 
 > [!note]
 > This is only a minimal example and does not provide the most secure or "best"
-> way to run gotify. Please adjust the config to your needs.
+> way to run Gotify. Please adjust the config to your needs.
 
 ## Installation
 
-For this example, Gotify is installed by root in a directory called
-`/opt/gotify/` and the executable in there is called `gotify`. The config file
-will be `/etc/gotify/config.yml` using relative paths as in the example and the
-service will be run as root. A file called `/opt/gotify/gotify.service` should
-be created by root containing:
+For this example, Gotify is installed by root in `/opt/gotify/` and the
+executable in there is called `gotify`. The config file is
+`/etc/gotify/config.yml`, using relative paths as in the example config, and
+the service runs as root. Create a file `/opt/gotify/gotify.service` as root
+containing:
 
 ```desktop
 [Unit]

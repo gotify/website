@@ -32,14 +32,14 @@ Some of the namespaces are used by official clients:
 
 > **Note**: Markdown supports rendering images via `![](img url)`,
 > these images will be automatically downloaded when the message is viewed.
-> Similarly, to why remote contents are blocked by default in e-mail clients,
+> Similar to why remote content is blocked by default in e-mail clients,
 > automatically downloading remote images could be used to collect information from the user.
 >
 > Also, if part of the message is interpolated from a malicious external source,
 > the attacker could inject malformed markdown which leads to information disclosure.
 >
 > It is recommended to use `text/plain` to reduce possible security issues
-> when using text from external sources like f.ex. output from scripts.
+> when using text from external sources, for example output from scripts.
 
 #### Example
 
@@ -64,7 +64,7 @@ Some of the namespaces are used by official clients:
 
 ### `click`.`url`
 
-`click`.`url` (string): Opens an URL on notification click.
+`click`.`url` (string): Opens a URL on notification click.
 
 #### Example
 

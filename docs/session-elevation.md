@@ -7,8 +7,8 @@ hard-to-undo actions, even while already logged in.
 
 ## What requires elevation
 
-These actions need an **elevated** session; with a plain client token they
-return `403 Forbidden`:
+These actions need an **elevated** session. With a non-elevated client token
+they return `403 Forbidden`:
 
 | Action                         | Endpoint                                      |
 | :----------------------------- | :-------------------------------------------- |

@@ -1,6 +1,6 @@
 # Apache reverse proxy
 
-Here are configuration examples for setting up apache as reverse proxy for gotify/server.
+Here are configuration examples for setting up Apache as a reverse proxy for Gotify.
 
 The following modules are required:
 
@@ -16,11 +16,11 @@ The following modules are required:
 
     Keepalive On
 
-    # The proxy must preserve the host because gotify verifies the host with the origin
+    # The proxy must preserve the host because Gotify verifies the host with the origin
     # for WebSocket connections
     ProxyPreserveHost On
 
-    # Proxy web socket requests to /stream
+    # Proxy WebSocket requests to /stream
     ProxyPass "/stream" ws://127.0.0.1:GOTIFY_PORT/stream retry=0 timeout=60
 
     # Proxy all other requests to /
@@ -39,11 +39,11 @@ The following modules are required:
 
     Redirect 301 "/gotify" "/gotify/"
 
-    # The proxy must preserve the host because gotify verifies the host with the origin
+    # The proxy must preserve the host because Gotify verifies the host with the origin
     # for WebSocket connections
     ProxyPreserveHost On
 
-    # Proxy web socket requests to /stream
+    # Proxy WebSocket requests to /stream
     ProxyPass "/gotify/stream" ws://127.0.0.1:GOTIFY_PORT/stream retry=0 timeout=60
 
     # Proxy all other requests to /
@@ -57,7 +57,7 @@ The following modules are required:
 ## Troubleshooting
 
 With some additional Apache configuration, the `ProxyPass` for the `/stream` endpoint may not work correctly.
-The request fails with `400 Bad Request` and the following error is logged inside gotify/server.
+The request fails with `400 Bad Request` and Gotify logs the following error.
 
 ```
 Error #01: websocket: the client is not using the websocket protocol: 'upgrade' token not found in 'Connection' header

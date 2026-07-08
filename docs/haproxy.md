@@ -1,6 +1,6 @@
-# Haproxy reverse proxy
+# HAProxy reverse proxy
 
-Here are configuration examples for setting up Haproxy as reverse proxy for gotify/server.
+Here are configuration examples for setting up HAProxy as a reverse proxy for Gotify.
 
 ## Proxy requests
 

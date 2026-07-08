@@ -3,7 +3,7 @@ layout: home
 hero:
   name: Gotify
   text: ''
-  tagline: a simple server for sending and receiving messages
+  tagline: A simple server for sending and receiving messages
   image:
     src: /img/logo.png
     alt: Gotify Logo
@@ -43,13 +43,13 @@ The heart of this project. gotify/server features a WebUI and functionality for:
 
 ## [gotify/android](https://github.com/gotify/android)
 
-An android client for subscribing to the message stream of gotify/server.
-The app creates push notifications on newly received messages.
+An Android client for subscribing to the message stream of gotify/server.
+The app shows push notifications for newly received messages.
 
 <div class="store-badges">
 
 [![Get it on Google Play](/img/playstore.png)](https://play.google.com/store/apps/details?id=com.github.gotify)
-[![Get it on F-Droid](/img/fdroid.png)](https://f-droid.org/de/packages/com.github.gotify/)
+[![Get it on F-Droid](/img/fdroid.png)](https://f-droid.org/packages/com.github.gotify/)
 [![Download](/img/download-badge.png)](https://github.com/gotify/android/releases/latest)
 
 </div>
@@ -69,7 +69,7 @@ _Google Play and the Google Play logo are trademarks of Google LLC._
 
 ## [gotify/cli](https://github.com/gotify/cli)
 
-A command line client for pushing messages to gotify/server. It is **not** required to push messages. See [Docs](/docs/).
+A command line client for pushing messages to gotify/server. It is **not** required for pushing messages, any HTTP client works. See [Push messages](/docs/pushmsg).
 
 </div>
 </div>

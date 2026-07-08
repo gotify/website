@@ -1,38 +1,40 @@
 # Push messages
 
-As already indicated in [Intro](index.md) you need an application to push messages to gotify/server. Only the user who created the application is able to see its messages.
+As described in the [Intro](index.md), you need an application to push messages to the Gotify server. Only the user who created the application can see its messages.
 An application can be added via
 
-- WebUI: click the `apps`-tab in the upper right corner when logged in and add an application
-- REST-API: `curl -u admin:admin https://yourdomain.com/application -F "name=test" -F "description=tutorial"`
-  See [API-Docs](https://gotify.github.io/api-docs/)
+- WebUI: click the `apps` tab in the upper right corner when logged in and add an application
+- REST API: `curl -u admin:admin https://push.example.de/application -F "name=test" -F "description=tutorial"`
+  See [API docs](/api-docs)
 
 To authenticate as an application you need the application token.
-The token is returned in the REST request and is viewable in the WebUI.
+The token is returned when creating the application. Starting with Gotify 3, tokens are only shown once, on creation or rotation.
 
-Now you can simply use [curl](https://curl.haxx.se/), [HTTPie](https://httpie.org/) or any other installed http-client to push messages.
+Now you can use [curl](https://curl.se/), [HTTPie](https://httpie.io/) or any other HTTP client to push messages.
 
 ```bash
-$ curl "https://push.example.de/message?token=<apptoken>" -F "title=my title" -F "message=my message" -F "priority=5"
-$ http -f POST "https://push.example.de/message?token=<apptoken>" title="my title" message="my message" priority="5"
+$ curl "https://push.example.de/message" -H "X-Gotify-Key: <apptoken>" -F "title=my title" -F "message=my message" -F "priority=5"
+$ http -f POST "https://push.example.de/message" "X-Gotify-Key:<apptoken>" title="my title" message="my message" priority="5"
 ```
 
-On Microsoft PowerShell, you could alternatively use the built-in `Invoke-RestMethod` or `Invoke-WebRequest` cmdlets.
+On Microsoft PowerShell, you can use the built-in `Invoke-RestMethod` or `Invoke-WebRequest` cmdlets.
 
 ```powershell
-PS> Invoke-RestMethod -Uri "https://push.example.de/message?token=<apptoken>" -Method POST -Body @{title="my title"; message="my message"; priority=5} # return is automatically parsed into a PowerShell object
-PS> Invoke-WebRequest -Uri "https://push.example.de/message?token=<apptoken>" -Method POST -Body @{title="my title"; message="my message"; priority=5} # return is as raw response
+PS> Invoke-RestMethod -Uri "https://push.example.de/message" -Headers @{"X-Gotify-Key"="<apptoken>"} -Method POST -Body @{title="my title"; message="my message"; priority=5} # return is automatically parsed into a PowerShell object
+PS> Invoke-WebRequest -Uri "https://push.example.de/message" -Headers @{"X-Gotify-Key"="<apptoken>"} -Method POST -Body @{title="my title"; message="my message"; priority=5} # return is as raw response
 ```
 
-> The message API takes an `extras` property that carries extra information with the message and describes how clients behave to this message.
+> The message API takes an `extras` property that carries extra information with the message and describes how clients should handle it.
 > See [message extras](msgextras.md) for more information.
 
-As of gotify/server v1.2.0 only the `message` parameter is required.
+The `priority` parameter controls how clients present the message, for example whether the Android app plays a notification sound. See [message priority](priority.md) for more information.
+
+Only the `message` parameter is required.
 
 [Here are more examples for pushing messages in different languages.](more-pushmsg.md)
 
-Also you can use [gotify/cli](https://github.com/gotify/cli) to push messages.
-The CLI stores url and token in a config file.
+You can also use [gotify/cli](https://github.com/gotify/cli) to push messages.
+The CLI stores URL and token in a config file.
 
 ```bash
 $ gotify push -t "my title" -p 10 "my message"

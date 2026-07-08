@@ -1,13 +1,12 @@
 # Intro
 
-This is the documentation of gotify/server. Lets start with some definitions:
+This is the documentation of gotify/server. Let's start with some definitions:
 
-A client is a device or application that can manage clients, messages and applications.
-However a client is not allowed to send messages.
+A client is a device or program that receives messages and can manage clients, applications and messages. A client cannot send messages.
 
-An application is a device or application that only can send messages.
+An application is a device or program that can only send messages.
 
-Users are only able to manage (view/edit/delete) clients and applications (includes messages sent by the app) that they've created.
+Users can only manage (view/edit/delete) the clients and applications they created, including messages sent by those applications.
 
 A message has the following attributes: content, title, creation date, application id and priority.
 

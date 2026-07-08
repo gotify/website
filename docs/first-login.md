@@ -1,7 +1,7 @@
 # First Login
 
-After setting up gotify/server you can login to the WebUI. When first launched an initial account is created so you can log in. If you have not overriden the defaults in the configuration, use username: `admin` password: `admin`.
+After setting up gotify/server you can log in to the WebUI. On first launch an initial admin account is created. If you have not overridden the defaults in the configuration, use username `admin` and password `admin`.
 
-Once you have logged in you can create your own user(s) and, if desired, delete the default account (after creating a separate administrator account). You can also remove any username/password overrides in your configuration, as they are only used to initially create this account.
+Once logged in you can create your own user(s) and, if desired, delete the default account (after creating another administrator account). You can also remove any username/password overrides from your configuration, they are only used to create this initial account.
 
-If you choose to keep the default account be sure to change the password so it is not `admin`!
+If you keep the default account, be sure to change its password so it is not `admin`!
