@@ -13,6 +13,8 @@
   on creation or rotation. See [Tokens are only shown once](#tokens-are-only-shown-once).
 - If you have scripts hitting client-token endpoints, they may now need
   [elevation](#step-up-authentication).
+- The `paging.next` URL in message list responses is now a relative path.
+  See [Paging next URL is relative](#paging-next-url-is-relative).
 
 ## Config Changes
 
@@ -97,6 +99,22 @@ update endpoint (`PUT /application/{id}/security`).
 
 Existing tokens (starting with `A` and `C`) will continue to work.
 Plugin tokens (starting with `P`) used to access web resources are not affected by this change.
+
+### Paging next URL is relative
+
+The `paging.next` URL returned by `GET /message` and
+`GET /application/{id}/message` is now a relative path instead of an absolute
+URL.
+
+```json
+// before
+{"paging": {"next": "https://example.com/message?limit=100&since=23"}}
+// after
+{"paging": {"next": "/message?limit=100&since=23"}}
+```
+
+Clients that follow `next` directly must now prepend the Gotify base URL,
+e.g. `https://example.com/gotify` + `/message?limit=100&since=23`.
 
 ### Step-up Authentication
 
