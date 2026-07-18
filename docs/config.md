@@ -4,21 +4,19 @@
 import {data as envExample} from '../config.data.ts'
 </script>
 
-::: details 3.x Config
-
 Gotify 3.x is configured through environment variables, which can be loaded from
 an env file. [`gotify-server.env.example`](https://raw.githubusercontent.com/gotify/server/refs/heads/master/gotify-server.env.example)
 
 <div v-html="envExample"></div>
 
-:::
+---
 
 ::: details 2.x Config
 
 gotify/server can be configured per config file and environment variables.
 When using docker it is recommended to use environment variables.
 
-## Config File
+### Config File
 
 gotify/server looks in the following paths for config files
 
@@ -114,7 +112,7 @@ $ wget -O config.yml https://raw.githubusercontent.com/gotify/server/master/conf
 
 **Note: the example config doesn't only contain default values.**
 
-## Database
+### Database
 
 | Dialect  |                                     Connection                                     |
 | :------: | :--------------------------------------------------------------------------------: |
@@ -127,7 +125,7 @@ See [#90](https://github.com/gotify/server/issues/90).
 
 > For `mysql` and `postgres`: Make sure the defined database exists and the user has sufficient permissions.
 
-## Environment Variables
+### Environment Variables
 
 Strings in list or map environment settings (f.ex. `GOTIFY_SERVER_RESPONSEHEADERS` and `GOTIFY_SERVER_SSL_LETSENCRYPT_HOSTS`) need to be escaped.
 [A list of reserved characters and how to escape them.](https://stackoverflow.com/a/22235064/4244993)

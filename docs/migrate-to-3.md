@@ -1,10 +1,5 @@
 # Migrate to 3.x
 
-> [!WARNING]
-> Gotify 3 isn't released yet.
-
----
-
 - The `config.yml` file is no longer supported, convert it to the new env format
   with [`migrate-config`](#migrating-your-config).
 - If you set list or map environment variables, their syntax changed, see
@@ -42,7 +37,7 @@ $ gotify-server migrate-config config.yml > gotify-server.env
 With Docker:
 
 ```bash
-$ docker run --rm -v "$(pwd)/config.yml:/app/config.yml" gotify/server:master \
+$ docker run --rm -v "$(pwd)/config.yml:/app/config.yml" gotify/server:3.0.0 \
     migrate-config config.yml > gotify-server.env
 ```
 
