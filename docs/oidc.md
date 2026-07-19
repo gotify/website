@@ -89,6 +89,10 @@ identity_providers:
 
 :::
 
+### Authentik
+
+See https://integrations.goauthentik.io/monitoring/gotify/
+
 ### Dex
 
 [Dex](https://dexidp.io/) is a federated OpenID Connect provider.
