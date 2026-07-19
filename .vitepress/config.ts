@@ -66,6 +66,7 @@ export default defineConfig({
           items: [
             {text: 'Migrate to 3.x', link: '/docs/migrate-to-3'},
             {text: '(more) Push message examples', link: '/docs/more-pushmsg'},
+            {text: 'OpenID Connect', link: '/docs/oidc'},
             {text: 'Optimize uploaded images', link: '/docs/optimize-images'},
             {text: 'Session Elevation', link: '/docs/session-elevation'},
             {text: 'Systemd configuration', link: '/docs/systemd'},
