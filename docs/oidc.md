@@ -91,6 +91,8 @@ identity_providers:
 
 ### Authentik
 
+[authentik](https://goauthentik.io/) is an open-source identity provider.
+
 See https://integrations.goauthentik.io/monitoring/gotify/
 
 ### Dex
@@ -110,3 +112,23 @@ staticClients:
 ```
 
 :::
+
+### Pocket ID
+
+[Pocket ID](https://pocket-id.org/) is a simple OIDC provider with passkey authentication.
+
+::: details Pocket ID configuration
+
+1. Create a new OIDC Client in Pocket ID (e.g. Gotify)
+1. Set the Callback URLs to the values below (replace example.com with your actual domain).
+   ```
+   https://gotify.example/auth/oidc/callback
+   gotify://oidc/callback
+   ```
+1. Enable PKCE.
+1. Optional: Download a PNG or SVG logo from the Gotify project and upload.
+1. Copy the Client ID and Client Secret for use in the next section.
+
+:::
+
+See https://pocket-id.org/docs/client-examples/gotify
