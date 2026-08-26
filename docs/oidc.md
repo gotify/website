@@ -82,6 +82,16 @@ With this configuration:
 
 When `GOTIFY_OIDC_GROUPS_ADMIN` is set, the admin permission is updated on every login, overwriting manual changes done in Gotify.
 
+## Disabling local authentication
+
+When all users log in via OIDC, local username/password authentication can be disabled:
+
+```bash
+GOTIFY_LOCALAUTH_ENABLED=false
+```
+
+This hides the password login form in the WebUI and rejects username/password authentication (including basic auth) on the API.
+
 ## Sample IdP configurations
 
 ### Authelia
