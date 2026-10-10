@@ -64,6 +64,7 @@ export default defineConfig({
         {
           text: 'Guides',
           items: [
+            {text: 'AI Agents (MCP)', link: '/docs/mcp'},
             {text: 'Migrate to 3.x', link: '/docs/migrate-to-3'},
             {text: '(more) Push message examples', link: '/docs/more-pushmsg'},
             {text: 'OpenID Connect', link: '/docs/oidc'},
