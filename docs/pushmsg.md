@@ -5,7 +5,7 @@ An application can be added via
 
 - WebUI: click the `apps` tab in the upper right corner when logged in and add an application
 - REST API: `curl -u admin:admin https://push.example.de/application -F "name=test" -F "description=tutorial"`
-  See [API docs](/api-docs)
+  See [API docs](/api-docs/)
 
 To authenticate as an application you need the application token.
 The token is returned when creating the application. Starting with Gotify 3, tokens are only shown once, on creation or rotation.

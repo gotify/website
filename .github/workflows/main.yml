@@ -15,6 +15,9 @@ jobs:
       - run: yarn install --frozen-lockfile
       - run: yarn format:test
       - run: yarn build
+        env:
+          # Lifts GitHub's rate limit for the API docs, which list gotify/server's releases.
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - uses: actions/configure-pages@v5
         if: github.event_name == 'push' && github.ref == 'refs/heads/master'
       - uses: actions/upload-pages-artifact@v3

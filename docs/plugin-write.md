@@ -42,7 +42,7 @@ Plugins can dynamically generate information based on the current state.
 It receives a `location` parameter contains the server's hostname, port and scheme recovered from the original request to the `Displayer` API.
 Markdown is supported.
 
-The REST API for this exposed at [`/plugin/:id/display`](/api-docs#/plugin/getPluginDisplay).
+The REST API for this exposed at [`/plugin/:id/display`](/api-docs/#/plugin/getPluginDisplay).
 
 ```go
 // Plugin is the plugin instance
@@ -178,7 +178,7 @@ func (c *Plugin) GetDisplay(location *url.URL) string {
 [`Configurer`](https://godoc.org/github.com/gotify/plugin-api#Configurer) is used to provide configuration interfaces to the user.
 Marshaling and Unmarshaling is handled by the gotify main program.
 
-The REST API for this is exposed at [`/plugin/:id/config`](/api-docs#/plugin/getPluginConfig).
+The REST API for this is exposed at [`/plugin/:id/config`](/api-docs/#/plugin/getPluginConfig).
 
 ```go
 // Plugin is the plugin instance

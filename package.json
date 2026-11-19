@@ -4,13 +4,18 @@
   "type": "module",
   "scripts": {
     "dev": "vitepress dev",
-    "build": "vitepress build",
+    "dev:api-docs": "node api-docs/fetch-specs.mjs && sourcey dev -c api-docs",
+    "build": "vitepress build && yarn build:api-docs",
+    "build:api-docs": "node api-docs/fetch-specs.mjs && sourcey build -c api-docs -o .vitepress/dist/api-docs",
     "preview": "vitepress preview",
     "format": "prettier '**/*.md' '.vitepress/**/*.{ts,css}' --write",
     "format:test": "prettier '**/*.md' '.vitepress/**/*.{ts,css}' --list-different"
   },
   "dependencies": {
-    "vitepress": "^1.6.0",
-    "prettier": "^3.3.3"
+    "prettier": "^3.3.3",
+    "vitepress": "^1.6.0"
+  },
+  "devDependencies": {
+    "sourcey": "^3.9.5"
   }
 }
