@@ -131,7 +131,7 @@ With a non-elevated client token these return `403`:
 | `GET /user`, `GET`/`POST`/`DELETE /user/{id}` | Manage users (admin)           |
 
 The `Client` and `CurrentUser` models now include elevation-related fields. See
-the [API documentation](/api-docs) for details.
+the [API documentation](/api-docs/) for details.
 
 ::: tip
 

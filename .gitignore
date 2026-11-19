@@ -3,3 +3,6 @@ node_modules
 .idea
 .vitepress/cache
 .vitepress/dist
+
+# The specs the API docs build downloads
+api-docs/specs

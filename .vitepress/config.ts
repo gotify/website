@@ -9,6 +9,8 @@ export default defineConfig({
   cleanUrls: true,
   lastUpdated: true,
   srcExclude: ['README.md'],
+  // The API docs are built beside the site (yarn build:api-docs), so links to them aren't dead.
+  ignoreDeadLinks: [/^\/api-docs/],
 
   head: [['link', {rel: 'icon', type: 'image/png', href: '/img/favicon.png'}]],
 
@@ -18,7 +20,7 @@ export default defineConfig({
     search: {provider: 'local'},
     nav: [
       {text: 'Docs', link: '/docs/'},
-      {text: 'API-Docs', link: '/api-docs'},
+      {text: 'API-Docs', link: '/api-docs/'},
     ],
     sidebar: {
       '/docs/': [
@@ -36,7 +38,7 @@ export default defineConfig({
         },
         {
           text: 'REST-API',
-          items: [{text: 'Swagger Documentation', link: '/api-docs'}],
+          items: [{text: 'API Documentation', link: '/api-docs/'}],
         },
         {
           text: 'Plugins',
