@@ -111,18 +111,16 @@ Some of the namespaces are used by official clients:
 
 ### `buttons`
 
-`buttons` (array): Buttons shown with the message. A button either sends an HTTP request (`http`) or opens a URL (`open`) when it is clicked.
+`buttons` (array): Buttons shown with the message. A button sends an HTTP request when it is clicked.
 
 | Field            | Type   | Description                                                                                      |
 | ---------------- | ------ | ------------------------------------------------------------------------------------------------ |
 | `label`          | string | **Required**; The text of the button.                                                            |
-| `http`           | object | Sends an HTTP request when clicked. A button must have either `http` or `open`, not both.        |
+| `http`           | object | **Required**; The HTTP request sent when the button is clicked.                                  |
 | `http`.`method`  | string | **Required**; The HTTP method, e.g. `GET`, `POST` or `PUT`, case-insensitive.                    |
 | `http`.`url`     | string | **Required**; The URL of the request. Only `http` and `https` URLs are valid.                    |
 | `http`.`headers` | object | Headers of the request, a map of header name to string value.                                    |
 | `http`.`body`    | string | The body of the request. Set a matching `Content-Type` header. Not allowed for `GET` and `HEAD`. |
-| `open`           | object | Opens a URL when clicked, e.g. a status page.                                                    |
-| `open`.`url`     | string | **Required**; The URL to open. Only `http` and `https` URLs are valid.                           |
 
 Clients should not send cookies or other credentials with the request.
 The methods `CONNECT`, `TRACE` and `TRACK` are not supported.
@@ -161,10 +159,6 @@ The web UI doesn't show invalid buttons and shows the parsing error below the me
             "headers": {"Content-Type": "application/json"},
             "body": "{\"id\": 5}"
           }
-        },
-        {
-          "label": "Open dashboard",
-          "open": {"url": "https://example.com/dashboard"}
         }
       ]
     }
